@@ -142,12 +142,13 @@
    });
   
    jq('#create_record').click(function(){
+    jq('#Lo_Name').attr('readonly', false);
     jq('.modal-title').text('Add New Record');
     jq('#action_button').val('Add');
     jq('#action').val('Add');
     jq('#form_result').html('');
-   // jq('#Sh_Name').val('');
-    //jq('#Sh_Type').val('');
+    jq('#Lo_Name').val('');
+    jq('#Lo_Detail').val('');
    // jq('#Sh_Timestart').val('');
    // jq('#Sh_Timestop').val('');
    // jq('#Sh_Status').val('');
@@ -197,27 +198,22 @@
    });
   
    jq(document).on('click', '.edit', function(){
-    var id = jq(this).attr('id');
-    jq('#form_result').html('');
-    jq.ajax({
-     url :"/loc/"+id+"/edit",
-     dataType:"json",
-     success:function(data)
-     {
-      //jq('#Sh_Name').val(data.result.Sh_Name);
-      //jq('#Sh_Type').val(data.result.Sh_Type);
-      //jq('#Sh_Timestart').val(data.result.Sh_Timestart);
-     // jq('#Sh_Timestop').val(data.result.Sh_Timestop);
-     // jq('#Sh_Status').val(data.result.Sh_Status);
-     // jq('#Sh_User').val(data.result.Sh_User);
+      var id = jq(this).attr('id');
+      jq('#form_result').html('');
+	    jq('#Lo_Name').attr('readonly', true);
+      jq.get("{{ route('loc.index') }}" +'/' + id +'/edit', function (data) {
+      jq('#Lo_Name').val(data.result.Lo_Name);
+      jq('#Lo_Detail').val(data.result.Lo_Detail);
       jq('#hidden_id').val(id);
       jq('.modal-title').text('Edit Record');
       jq('#action_button').val('Edit');
       jq('#action').val('Edit');
       jq('#formModal').modal('show');
-     }
-    })
-   });
+      })
+     });
+
+
+   
   
    var user_id;
   

@@ -195,7 +195,7 @@
      });
     
      jq('#create_record').click(function(){
-
+     
       jq('#Dc_Number').attr('readonly', false);
       jq('.modal-title').text('Add New Record');
       jq('#action_button').val('Add');
@@ -253,16 +253,10 @@
      });
     
      jq(document).on('click', '.edit', function(){
- 
-      jq('#Dc_Number').attr('readonly', true);
-              
       var id = jq(this).attr('id');
-      jq('#form_result').html('');
-      jq.ajax({
-       url :"/dtc/"+id+"/edit",
-       dataType:"json",
-       success:function(data)
-       {
+	  jq('#Dc_Number').attr('readonly', true);
+    jq('#form_result').html('');
+      jq.get("{{ route('dtc.index') }}" +'/' + id +'/edit', function (data) {
         jq('#Dc_Number').val(data.result.Dc_Number);
         jq('#Dc_Type').val(data.result.Dc_Type);
         jq('#Dc_Name').val(data.result.Dc_Name);
@@ -273,9 +267,10 @@
         jq('#action_button').val('Edit');
         jq('#action').val('Edit');
         jq('#formModal').modal('show');
-       }
       })
      });
+
+     
     
      var user_id;
     

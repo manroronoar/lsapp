@@ -60,7 +60,7 @@ class ShiftController extends Controller
     public function store(Request $request)
     {
         $rules = array(
-            'Sh_Name'    =>   ['required', 'string'],
+            'Sh_Name'    =>   ['required','string','unique:kpi_shifts'],
             'Sh_Type'     =>  'required',
             'Sh_Timestart'    =>  'required',
             'Sh_Timestop'    =>  'required',

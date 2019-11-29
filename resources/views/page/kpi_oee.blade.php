@@ -79,8 +79,8 @@
       },
       columns: [
         {
-        data: 'mc_name',
-        name: 'mc_name'
+        data: 'mc_number',
+        name: 'mc_number'
        },
        {
         data: 'oee',
@@ -89,11 +89,8 @@
        {
         data: 'action',
         name: 'action'
-       },
-       {
-        data: 'test',
-        name: 'test'
        }
+   
       ]
      });
      
@@ -101,10 +98,10 @@
 
     jq(document).on('click', '.getmcname', function(event){
       event.preventDefault();
-       var namemc = jq(this).attr('id'); 
-      var url = '{{ route("oeed.index","mc=:namemc") }}'; 
-      url = url.replace(':namemc', namemc);  
-      window.location.href=url;
+     //  var namemc = jq(this).attr('id'); 
+     // var url = '{{ route("oeed.index","mc=:namemc") }}'; 
+    //  url = url.replace(':namemc', namemc);  
+    //  window.location.href=url;
     });
 
     </script>

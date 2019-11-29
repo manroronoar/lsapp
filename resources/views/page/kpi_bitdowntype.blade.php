@@ -146,12 +146,12 @@
   
 
      jq('#create_record').click(function(){
+      jq('#Bi_Bit').attr('readonly', false);
       jq('.modal-title').text('Add New Record');
       jq('#action_button').val('Add');
       jq('#action').val('Add');
       jq('#form_result').html('');
       //'Bi_Bit','Bi_Type', 'Bi_User'
-      jq('#Bi_Bit').attr('readonly', false);
       jq('#Bi_Bit').val('');
       jq('#Bi_Type').val('');
       jq('#formModal').modal('show');
@@ -198,32 +198,23 @@
        }
       });
      });
-    
+
      jq(document).on('click', '.edit', function(){
       var id = jq(this).attr('id');
       jq('#form_result').html('');
-      jq.ajax({
-       url :"/bit/"+id+"/edit",
-       dataType:"json",
-       success:function(data)
-       {
-            //'Bi_Bit','Bi_Type', 'Bi_User'
+      jq('#Bi_Bit').attr('readonly', true);
+      jq.get("{{ route('bit.index') }}" +'/' + id +'/edit', function (data) {
         jq('#Bi_Bit').val(data.result.Bi_Bit);
-
-        jq('#Bi_Bit').attr('readonly', true);
-
-        jq('#Bi_Type').val(data.result.Bi_Type);
-        jq('#Mc_Type').val(data.result.Mc_Type);
-        jq('#Bi_Bit').val(data.result.Bi_Bit);
+        jq('#Bi_Type').val(data.result.Bi_Type);  
         jq('#hidden_id').val(id);
         jq('.modal-title').text('Edit Record');
         jq('#action_button').val('Edit');
         jq('#action').val('Edit');
         jq('#formModal').modal('show');
-       }
       })
      });
-    
+
+     
      var user_id;
     
      jq(document).on('click', '.delete', function(){

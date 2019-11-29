@@ -184,10 +184,12 @@
   
 
      jq('#create_record').click(function(){
+      jq('#Nd_Number').attr('readonly', false);
       jq('.modal-title').text('Add New Record');
       jq('#action_button').val('Add');
       jq('#action').val('Add');
       jq('#form_result').html('');
+      jq('#Nd_Name').val('');
       jq('#Nd_Number').val('');
       jq('#Nd_Node').val('');
       jq('#Nd_Detail').val('');
@@ -240,18 +242,20 @@
     
      jq(document).on('click', '.edit', function(){
       var id = jq(this).attr('id');
-
-      jq.ajax({
-       type: 'post',
-       url :"/nod/edit/"+id,
-       dataType:"json",
-       success:function(data)
-        {
-
-        }
+      jq('#Nd_Number').attr('readonly', true);
+      jq('#form_result').html('');
+      jq.get("{{ route('nod.index') }}" +'/' + id +'/edit', function (data) {
+        jq('#Nd_Number').val(data.result.Nd_Number);
+        jq('#Nd_Name').val(data.result.Nd_Name);
+        jq('#Nd_Node').val(data.result.Nd_Node);
+        jq('#Nd_Detail').val(data.result.Nd_Detail);
+        jq('#Nd_Status').val(data.result.Nd_Status);
+        jq('#hidden_id').val(id);
+        jq('.modal-title').text('Edit Record');
+        jq('#action_button').val('Edit');
+        jq('#action').val('Edit');
+        jq('#formModal').modal('show');
       })
-
-
      });
     
      var user_id;

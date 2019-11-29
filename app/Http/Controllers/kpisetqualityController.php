@@ -57,7 +57,7 @@ class kpisetqualityController extends Controller
         //'Sq_Location', 
         //'Sq_User'
         $rules = array(
-            'Sq_Mc'     =>  'required',
+            'Sq_Mc'     =>  ['required','string','unique:kpi_setqualities'],
             'Sq_Fixqualitie'    =>   ['required','numeric'],
             'Sq_User'    =>  'required'
           
@@ -119,7 +119,7 @@ class kpisetqualityController extends Controller
     {
         //
         $rules = array(
-            'Sq_Mc'    =>   'required',
+          //  'Sq_Mc'    =>   'required',
             'Sq_Fixqualitie'    =>   'required',
            // 'Sq_Location'     =>  'required',
             'Sq_User'    =>  'required'
@@ -133,7 +133,7 @@ class kpisetqualityController extends Controller
            }
    
            $form_data = array(
-            'Sq_Mc'        =>  $request->Sq_Mc,
+           // 'Sq_Mc'        =>  $request->Sq_Mc,
             'Sq_Fixqualitie'        =>  $request->Sq_Fixqualitie,
             //'Sq_Location'         =>  $request->Sq_Location,
             'Sq_User'      =>  $request->Sq_User

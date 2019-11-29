@@ -217,6 +217,7 @@
      });
     
      jq('#create_record').click(function(){
+      jq('#Mc_Number').attr('readonly', false);
       jq('.modal-title').text('Add New Record');
       jq('#action_button').val('Add');
       jq('#action').val('Add');
@@ -279,14 +280,13 @@
       });
      });
     
+
+
      jq(document).on('click', '.edit', function(){
-      var id = jq(this).attr('id');
       jq('#form_result').html('');
-      jq.ajax({
-       url :"/mcs/"+id+"/edit",
-       dataType:"json",
-       success:function(data)
-       {
+      jq('#Mc_Number').attr('readonly', true);
+      var id = jq(this).attr('id');
+      jq.get("{{ route('mcs.index') }}" +'/' + id +'/edit', function (data) {
         jq('#Mc_Number').val(data.result.Mc_Number);
         jq('#Mc_Name').val(data.result.Mc_Name);
         jq('#Mc_Node').val(data.result.Mc_Node);
@@ -298,9 +298,11 @@
         jq('#action_button').val('Edit');
         jq('#action').val('Edit');
         jq('#formModal').modal('show');
-       }
       })
      });
+
+
+
     
      var user_id;
     

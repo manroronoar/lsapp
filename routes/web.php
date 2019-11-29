@@ -23,11 +23,11 @@ Auth::routes();
 Route::get('/', 'kpidashboardController@index')->middleware('auth');
 Route::get('/kpi', 'kpidashboardController@index')->middleware('auth');
 
-Route::resource('oee', 'kpioee')->middleware('auth');
+Route::resource('oee', 'kpioeeController')->middleware('auth');
 //Route::post('oee', 'kpioeedetail')->middleware('auth');
 
-//Route::resource('oeed', 'kpioeedetail')->middleware('auth');
-Route::resource('oeed','kpioeedetail');
+Route::resource('oeed', 'kpioeeDetailController')->middleware('auth');
+//Route::resource('oeed','kpioeedetail');
 
 
 
@@ -37,7 +37,7 @@ Route::get('mcs/destroy/{id}', 'kpimcsController@destroy');
 
 Route::resource('nod', 'NodeController')->middleware('auth');
 Route::post('nod/update', 'NodeController@update')->name('nod.update');
-Route::post('nod/edit{id}/', 'NodeController@edit');
+//Route::post('nod/edit/{id}', 'NodeController@edit');
 Route::get('nod/destroy/{id}', 'NodeController@destroy');
 
 Route::resource('shi', 'ShiftController')->middleware('auth');

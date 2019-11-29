@@ -63,7 +63,7 @@ class kpiheadersetsController extends Controller
         //
         $rules = array(
             //'Hs_Mc'    =>  [ 'nullable','string' ],
-            'Hs_Mc'    =>   'required',
+            'Hs_Mc'    =>   ['required', 'string', 'unique:kpi_headersets'],   
             'Hs_TargetHour'     =>   ['required','numeric'],
             'Hs_Drawing'    =>  'required',
             'Hs_Shift'    =>  'required',
@@ -134,7 +134,7 @@ class kpiheadersetsController extends Controller
        
             $rules = array(
                 //'Hs_Mc'    =>  [ 'nullable','string' ],
-                'Hs_Mc'    =>   'required',
+               // 'Hs_Mc'    =>   'required',
                 'Hs_TargetHour'     =>   ['required','numeric'],
                 'Hs_Drawing'    =>  'required',
                 'Hs_Shift'    =>  'required',
@@ -150,7 +150,7 @@ class kpiheadersetsController extends Controller
           }
   
           $form_data = array(
-            'Hs_Mc'        =>  $request->Hs_Mc,
+           // 'Hs_Mc'        =>  $request->Hs_Mc,
             'Hs_TargetHour'         =>  $request->Hs_TargetHour,
             'Hs_Drawing'      =>  $request->Hs_Drawing,
             'Hs_Shift'     =>  $request->Hs_Shift,

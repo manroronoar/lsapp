@@ -56,7 +56,7 @@ class kpilocationController extends Controller
         //'Lo_Detail',
         //'Lo_User'
         $rules = array(
-            'Lo_Name'    =>   ['required', 'string'],
+            'Lo_Name'    =>   ['required', 'string','unique:kpi_locations'],
             'Lo_Detail'     =>  'required',
             'Lo_User'    =>  'required'
           

@@ -209,6 +209,7 @@
      });
     
      jq('#create_record').click(function(){
+      jq('#Hs_Mc').attr('readonly', false);
       jq('.modal-title').text('Add New Record');
       jq('#action_button').val('Add');
       jq('#action').val('Add');
@@ -267,12 +268,8 @@
      jq(document).on('click', '.edit', function(){
       var id = jq(this).attr('id');
       jq('#form_result').html('');
-      jq.ajax({
-       url :"/hsi/"+id+"/edit",
-       dataType:"json",
-       success:function(data)
-       {
-
+	  jq('#Hs_Mc').attr('readonly', true);
+      jq.get("{{ route('hsi.index') }}" +'/' + id +'/edit', function (data) {
         jq('#Hs_Mc').val(data.result.Hs_Mc);
         jq('#Hs_Drawing').val(data.result.Hs_Drawing);
         jq('#Hs_TargetHour').val(data.result.Hs_TargetHour);
@@ -283,7 +280,6 @@
         jq('#action_button').val('Edit');
         jq('#action').val('Edit');
         jq('#formModal').modal('show');
-       }
       })
      });
     

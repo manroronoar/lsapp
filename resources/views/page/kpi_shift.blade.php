@@ -182,6 +182,7 @@
    });
   
    jq('#create_record').click(function(){
+    jq('#Sh_Name').attr('readonly', false);
     jq('.modal-title').text('Add New Record');
     jq('#action_button').val('Add');
     jq('#action').val('Add');
@@ -237,13 +238,11 @@
    });
   
    jq(document).on('click', '.edit', function(){
-    var id = jq(this).attr('id');
-    jq('#form_result').html('');
-    jq.ajax({
-     url :"/shi/"+id+"/edit",
-     dataType:"json",
-     success:function(data)
-     {
+      var id = jq(this).attr('id');
+      jq('#form_result').html('');
+	    jq('#Sh_Name').attr('readonly', true);
+    
+      jq.get("{{ route('shi.index') }}" +'/' + id +'/edit', function (data) {
       jq('#Sh_Name').val(data.result.Sh_Name);
       jq('#Sh_Type').val(data.result.Sh_Type);
       jq('#Sh_Timestart').val(data.result.Sh_Timestart);
@@ -255,10 +254,9 @@
       jq('#action_button').val('Edit');
       jq('#action').val('Edit');
       jq('#formModal').modal('show');
-     }
-    })
-   });
-  
+      })
+     });
+
    var user_id;
   
    jq(document).on('click', '.delete', function(){
@@ -290,10 +288,10 @@
   var jqd = $.noConflict(); 
   jqd(function () {
     jqd('#Sh_Timestart').datetimepicker({
-            format: 'YYYY-MM-DD hh:mm:ss'
+            format: 'HH:mm:ss'
         });
     jqd('#Sh_Timestop').datetimepicker({
-            format: 'hh:mm:ss'
+            format: 'HH:mm:ss'
         });
     });
   </script>

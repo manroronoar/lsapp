@@ -60,10 +60,13 @@ class kpioee extends Controller
                 // return DataTables::of($data)    
             
                // $memus[0]['name'];
-                  
-                  ->addColumn('action', function($row){
-                    $button = '<button type="button" name="getmcname" id='.$row->mc_name.' class="getmcname btn btn-primary btn-sm">view node</button>';
-                   // $button .= '&nbsp;&nbsp;&nbsp;<button type="button" name="edit" id="'.$data->Hs_Mc.'" class="delete btn btn-danger btn-sm">Delete</button>';
+                //  ->addIndexColumn()
+                  ->addColumn('action', function($tagged_project_item){
+                   // $btn = '<a href="javascript:void(0)" data-toggle="tooltip"  data-id="'.$row->id.'" data-original-title="Edit" class="edit btn btn-primary btn-sm editProduct">Edit</a>';
+                   // $btn = $btn.' <a href="javascript:void(0)" data-toggle="tooltip"  data-id="'.$row->id.'" data-original-title="Delete" class="btn btn-danger btn-sm deleteProduct">Delete</a>';
+                   // return $btn;
+                   $button = '<button type="button" name="getmcname" id="getmcname" class="getmcname btn btn-primary btn-sm">view node</button>';
+                  // $button .= '&nbsp;&nbsp;&nbsp;<button type="button" name="edit" id="'dd'" class="delete btn btn-danger btn-sm">Delete</button>';
                     return $button;
                 })
              
