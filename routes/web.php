@@ -1,0 +1,92 @@
+<?php
+
+/*
+|--------------------------------------------------------------------------
+| Web Routes
+|--------------------------------------------------------------------------
+|
+| Here is where you can register web routes for your application. These
+| routes are loaded by the RouteServiceProvider within a group which
+| contains the "web" middleware group. Now create something great!
+|
+*/
+
+//Route::get('/', function () {
+//    return view('home');
+//});
+
+
+   
+
+Auth::routes();
+
+Route::get('/', 'kpidashboardController@index')->middleware('auth');
+Route::get('/kpi', 'kpidashboardController@index')->middleware('auth');
+
+Route::resource('oee', 'kpioee')->middleware('auth');
+//Route::post('oee', 'kpioeedetail')->middleware('auth');
+
+//Route::resource('oeed', 'kpioeedetail')->middleware('auth');
+Route::resource('oeed','kpioeedetail');
+
+
+
+Route::resource('mcs', 'kpimcsController')->middleware('auth');
+Route::post('mcs/update', 'kpimcsController@update')->name('mcs.update');
+Route::get('mcs/destroy/{id}', 'kpimcsController@destroy');
+
+Route::resource('nod', 'NodeController')->middleware('auth');
+Route::post('nod/update', 'NodeController@update')->name('nod.update');
+Route::post('nod/edit{id}/', 'NodeController@edit');
+Route::get('nod/destroy/{id}', 'NodeController@destroy');
+
+Route::resource('shi', 'ShiftController')->middleware('auth');
+Route::post('shi/update', 'ShiftController@update')->name('shi.update');
+Route::get('shi/destroy/{id}', 'ShiftController@destroy');
+
+Route::resource('sti', 'SetupcodeController')->middleware('auth');
+Route::post('sti/update', 'SetupcodeController@update')->name('sti.update');
+Route::get('sti/destroy/{id}', 'SetupcodeController@destroy');
+
+Route::resource('dtc', 'DowncodeController')->middleware('auth');
+Route::post('dtc/update', 'DowncodeController@update')->name('dtc.update');
+Route::get('dtc/destroy/{id}', 'DowncodeController@destroy');
+
+Route::resource('hsi', 'kpiheadersetsController')->middleware('auth');
+Route::post('hsi/update', 'kpiheadersetsController@update')->name('hsi.update');
+Route::get('hsi/destroy/{id}', 'kpiheadersetsController@destroy');
+
+Route::resource('bit', 'BitdownController')->middleware('auth');
+Route::post('bit/update', 'BitdownController@update')->name('bit.update');
+Route::get('bit/destroy/{id}', 'BitdownController@destroy');
+
+Route::resource('loc', 'kpilocationController')->middleware('auth');
+Route::post('loc/update', 'kpilocationController@update')->name('loc.update');
+Route::get('loc/destroy/{id}', 'kpilocationController@destroy');
+
+Route::resource('seq', 'kpisetqualityController')->middleware('auth');
+Route::post('seq/update', 'kpisetqualityController@update')->name('seq.update');
+Route::get('seq/destroy/{id}', 'kpisetqualityController@destroy');
+
+Route::get('testgetjson', 'GetnodejsonController@index');
+Route::post('testgetjson', 'GetnodejsonController@store');
+
+
+//Route::resource('sample', 'ShiftController');
+///Route::post('sample/update', 'ShiftController@update')->name('sample.update');
+//Route::get('sample/destroy/{id}', 'ShiftController@destroy');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
