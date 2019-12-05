@@ -57,7 +57,7 @@ class kpioee extends Controller
                   return DataTables::of($tagged_project_item)   
 
                  //$data = kpi_headerset::select('Hs_Mc')->distinct()->get();    
-                // return DataTables::of($data)    
+                 //return DataTables::of($data)    
             
                // $memus[0]['name'];
                 //  ->addIndexColumn()

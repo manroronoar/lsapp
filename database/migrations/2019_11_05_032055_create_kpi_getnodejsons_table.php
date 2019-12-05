@@ -35,6 +35,19 @@ class CreateKpiGetnodejsonsTable extends Migration
             $table->time('Gn_hmstr');
             $table->integer('Gn_sec');
             $table->integer('Gn_tsupd');
+            
+            $table->string('Gn_enoper1');
+            $table->string('Gn_enoper2');
+            $table->string('Gn_enpm1');
+            $table->string('Gn_enpm2');
+            $table->string('Gn_enpm1oth1');
+            $table->string('Gn_enpm1oth2');
+            $table->decimal('Gn_fixqualitie');
+
+            $table->string('Gn_hsidrawing');
+            $table->string('Gn_hsimc');
+            $table->string('Gn_hsitargetHour');
+
             $table->timestamps();
         });
     }

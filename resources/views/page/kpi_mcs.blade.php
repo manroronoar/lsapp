@@ -4,6 +4,7 @@
         
         <div class="box-body">
                 <div class="lockscreen-logo">
+              
                 <h1 class="bold" align="center">MACHINE CONFIG</h1>
                 </div>
         </div>   

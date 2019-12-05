@@ -8,7 +8,7 @@
 
   <header class="main-header">
     <!-- Logo -->
-    <a href="/kpi" class="logo">
+    <a href="{{ route('kpi.index') }}" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
       <span class="logo-mini"><b>KPI</b></span>
       <!-- logo for regular state and mobile devices -->
@@ -100,7 +100,7 @@
     <!-- Content Header (Page header) -->
     <section class="content-header"> 
       <h1>
-         KPI application
+         KPI (Key Performance Indicator)
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>

@@ -137,9 +137,18 @@ class kpimcsController extends Controller
         
         if(request()->ajax())
         {
-            $data = kpi_mcs::findOrFail($id);
-            return response()->json(['result' => $data]);
+               
+                $data = kpi_mcs::findOrFail($id);
+                return response()->json(['result' => $data]);
         }
+
+
+     //   if($id == "all")
+     //   {
+     //       $data = kpi_mcs::latest()->get();
+     //       return response()->json(['result' => $data]);
+
+    //    }
     }
 
     /**
@@ -198,5 +207,14 @@ class kpimcsController extends Controller
         $data->delete();
     }
 
+    public function getalldatamc()
+    {
+          if(request()->ajax())
+          {
+           // $data = kpi_mcs::findOrFail($id);
+            $data = kpi_mcs::latest()->get();
+            return response()->json(['result' => $data]);      
+          }
+    }
    
 }

@@ -20,8 +20,18 @@
 
 Auth::routes();
 
-Route::get('/', 'kpidashboardController@index')->middleware('auth');
-Route::get('/kpi', 'kpidashboardController@index')->middleware('auth');
+
+//Route::resource('momc', 'kpimonitormcController');
+Route::get('momc', 'kpimonitormcController@index')->middleware('auth');;
+Route::get('momc/readdata', 'kpimonitormcController@readdata')->middleware('auth');;
+
+
+
+
+Route::resource('/', 'kpidashboardController')->middleware('auth');
+Route::resource('/kpi', 'kpidashboardController')->middleware('auth');
+
+
 
 Route::resource('oee', 'kpioeeController')->middleware('auth');
 //Route::post('oee', 'kpioeedetail')->middleware('auth');
