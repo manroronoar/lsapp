@@ -19,7 +19,7 @@ class kpimonitormcController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         //kpi_monitormc.blade
         //$data =  kpi_mcs::distinct()->get(['Mc_Number']);
@@ -36,6 +36,28 @@ class kpimonitormcController extends Controller
      return response()->json(['result' => $data]);
   
      
+    }
+
+    public function readdataindex(Request $request)
+   // public function readdataindex()
+    {
+    
+        if($request->ajax())
+        {
+            $data = kpi_mcs::select('Mc_Number','Mc_Node')
+            ->where('Mc_Number','=',$request->valuemc)
+            ->get();  
+            return DataTables::of($data) 
+            ->addColumn('action', function($data){
+                $button = '<button type="button" name="node" id="'.$data->Mc_Node.'" class="node btn btn-warning btn-sm">link '.$data->Mc_Node.'</button>';
+               // $button .= '&nbsp;&nbsp;&nbsp;<button type="button" name="edit" id="'.$data->Mc_Node.'" class="delete btn btn-danger btn-sm">Delete</button>';
+                return $button;
+            })
+            ->rawColumns(['action'])
+            ->make(true);
+       }
+    
+        return view('page.kpi_monitormc');
     }
 
     /**

@@ -24,6 +24,7 @@ Auth::routes();
 //Route::resource('momc', 'kpimonitormcController');
 Route::get('momc', 'kpimonitormcController@index')->middleware('auth');;
 Route::get('momc/readdata', 'kpimonitormcController@readdata')->middleware('auth');;
+Route::get('momc/readdataindex/{valuemc}', 'kpimonitormcController@readdataindex')->middleware('auth');;
 
 
 

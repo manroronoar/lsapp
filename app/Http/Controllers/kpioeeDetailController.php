@@ -44,7 +44,11 @@ class kpioeeDetailController extends Controller
               );
           };
 
-          dd($tagged_project_item);
+          $data = kpi_mcs::select('Mc_Number','Mc_Node')
+            ->where('Mc_Number','=','Mc001')
+            ->get();
+
+          dd($data);
       // dd($tagged_project_item[0]['mc_name']);
  
     }

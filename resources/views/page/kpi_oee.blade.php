@@ -100,8 +100,8 @@
       event.preventDefault();
      //  var namemc = jq(this).attr('id'); 
      // var url = '{{ route("oeed.index","mc=:namemc") }}'; 
-    //  url = url.replace(':namemc', namemc);  
-    //  window.location.href=url;
+     //  url = url.replace(':namemc', namemc);  
+     //  window.location.href=url;
     });
 
     </script>
