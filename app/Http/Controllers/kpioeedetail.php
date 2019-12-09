@@ -50,7 +50,20 @@ class kpioeedetail extends Controller
        //print($tagged_project_item);
       // print($tagged_project_item[0]['mc_name']);
 
-       
+      $mcnumber = $request->valuesmcs;
+      if ( $mcnumber = '')
+      {
+          $data =  kpi_mcs::distinct()
+          ->get(['Mc_Number']);
+      }
+      else
+      {
+          $data =  kpi_mcs::distinct()
+          ->where('Mc_Number','=',$request->valuesmcs)
+          ->get(['Mc_Number']);
+      }
+      dd($data);
+    // return response()->json(['result' => $data]);
 
     }
 

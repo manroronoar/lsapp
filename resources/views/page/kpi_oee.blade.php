@@ -98,10 +98,9 @@
 
     jq(document).on('click', '.getmcname', function(event){
       event.preventDefault();
-     //  var namemc = jq(this).attr('id'); 
-     // var url = '{{ route("oeed.index","mc=:namemc") }}'; 
-     //  url = url.replace(':namemc', namemc);  
-     //  window.location.href=url;
+     var mcnumber = jq(this).attr('id'); 
+     var url = "{{ url('oeed') }}"+'/'+ mcnumber
+       window.open(url, '_blank'); 
     });
 
     </script>

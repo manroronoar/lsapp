@@ -37,6 +37,26 @@ class kpimonitormcController extends Controller
   
      
     }
+    public function readdatabymc(Request $request)
+    {
+    
+     //$data =  DB::table('kpi_mcs')->distinct()->get(['Mc_Number']);
+     $mcnumber = $request->valuesmcs;
+        if ( $mcnumber = '')
+        {
+            $data =  kpi_mcs::distinct()
+            ->get(['Mc_Number']);
+        }
+        else
+        {
+            $data =  kpi_mcs::distinct()
+            ->where('Mc_Number','=',$request->valuesmcs)
+            ->get(['Mc_Number']);
+        }
+     return response()->json(['result' => $data]);
+  
+     
+    }
 
     public function readdataindex(Request $request)
    // public function readdataindex()

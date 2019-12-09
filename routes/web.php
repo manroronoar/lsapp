@@ -24,6 +24,7 @@ Auth::routes();
 //Route::resource('momc', 'kpimonitormcController');
 Route::get('momc', 'kpimonitormcController@index')->middleware('auth');;
 Route::get('momc/readdata', 'kpimonitormcController@readdata')->middleware('auth');;
+Route::get('momc/readdatabymc/{valuesmcs}', 'kpimonitormcController@readdatabymc')->middleware('auth');;
 Route::get('momc/readdataindex/{valuemc}', 'kpimonitormcController@readdataindex')->middleware('auth');;
 
 
@@ -35,12 +36,11 @@ Route::resource('/kpi', 'kpidashboardController')->middleware('auth');
 
 
 Route::resource('oee', 'kpioeeController')->middleware('auth');
+//Route::get('oee','kpioeeController@index');
 //Route::post('oee', 'kpioeedetail')->middleware('auth');
 
-Route::resource('oeed', 'kpioeeDetailController')->middleware('auth');
-//Route::resource('oeed','kpioeedetail');
-
-
+Route::get('oeed/{mcnumber}', 'kpioeeDetailController@index')->middleware('auth');
+//Route::get('oeed', 'kpioeeDetailController')->middleware('auth');
 
 Route::resource('mcs', 'kpimcsController')->middleware('auth');
 Route::post('mcs/update', 'kpimcsController@update')->name('mcs.update');

@@ -26,31 +26,18 @@ class kpioeeDetailController extends Controller
     public function index(Request $request)
     {
         //
-        $mcname = $request->mc;
-        $tagged_project_item;
+       
+     $mcnumbers =  $request->mcnumber;
+     
+       
+        return view('page.kpi_oee_detail')->with('mcnumbers',$mcnumbers);
+  
  
-        $data = kpi_headerset::select('Hs_Mc')->distinct()->get(); 
-      
-          $countdata = count($data);
-          $datamcname;
-          $dataoee;
-          
-          foreach($data as $key=>$data)
-          {
-             $dataoee = DB::select('call oeemc_sto(?)',[$data->Hs_Mc]);
-              $tagged_project_item[] = array(
-                  'mc_name'    => ($data->Hs_Mc),
-                  'oee'         => ($dataoee[0]->oee_),         
-              );
-          };
+    }
+    public function indexread(Request $request)
+    {
+       // dd($request->namemc);
 
-          $data = kpi_mcs::select('Mc_Number','Mc_Node')
-            ->where('Mc_Number','=','Mc001')
-            ->get();
-
-          dd($data);
-      // dd($tagged_project_item[0]['mc_name']);
- 
     }
 
     /**
@@ -80,9 +67,11 @@ class kpioeeDetailController extends Controller
      * @param  \App\kpi_oee_detail  $kpi_oee_detail
      * @return \Illuminate\Http\Response
      */
-    public function show(kpi_oee_detail $kpi_oee_detail)
+    public function show(kpi_oee_detail $kpi_oee_detail,Request $request)
+    //public function show(Request $request)
     {
         //
+       // dd($request->all);
     }
 
     /**
