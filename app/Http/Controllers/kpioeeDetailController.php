@@ -23,20 +23,40 @@ class kpioeeDetailController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+   // public function index(Request $request)
+   public function index($mcnumber)
     {
         //
        
-     $mcnumbers =  $request->mcnumber;
-     
-       
-        return view('page.kpi_oee_detail')->with('mcnumbers',$mcnumbers);
-  
+       // $mcnumbers =  $request->mcnumber;
+       // dd($mcnumbers);
+   
  
     }
+    public function readdata(Request $request)
+    {
+        $data = [
+            ['bit1','100'],
+            ['bit2','100'],
+            ['bit3','100'],
+            ['bit4','100'],
+            ['bit5','100'],
+            ['bit6','100'],
+            ['bit7','100'],
+            ['bit8','100']];
+
+            dd($data);
+        
+  
+    }
+    
     public function indexread(Request $request)
     {
        // dd($request->namemc);
+      // $mcnumbers =  $request->mcnumber;
+     
+       
+      //  return view('page.kpi_oee_detail')->with('mcnumbers',$mcnumbers);
 
     }
 
@@ -67,11 +87,19 @@ class kpioeeDetailController extends Controller
      * @param  \App\kpi_oee_detail  $kpi_oee_detail
      * @return \Illuminate\Http\Response
      */
-    public function show(kpi_oee_detail $kpi_oee_detail,Request $request)
     //public function show(Request $request)
+    public function show($mcnumber)
+   // public function show($mcnumber)
     {
         //
        // dd($request->all);
+     // $mcnumbers =  $request->mcnumber;
+     // dd($mcnumber);
+     $mcnumber;
+
+
+
+      return view('page.kpi_oee_detail')->with('mcnumbers',$mcnumber);
     }
 
     /**

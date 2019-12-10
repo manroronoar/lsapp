@@ -35,11 +35,15 @@ Route::resource('/kpi', 'kpidashboardController')->middleware('auth');
 
 
 
+
+
 Route::resource('oee', 'kpioeeController')->middleware('auth');
 //Route::get('oee','kpioeeController@index');
 //Route::post('oee', 'kpioeedetail')->middleware('auth');
+//Route::resource('oeed', 'kpioeeDetailController')->middleware('auth');
 
-Route::get('oeed/{mcnumber}', 'kpioeeDetailController@index')->middleware('auth');
+Route::get('oeed/{mcnumber}', 'kpioeeDetailController@readdata')->middleware('auth');
+//Route::get('oeed/{mcnumber}', 'kpioeeDetailController@show')->middleware('auth');
 //Route::get('oeed', 'kpioeeDetailController')->middleware('auth');
 
 Route::resource('mcs', 'kpimcsController')->middleware('auth');

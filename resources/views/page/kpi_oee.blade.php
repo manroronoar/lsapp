@@ -11,13 +11,10 @@
         </div>   
       </div>
 
-<div class="box box-success form-group">
+   <div class="box box-success form-group">
     <div class="box-header with-border">
         <div class="row">
             <!--<h3 class="box-title">OEE</h3>-->
-
-          
-        
           </div>   
     </div>
 
@@ -100,7 +97,10 @@
       event.preventDefault();
      var mcnumber = jq(this).attr('id'); 
      var url = "{{ url('oeed') }}"+'/'+ mcnumber
-       window.open(url, '_blank'); 
+    
+      // window.location.href  = url;
+          window.open(url, '_blank'); 
+
     });
 
     </script>

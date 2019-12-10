@@ -30,6 +30,12 @@
  <link rel="stylesheet" href="{{ asset('AdminLTE-master/bower_components/font-awesome/css/font-awesome.min.css') }}">
  <!-- Ionicons -->
  <link rel="stylesheet" href="{{ asset('AdminLTE-master/bower_components/Ionicons/css/ionicons.min.css') }}">
+
+  <!-- Morris charts -->
+  <link rel="stylesheet" href="{{ asset('AdminLTE-master/bower_components/morris.js/morris.css') }}">
+
+
+
  <!-- jvectormap -->
  <!-- <link rel="stylesheet" href="{{ asset('AdminLTE-master/bower_components/jvectormap/jquery-jvectormap.css') }}">-->
  <!-- Theme style -->
