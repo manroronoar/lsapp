@@ -2,15 +2,14 @@
 @section('content')
 
 
-
-<div class="box box-success">
-        
-    <div class="box-body">
-            <div class="lockscreen-logo">
-            <h1 class="bold" align="center">SHIFT CONFIG</h1>
-            </div>
-    </div>   
-  </div>
+<!--<div class="row ">-->
+    <div class="box box-success">     
+      <div class="box-body">
+              <div class="lockscreen-logo">
+              <h1 class="bold" align="center">SHIFT CONFIG</h1>
+              </div>
+      </div>   
+    </div>
 
 
 <div class="box box-success form-group">

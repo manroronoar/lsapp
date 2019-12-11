@@ -96,10 +96,10 @@
     jq(document).on('click', '.getmcname', function(event){
       event.preventDefault();
      var mcnumber = jq(this).attr('id'); 
-     var url = "{{ url('oeed') }}"+'/'+ mcnumber
-    
+     var url = "{{ url('oeed') }}" +'/' + mcnumber 
+     window.open(url, '_blank'); 
       // window.location.href  = url;
-          window.open(url, '_blank'); 
+    
 
     });
 

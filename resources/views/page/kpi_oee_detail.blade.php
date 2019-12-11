@@ -6,13 +6,14 @@
       <div class="box box-success">
         <div class="box-body">
                 <div class="lockscreen-logo">
-                <h1 class="bold text-transform: uppercase" align="center">OEE VIEW {{$mcnumbers}}</h1>
+                <h1 class="bold text-transform: uppercase" align="center">OEE VIEW {{$mcnumberkey}}</h1>
                 </div>
         </div>   
       </div>
 
-
-      <div class="row">
+ 
+<!--************************************************************************************************************ -->
+<div class="row">
         <div class="col-md-3 col-sm-6 col-xs-12">
           <div class="info-box">
             <span class="info-box-icon bg-red"><i class="ion ion-ios-gear-outline"></i></span>
@@ -71,28 +72,34 @@
         <!-- /.col -->
       </div>
      
-   
+      <!--************************************************************************************************************ -->
+      <div class="table-responsive">
+         <table id="user_table" class="table table-bordered table-striped dataTable no-footer">
+          <thead>
+           <tr class="bg-green color-palette">
+               @foreach ( $datakey as $item) 
+               <th scope="row" class="text-center">BIT {{ $item['Bi_Type'] }}</th>
+               
+                @endforeach
+           </tr>
+          </thead>
+          <tbody>
+          <!--<tr role="row" class="odd" style="border: groove">-->
+             <tr role="row" class="odd" style="border: groove">
+               @foreach ( $datakey as $item) 
+               <td scope="row" class="text-center" >{{ $item['Bi_Bit'] }}</td>
+                @endforeach
+           </tr>
+         </tbody>
+         </table>
+        </div>
 
 
           
-   <!--************************************************************************************************************ -->
-   <div class="table-responsive">
-    <table id="user_table" class="table ">
-     <thead>
-      <tr class="bg-green color-palette">
-       <th scope="row" class="text-center">BIT 1</th>
-       <th scope="row" class="text-center">BIT 2</th>
-       <th scope="row" class="text-center">BIT 3</th>
-       <th scope="row" class="text-center">BIT 4</th>
-       <th scope="row" class="text-center">BIT 5</th>
-       <th scope="row" class="text-center">BIT 6</th>
-       <th scope="row" class="text-center">BIT 7</th>
-       <th scope="row" class="text-center">BIT 8</th>
-       
-      </tr>
-     </thead>
-    </table>
-   </div>
+ 
+   
+  
+
    <!--************************************************************************************************************ -->
               <!-- Bar chart -->
          <!--  <div class="box box-primary">
@@ -155,50 +162,8 @@
 
       <script>
         var jq = $.noConflict(); 
-          jq(document).ready(function(){
-            $mcnumbers = 'mc001';
-            jq('#user_table').DataTable({
-            processing: true,
-            serverSide: true,
-            destroy: true,
-            ajax: {
-            url: "{{ url('oeed/readdata') }}" +'/'+ $mcnumbers,
-            },
-            columns: [
-            {
-              data: 'bit1',
-              name: 'bit1'
-            },
-            {
-              data: 'bit2',
-              name: 'bit2'
-            },
-            {
-              data: 'bit3',
-              name: 'bit3'
-            },
-            {
-              data: 'bit4',
-              name: 'bit4'
-            },
-            {
-              data: 'bit5',
-              name: 'bit5'
-            },
-            {
-              data: 'bit6',
-              name: 'bit6'
-            },
-            {
-              data: 'bit7',
-              name: 'bit7'
-            },
-            {
-              data: 'bit8',
-              name: 'bit8'             
-            }
-            ]
-            });
+        jq(document).ready(function(){
+         
         });
           </script>
 

@@ -8,6 +8,7 @@ use App\kpi_node;
 use App\kpi_getnodejson;
 use App\kpi_headerset;
 use App\kpi_oeedetail;
+use App\kpi_bittypedown;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Collection;
@@ -15,6 +16,8 @@ use Illuminate\Http\Response;
 use DB;
 use DataTables;
 use Validator;
+
+
 
 class kpioeeDetailController extends Controller
 {
@@ -24,29 +27,19 @@ class kpioeeDetailController extends Controller
      * @return \Illuminate\Http\Response
      */
    // public function index(Request $request)
-   public function index($mcnumber)
+   public function index(Request $request)
     {
-        //
-       
-       // $mcnumbers =  $request->mcnumber;
-       // dd($mcnumbers);
-   
- 
+        $mcnumber =  $request->mcnumber;
+        $datatypebit = kpi_bittypedown::latest()->get()->toArray();
+        
+              //  dd($datatypebit);
+        return view('page.kpi_oee_detail')->with('mcnumberkey',$mcnumber)->with('datakey',$datatypebit);
     }
     public function readdata(Request $request)
     {
-        $data = [
-            ['bit1','100'],
-            ['bit2','100'],
-            ['bit3','100'],
-            ['bit4','100'],
-            ['bit5','100'],
-            ['bit6','100'],
-            ['bit7','100'],
-            ['bit8','100']];
-
-            dd($data);
         
+    
+         //    return view('page.kpi_oee_detail');
   
     }
     
@@ -87,19 +80,19 @@ class kpioeeDetailController extends Controller
      * @param  \App\kpi_oee_detail  $kpi_oee_detail
      * @return \Illuminate\Http\Response
      */
-    //public function show(Request $request)
-    public function show($mcnumber)
+    public function show(Request $request)
+    //public function show($mcnumber)
    // public function show($mcnumber)
     {
         //
        // dd($request->all);
      // $mcnumbers =  $request->mcnumber;
      // dd($mcnumber);
-     $mcnumber;
+   //  $mcnumber;
 
 
 
-      return view('page.kpi_oee_detail')->with('mcnumbers',$mcnumber);
+    //  return view('page.kpi_oee_detail')->with('mcnumbers',$mcnumber);
     }
 
     /**

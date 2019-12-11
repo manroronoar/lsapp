@@ -113,6 +113,7 @@
     <!-- Main content -->
     <section class="content">
         @yield('content')
+      
     </section>
     <!-- /.content -->
   </div>
@@ -135,6 +136,8 @@
 <!-- ./wrapper -->
 
 
-@include('includepage.scriptfooter')
+
 </body>
+@include('includepage.scriptfooter')
+
 </html>
