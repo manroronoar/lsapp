@@ -37,6 +37,21 @@ class kpimonitormcController extends Controller
   
      
     }
+    public function Chart()
+    {
+
+     $data =  kpi_mcs::distinct()->get(['Mc_Number']);
+     $sumoutput = '2582';
+   //  $sumtayg = 'ss';
+   //  $sumoee = '98.22';
+   //  $sumday = '30';
+     //return response()->json(['result' => $data]);
+     return response()->json(['result' => $data,'sumoutput' => $sumoutput]);
+   //  ['sumtarget' => $sumtayg],
+   //  ['sumoee' => $sumoee],
+   //  ['sumday' => $sumday]);
+    }
+
     public function readdatabymc(Request $request)
     {
     

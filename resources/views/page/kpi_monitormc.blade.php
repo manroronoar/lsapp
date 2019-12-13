@@ -61,7 +61,7 @@
 <script>
  $(document).ready(function(){
         $.get("{{ url('momc/readdata') }}", function (data) {
-           // console.log(data)      
+           console.log(data)      
              $.each(data.result, function (i,value) {
               //  alert(value.id);
              var templateString = '<div class="addcard col-lg-2 col-xs-4" id = "'+ value.Mc_Number +'"> '

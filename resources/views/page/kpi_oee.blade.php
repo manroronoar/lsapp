@@ -32,23 +32,7 @@
                       <tr class="bg-green color-palette">      
                           <th scope="row" class="text-center">mc</th>
                           <th scope="row" class="text-center">oee</th>  
-                          <th scope="row" class="text-center">view node</th> 
-                         
-                        
-                      <!--     <th scope="row" class="text-center">sumbit1</th>
-                        <th scope="row" class="text-center">mc</th>  
-                          <th scope="row" class="text-center">sumbit2</th>
-                          <th scope="row" class="text-center">sumbit3</th>
-                          <th scope="row" class="text-center">sumbit4</th>
-                          <th scope="row" class="text-center">sumbit5</th>
-                          <th scope="row" class="text-center">sumbit6</th>
-                          <th scope="row" class="text-center">sumbit7</th>
-                          <th scope="row" class="text-center">sumbit8</th>
-                          <th scope="row" class="text-center">ar</th>
-                          <th scope="row" class="text-center">pr</th>
-                          <th scope="row" class="text-center">qr</th>
-                          <th scope="row" class="text-center">oee</th>-->
-                                      
+                          <th scope="row" class="text-center">view node</th>                                   
                 </tr>
               </thead>
               </table>

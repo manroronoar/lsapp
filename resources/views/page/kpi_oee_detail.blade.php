@@ -10,8 +10,20 @@
                 </div>
         </div>   
       </div>
+<!--************************************************************************************************************ -->
+      <div class="box box">
+        <div class="box-header with-border">
+          <h3 class="box-title">Bar Chart</h3>
 
- 
+          <div class="box-tools pull-right">
+            <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+            </button>
+          <!--  <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>-->
+          </div>
+        </div>
+       
+        <!-- /.box-body -->
+      </div>
 <!--************************************************************************************************************ -->
 <div class="row">
         <div class="col-md-3 col-sm-6 col-xs-12">
@@ -19,7 +31,7 @@
             <span class="info-box-icon bg-red"><i class="ion ion-ios-gear-outline"></i></span>
 
             <div class="info-box-content">
-              <span class="info-box-text">Bit 1</span>
+              <span class="info-box-text"><h4><b>OEE</b></h4></span>
               <span class="info-box-number">90<small>%</small></span>
             </div>
             <!-- /.info-box-content -->
@@ -32,7 +44,7 @@
             <span class="info-box-icon bg-blue"><i class="ion ion-ios-gear-outline"></i></span>
 
             <div class="info-box-content">
-              <span class="info-box-text">Bit 2</span>
+              <span class="info-box-text"><h4><b>OUTPUT</b></h4></span>
               <span class="info-box-number">41,410</span>
             </div>
             <!-- /.info-box-content -->
@@ -49,7 +61,7 @@
             <span class="info-box-icon bg-green"><i class="ion ion-ios-gear-outline"></i></span>
 
             <div class="info-box-content">
-              <span class="info-box-text">Bit 3</span>
+              <span class="info-box-text"><h4><b>DOWN/MIN</b></h4></span>
               <span class="info-box-number">760</span>
             </div>
             <!-- /.info-box-content -->
@@ -62,7 +74,7 @@
             <span class="info-box-icon bg-aqua"><i class="ion ion-ios-gear-outline"></i></span>
 
             <div class="info-box-content">
-              <span class="info-box-text">Bit 4</span>
+              <span class="info-box-text"><h4><b>DIFF OUTPUT</b></h4></span>
               <span class="info-box-number">2,000</span>
             </div>
             <!-- /.info-box-content -->
@@ -175,7 +187,7 @@
      * ---------
      */
           var bar_data = {
-            data : [['00:00:00', 10], 
+         //   data : [['00:00:00', 10], 
                     ['01:00:00', 8], 
                     ['02:00:00', 4], 
                     ['03:00:00', 13], 

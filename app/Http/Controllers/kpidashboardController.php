@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Http\Controllers\Controller;
 use App\kpi_mcs;
 use App\User;
 use App\kpi_node;
@@ -10,6 +10,7 @@ use DB;
 use Illuminate\Http\Request;
 use DataTables;
 use Validator;
+use App\kpi_monitormc;
 
 
 class kpidashboardController extends Controller
@@ -32,6 +33,13 @@ class kpidashboardController extends Controller
         ->with('countmc',$countmc)
         ->with('countnode',$countnode);   
     }
+    public function readdata()
+    {
+        //
+        $data =  kpi_mcs::distinct()->get(['Mc_Number']);
+        return response()->json(['result' => $data]);
+    }
+
 
     /**
      * Show the form for creating a new resource.
