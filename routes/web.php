@@ -28,6 +28,7 @@ Route::get('momc/readdatabymc/{valuesmcs}', 'kpimonitormcController@readdatabymc
 Route::get('momc/readdataindex/{valuemc}', 'kpimonitormcController@readdataindex')->middleware('auth');
 Route::get('momc/readdataChart', 'kpimonitormcController@Chart')->middleware('auth');
 
+Route::get('momc/readdmc/{yyyy}/{mmmm}/{dddd}/{varmc}', 'kpimonitormcController@readdataforoeebymc')->middleware('auth');
 //Route::resource('oeed', 'kpioeeDetailController')->middleware('auth');
 Route::get('oeed/{mcnumber}', 'kpioeeDetailController@index')->middleware('auth');
 //Route::get('oeed', 'kpioeeDetailController')->middleware('auth');

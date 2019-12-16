@@ -9,6 +9,7 @@ use App\kpi_getnodejson;
 use App\kpi_headerset;
 use App\kpi_oeedetail;
 use App\kpi_bittypedown;
+use App\kpi_shift;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Collection;
@@ -31,9 +32,9 @@ class kpioeeDetailController extends Controller
     {
         $mcnumber =  $request->mcnumber;
         $datatypebit = kpi_bittypedown::latest()->get()->toArray();
-        
+        $listshift = kpi_shift::select('Sh_Name')->get();
               //  dd($datatypebit);
-        return view('page.kpi_oee_detail')->with('mcnumberkey',$mcnumber)->with('datakey',$datatypebit);
+        return view('page.kpi_oee_detail')->with('mcnumberkey',$mcnumber)->with('datakey',$datatypebit)->with('listshift',$listshift);
     }
     public function readdata(Request $request)
     {
