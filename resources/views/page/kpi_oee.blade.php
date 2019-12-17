@@ -31,7 +31,7 @@
               <thead>
                       <tr class="bg-green color-palette">      
                           <th scope="row" class="text-center">mc</th>
-                          <th scope="row" class="text-center">oee</th>  
+                        <!--  <th scope="row" class="text-center">oee</th>  -->
                           <th scope="row" class="text-center">view node</th>                                   
                 </tr>
               </thead>
@@ -63,10 +63,10 @@
         data: 'mc_number',
         name: 'mc_number'
        },
-       {
-        data: 'oee',
-        name: 'oee'
-       },
+      // {
+      //  data: 'oee',
+      //  name: 'oee'
+      // },
        {
         data: 'action',
         name: 'action'

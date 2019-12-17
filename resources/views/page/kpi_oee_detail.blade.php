@@ -11,32 +11,47 @@
         </div>   
       </div>
 <!--************************************************************************************************************ -->
-      <div class="box box">
-        <div class="box-header with-border">
-          <h3 class="box-title col-md-10 valmcs">Mc. {{$mcnumberkey}} </h3>
 
-          @foreach ( $listshift as $item) 
-          <label class="text-center" >{{ $item['Sh_Name'] }}</label>
-           @endforeach
 
-          <div class="input-group col-md-2">
-            <input name="datetimes" id="datetimes"  type="text" class="form-control">
-            <span class="input-group-btn">
-                 <button type="button" name="summit" id="summit" class="btn btn-success ">SEARCH</button></span>
-            </span>
-          </div>
 
-         
+<div class="box box-danger">
+  <div class="box-header with-border">
+    <h3 class="box-title  valmcs">Mc. {{$mcnumberkey}} </h3>
+  </div>
+  <div class="box-body">
+    <div class="row col-md-12">
 
-          <div class="box-tools pull-right  col-md-12">   
-            <div class="input-group ">          
-           </div>
-          </div>
-        </div>
-       
-        <!-- /.box-body -->
+      <div class="col-md-6" align="right">
+   
       </div>
-      
+
+      <div class="input-group col-md-6" align="right">
+        <span class="input-group-addon">Shift:</span>
+        <select class="form-control" name="Hs_Shift" id="Hs_Shift">
+          <option value="All">All</option>
+            @foreach ($listshift as $item) 
+        <option  value="{{$item->Sh_Name}}">{{$item['Sh_Name']}}</option>
+            @endforeach
+        </select >
+        <span class="input-group-addon">Start Date:</span>
+        <input name="datetimeS" id="datetimeS"  type="text" class="form-control "> 
+
+        <span class="input-group-addon">End Date:</span>
+        <input name="datetimeE" id="datetimeE"  type="text" class="form-control"> 
+        <span class="input-group-btn">
+          <button type="button" name="summit" id="summit" class="btn btn-success">SEARCH</button> 
+        </span>
+      </div>
+
+
+
+
+    </div>
+  </div>
+  <!-- /.box-body -->
+</div>
+
+    
 <!--************************************************************************************************************ -->
 <div class="row">
         <div class="col-md-3 col-sm-6 col-xs-12">
@@ -111,13 +126,13 @@
           <tbody>
           <!--<tr role="row" class="odd" style="border: groove">-->
              <tr role="row" class="odd" style="border: groove">
-             
-               <td scope="row" class="text-center b1" ></td>
-               <td scope="row" class="text-center b2" ></td>
-               <td scope="row" class="text-center b3" ></td>
-               <td scope="row" class="text-center b4" ></td>
-               <td scope="row" class="text-center b5" ></td>
+                          
                <td scope="row" class="text-center b6" ></td>
+               <td scope="row" class="text-center b5" ></td>
+               <td scope="row" class="text-center b4" ></td>
+               <td scope="row" class="text-center b3" ></td>
+               <td scope="row" class="text-center b2" ></td>
+               <td scope="row" class="text-center b1" ></td>
                
            </tr>
          </tbody>
@@ -187,83 +202,137 @@
         jq(document).ready(function(){
          
         });
-          </script>
+      </script>
+
         <script>
           $(document).on('click', '#summit', function(event) { 
-            var valdate = jqd('#datetimes').val();
-            var mc = jqd('.valmcs').text();
+            var valdate = $('#datetimeS').val();
+            var valdateE = $('#datetimeE').val();
+            var typeday = '';
+
+            var mc = $('.valmcs').text();
             var varm = mc.split("Mc. ");
             var varmc = varm[1]
+
             var res = valdate.split("/");
             var yyyy = res[0];
             var mmmm = res[1];
             var dddd = res[2];
-        
-            $.get("{{ url('momc/readdmc') }}" + '/' + yyyy + '/' + mmmm+ '/' + dddd +'/' +varmc, function (data) {
-              // data.result[0].Pra
-              var outputtarget = data.Result[0].Pra;
-              var countrow  = data.Result[0].countrow;
-              var sumoee = data.Result[0].Oeea;
-              var totaloee = (sumoee/countrow);
-              if (isNaN(totaloee) == true)
+
+            var rese = valdateE.split("/");
+            var yyyye = rese[0];
+            var mmmme = rese[1];
+            var dddde = rese[2];
+
+
+            var shift = $('#Hs_Shift').val();
+
+            var dateStart = new Date($("#datetimeS").val());
+            var dateEnd =  new Date($("#datetimeE").val())
+            var timeDiff = Math.abs(dateEnd.getTime() - dateStart.getTime());
+            var diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24)); 
+           //  alert(diffDays);
+            //diffDays = diffDays + 1;
+
+              if (dateStart <= dateEnd)
               {
-                (totaloee = 0);
+                if (diffDays <= 30) 
+                {
+                      if(timeDiff > 0)
+                      {
+                        var typeday = 'M';
+                      // alert(typeday + timeDiff);
+                      }
+                      else if (timeDiff == 0)
+                      {
+                        var typeday = 'D';
+                      // alert(typeday) + timeDiff;
+                      }
+                      else
+                      {
+                        alert('!!!! ERROR DATE');
+                      }
+                          $.get("{{ url('oeed/readdmc') }}" + '/' + yyyy + '/' + mmmm+ '/' + dddd + '/' + yyyye + '/' + mmmme+ '/' + dddde +'/' +varmc  +'/' +shift +'/' + typeday, function (data) {
+                    
+                            var outputtarget = data.Result[0].Pra;
+                            var countrow  = data.Result[0].countrow;
+                            var sumoee = data.Result[0].Oeea;
+                            var totaloee = (sumoee/countrow);
+                              if (isNaN(totaloee) == true)
+                                {
+                                  (totaloee = 0);
+                                }
+
+                            var diffoutput = data.Result[0].Prt - data.Result[0].Pra;
+                            var sumserb1 = data.Result[0].S1;
+                            var sumserb2 = data.Result[0].S2;
+                            var sumserb3 = data.Result[0].S3;
+                            var sumserb4 = data.Result[0].S4;
+                            var sumserb5 = data.Result[0].S5;
+                            var sumserb6 = data.Result[0].S6;
+                            var sumserb7 = data.Result[0].S7;
+                            var sumserb8 = data.Result[0].S8;
+                            // alert(totaloee.toFixed(2));
+
+                            var downtime  = (parseInt(sumserb1) + parseInt(sumserb3) + parseInt(sumserb4) + parseInt(sumserb6) + parseInt(sumserb7) + parseInt(sumserb8));
+                            //alert(diffoutput);
+                            $('.b1').text(parseInt(sumserb1)+' sec'  || 0 ) ;
+                            $('.b2').text(parseInt(sumserb2)+' sec'  || 0 +' sec');
+                            $('.b3').text(parseInt(sumserb3)+' sec'  || 0 +' sec');
+                            $('.b4').text(parseInt(sumserb4)+' sec'  || 0 +' sec');
+                            $('.b5').text(parseInt(sumserb5)+' sec'  || 0 +' sec');
+                            $('.b6').text(parseInt(sumserb6)+' sec'  || 0 +' sec');
+                            $('.OEE').text(totaloee.toFixed(2) + ' %');
+                            $('.OUTPUT').text(parseInt(outputtarget)+' item'  || 0 +' item');
+                            $('.DIFF').text(parseInt(diffoutput)+' item'  || 0 +' item');
+                              // alert(outputtarget);
+                            $('.DOWN').text(parseInt(downtime)+' sec'  || 0 +' sec');
+                              // alert(data.DatatoChart)
+                              console.log(data) 
+                            
+                          if(data.DatatoChart  != 0)
+                                {
+                              //   alert(data.DatatoChart.length)  ;
+                              
+                                    $("#bar-charts").empty();
+                                          //  "use strict";
+                                            var bar = new Morris.Bar({
+                                            element: 'bar-charts',
+                                            resize: true,
+                                            data: data.DatatoChart,
+
+                                              barColors: ['#4287f5'],
+                                              lineColors: '#4287f5',
+                                              grid  : {
+                                                  borderWidth: 1,
+                                                  borderColor: '#f3f3f3',
+                                                  tickColor  : '#f3f3f3'
+                                                },
+                                              xkey: 'y',
+                                              ykeys: ['a'],
+                                              labels: ['output'],
+                                              hideHover: 'auto'
+                                                    }); 
+                                }
+                        
+                          });
+                  }
+                  else
+                  {
+                    alert('!!!! ERROR OVER DATE <= 30 Days');
+                  }
+              }
+              else
+              {
+                alert('!!!! ERROR DATE');
               }
 
-              var diffoutput = data.Result[0].Prt - data.Result[0].Pra;
-              var sumserb1 = data.Result[0].S1;
-              var sumserb2 = data.Result[0].S2;
-              var sumserb3 = data.Result[0].S3;
-              var sumserb4 = data.Result[0].S4;
-              var sumserb5 = data.Result[0].S5;
-              var sumserb6 = data.Result[0].S6;
-              var sumserb7 = data.Result[0].S7;
-              var sumserb8 = data.Result[0].S8;
-             // alert(totaloee.toFixed(2));
-
-              var downtime  = (parseInt(sumserb1) + parseInt(sumserb3) + parseInt(sumserb4) + parseInt(sumserb6) + parseInt(sumserb7) + parseInt(sumserb8));
-              //alert(diffoutput);
-              $('.b1').text(parseInt(sumserb1)+' sec'  || 0 +' sec') ;
-              $('.b2').text(parseInt(sumserb2)+' sec'  || 0 +' sec');
-              $('.b3').text(parseInt(sumserb3)+' sec'  || 0 +' sec');
-              $('.b4').text(parseInt(sumserb4)+' sec'  || 0 +' sec');
-              $('.b5').text(parseInt(sumserb5)+' sec'  || 0 +' sec');
-              $('.b6').text(parseInt(sumserb6)+' sec'  || 0 +' sec');
-              $('.OEE').text(totaloee.toFixed(2) + ' %');
-              $('.OUTPUT').text(parseInt(outputtarget)+' item'  || 0 +' item');
-              $('.DIFF').text(parseInt(diffoutput)+' item'  || 0 +' item');
-               // alert(outputtarget);
-               $('.DOWN').text(parseInt(downtime)+' sec'  || 0 +' sec');
-               // alert(data.DatatoChart)
-                console.log(data) 
-               
-                //  "use strict";
-                  var bar = new Morris.Bar({
-                  element: 'bar-charts',
-                  resize: true,
-                  data: data.DatatoChart,
-
-                    barColors: ['#4287f5'],
-                    grid  : {
-                        borderWidth: 1,
-                        borderColor: '#f3f3f3',
-                        tickColor  : '#f3f3f3'
-                      },
-                    xkey: 'y',
-                    ykeys: ['a'],
-                    labels: ['output'],
-                    hideHover: 'auto'
-                          }); 
-            });
           });
         </script>
 
       <script>
          $(function () {
-    /*
-     * BAR CHART
-     * ---------
-     */
+   
           var bar_data = {
             data : [['00:00:00', 10], 
                     ['01:00:00', 8], 
@@ -316,8 +385,6 @@
         })
       </script>
 
-
-     
       <script>
        $(function () {
         /* jQueryKnob */
@@ -380,42 +447,69 @@
        });
         /* END JQUERY KNOB */
       </script>
+
       <script type="text/javascript">
         var jqd = $.noConflict(); 
         var defaultDate = new Date(); 
           jqd(function () {
-          jqd('#datetimes').datetimepicker({
+          jqd('#datetimeS').datetimepicker({
                   format: 'YYYY/MM/DD',
                   defaultDate: defaultDate
               });
+          jqd('#datetimeE').datetimepicker({
+              format: 'YYYY/MM/DD',
+              defaultDate: defaultDate
+          });    
 
-
-              var valdate = jqd('#datetimes').val();
-              var mc = jqd('.valmcs').text();
-              var varm = mc.split("Mc. ");
-              var varmc = varm[1]
-              var res = valdate.split("/");
-              var yyyy = res[0];
-              var mmmm = res[1];
-              var dddd = res[2];
-
-              jqd.get("{{ url('momc/readdmc') }}" + '/' + yyyy + '/' + mmmm+ '/' + dddd +'/' +varmc, function (data) {
-                 // data.result[0].Pra
-              var outputtarget = data.Result[0].Pra;
-              var countrow  = data.Result[0].countrow;
-              var sumoee = data.Result[0].Oeea;
-              var totaloee = (sumoee/countrow);
              
+            var valdate = jqd('#datetimeS').val();
+            var valdateE = jqd('#datetimeE').val();
+            var typeday = 'D';
 
-              var diffoutput = data.Result[0].Prt - data.Result[0].Pra;
-              var sumserb1 = data.Result[0].S1;
-              var sumserb2 = data.Result[0].S2;
-              var sumserb3 = data.Result[0].S3;
-              var sumserb4 = data.Result[0].S4;
-              var sumserb5 = data.Result[0].S5;
-              var sumserb6 = data.Result[0].S6;
-              var sumserb7 = data.Result[0].S7;
-              var sumserb8 = data.Result[0].S8;
+            var mc = jqd('.valmcs').text();
+            var varm = mc.split("Mc. ");
+            var varmc = varm[1]
+
+            var res = valdate.split("/");
+            var yyyy = res[0];
+            var mmmm = res[1];
+            var dddd = res[2];
+
+            var rese = valdateE.split("/");
+            var yyyye = rese[0];
+            var mmmme = rese[1];
+            var dddde = rese[2];
+
+
+            var shift = jqd('#Hs_Shift').val();
+
+            var dateStart = new Date(jqd("#datetimeS").val());
+            var dateEnd =  new Date(jqd("#datetimeE").val())
+            var timeDiff = Math.abs(dateEnd.getTime() - dateStart.getTime());
+            var diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24)); 
+            //alert(searchreport + shift );
+
+            jqd.get("{{ url('oeed/readdmc') }}" + '/' + yyyy + '/' + mmmm+ '/' + dddd + '/' + yyyye + '/' + mmmme+ '/' + dddde +'/' +varmc  +'/' +shift +'/' + typeday, function (data) {
+                    
+                    var outputtarget = data.Result[0].Pra;
+                    var countrow  = data.Result[0].countrow;
+                    var sumoee = data.Result[0].Oeea;
+                    var totaloee = (sumoee/countrow);
+                      if (isNaN(totaloee) == true)
+                        {
+                          (totaloee = 0);
+                        }
+
+                    var diffoutput = data.Result[0].Prt - data.Result[0].Pra;
+                    var sumserb1 = data.Result[0].S1;
+                    var sumserb2 = data.Result[0].S2;
+                    var sumserb3 = data.Result[0].S3;
+                    var sumserb4 = data.Result[0].S4;
+                    var sumserb5 = data.Result[0].S5;
+                    var sumserb6 = data.Result[0].S6;
+                    var sumserb7 = data.Result[0].S7;
+                    var sumserb8 = data.Result[0].S8;
+                    // alert(totaloee.toFixed(2));
              // alert(totaloee.toFixed(2));
              if (isNaN(totaloee) == true)
               {
@@ -437,7 +531,7 @@
                // alert(outputtarget);
                 jqd('.DOWN').text(parseInt(downtime)  || 0 +' sec');
                 
-               // console.log(data) 
+                console.log(data) 
          
          
               })
