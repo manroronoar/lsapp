@@ -1,6 +1,17 @@
 @extends('includepage.template_master')
 @section('content')
 
+
+
+<div class="box box-success">    
+  <div class="box-body">
+          <div class="lockscreen-logo">
+        
+          <h1 class="bold" align="center">MACHINE MONITOR</h1>
+          </div>
+  </div>   
+</div>
+
 <div class="box-body col-12">    
    
         <div class=" col-xs-3">
@@ -19,6 +30,7 @@
               </span>
         </div> 
 </div>
+
 
 <div class="row">
 <div id="addcard"></div>
@@ -62,7 +74,7 @@
  $(document).ready(function(){
         $.get("{{ url('momc/readdata') }}", function (data) {
            console.log(data)      
-             $.each(data.result, function (i,value) {
+           jQuery.each(data.result, function (i,value) {
               //  alert(value.id);
              var templateString = '<div class="addcard col-lg-2 col-xs-4" id = "'+ value.Mc_Number +'"> '
             + '<div class="small-box bg-green">'
