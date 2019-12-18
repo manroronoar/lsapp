@@ -15,7 +15,7 @@
         <div class="icon">
           <i class="ion ion-bag"></i>
         </div>
-        <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+        <a href="{{ route('mcs.index') }}" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
       </div>
     </div>
 
@@ -35,7 +35,7 @@
           <i class="ion ion-stats-bars"></i>
         </div>
       
-      <a href="#" class="small-box-footer">More info   <i class="fa fa-arrow-circle-right"></i></a>
+      <a href="{{ route('hsi.index') }}" class="small-box-footer">More info   <i class="fa fa-arrow-circle-right"></i></a>
       </div>
     </div>
 
@@ -53,7 +53,7 @@
         <div class="icon">
           <i class="ion ion-person-add"></i>
         </div>
-        <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+        <a href="{{ route('nod.index') }}" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
       </div>
     </div>
 
@@ -64,13 +64,13 @@
       <!-- small box -->
       <div class="small-box bg-red">
         <div class="inner">
-          <h3>65</h3>
-          <p>Unique Visitors</p>
+          <h3>MC.</h3>
+          <p>MONITOR</p>
         </div>
         <div class="icon">
           <i class="ion ion-pie-graph"></i>
         </div>
-        <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+        <a href="{{ url('momc') }}" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
       </div>
     </div>
     <!-- ./col -->
@@ -118,7 +118,7 @@
     
                 <div class="info-box-content">
                   <span class="info-box-text">TARGET/MONTHLY </span>
-                  <span class="info-box-number">163,921</span>
+                  <span class="info-box-number">36,000</span>
     
                   <div class="progress">
                     <div class="progress-bar" style="width: 40%"></div>
@@ -137,7 +137,7 @@
     
                 <div class="info-box-content">
                   <span class="info-box-text">OUTPUT</span>
-                  <span class="info-box-number">92,050</span>
+                  <span class="info-box-number">35,580 Item</span>
     
                   <div class="progress">
                     <div class="progress-bar" style="width: 20%"></div>
@@ -157,7 +157,7 @@
     
                 <div class="info-box-content">
                   <span class="info-box-text">DIFF OUTPUT</span>
-                  <span class="info-box-number">5,200</span>
+                  <span class="info-box-number">420 Item</span>
     
                   <div class="progress">
                     <div class="progress-bar" style="width: 50%"></div>
@@ -177,7 +177,7 @@
     
                 <div class="info-box-content" >
                   <span class="info-box-text ">DOWN TIME/min</span>
-                  <span class="info-box-number ssss"></span>
+                  <span class="info-box-number ssss">3.13 Hr.</span>
     
                   <div class="progress">
                     <div class="progress-bar" style="width: 70%"></div>
@@ -208,12 +208,12 @@
                 
       console.log(data)  
 
-      $('.ssss').text(data.sumoutput);
+    //  $('.ssss').text(data.sumoutput);
       var areaChartCanvas = $('#areaChart').get(0).getContext('2d')
       var areaChart       = new Chart(areaChartCanvas)
 
-      var targetcharta = [98, 99, 97, 98, 97, 95, 99,98, 99, 97, 98, 97, 98, 99, 98, 99, 97, 98, 97, 99, 99, 98, 95, 97, 98, 97, 99, 99, 98, 99];
-      var targetchartb = [97, 98, 96, 97, 96, 95, 97,97, 98, 96, 97, 96, 95, 97, 97, 98, 96, 97, 96, 95, 97, 97, 90, 96, 97, 96, 95, 97, 96, 95];
+      var targetcharta = [50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50];
+      var targetchartb = [48, 49, 50, 50, 50, 50, 50, 50, 47, 48, 49, 50, 49, 49, 49, 49, 45, 48, 50, 49, 50, 47, 50, 46, 49, 48, 50, 47, 50, 50];
       var targetchartdate = ['1/11/2019',
                              '2/11/2019',
                              '3/11/2019',

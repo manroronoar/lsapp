@@ -2,8 +2,7 @@
 @section('content')
 
 
-<div class="box box-success">
-        
+      <div class="box box-success ">     
         <div class="box-body">
                 <div class="lockscreen-logo">
                 <h1 class="bold text-transform: uppercase" align="center">NODE CONFIG</h1>
@@ -11,7 +10,8 @@
         </div>   
       </div>
 
-<div class="box box-success form-group">
+
+  <div class="box box-success form-group ">
     <div class="box-header with-border">
       <h3 class="box-title">INPUT CONFIG</h3>
     </div>
@@ -39,13 +39,13 @@
           <br />
           <br />
          </div>
-        
-        
 
           <!-- /input-group -->
         </div>
         <!-- /.box-body -->
     </div>
+  </div>
+
 
         <div id="formModal" class="modal fade" role="dialog">
             <div class="modal-dialog">
@@ -120,7 +120,7 @@
                </div>
            </div>
            
-           <div id="confirmModal" class="modal fade" role="dialog">
+        <div id="confirmModal" class="modal fade" role="dialog">
                <div class="modal-dialog">
                    <div class="modal-content">
                        <div class="modal-header">
@@ -138,9 +138,11 @@
                </div>
            </div>
      
-      </div>
+      </div> 
 
         
+
+
 
 <script>
   var jq = $.noConflict(); 

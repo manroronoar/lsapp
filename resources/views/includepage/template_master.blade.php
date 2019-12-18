@@ -3,7 +3,10 @@
 <head> 
     @include('includepage.headmaster')
 </head>
-<body class="hold-transition skin-green sidebar-mini sidebar-collapse">
+<!-- <body class="hold-transition skin-green sidebar-mini sidebar-collapse"> -->
+  <body class="fixed sidebar-mini sidebar-mini-expand-feature  skin-black sidebar-collapse">
+ <!-- idebar-mini wysihtml5-supported sidebar-open skin-black-light -->
+ <!-- fixed sidebar-mini sidebar-mini-expand-feature skin-black sidebar-collapse -->
 <div class="wrapper">
 
   <header class="main-header">
@@ -127,17 +130,11 @@
     reserved.-->
   </footer>
 
-
-  <!-- Add the sidebar's background. This div must be placed
-       immediately after the control sidebar -->
-  <div class="control-sidebar-bg"></div>
-
 </div>
 <!-- ./wrapper -->
-
-
-
 </body>
 @include('includepage.scriptfooter')
+
+
 
 </html>

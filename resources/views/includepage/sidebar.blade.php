@@ -1,3 +1,4 @@
+<section class="sidebar">
 <div class="user-panel">
     <div class="pull-left image">
       <img src="AdminLTE-master/dist/img/avatar04.png" class="img-circle" alt="User Image">
@@ -29,6 +30,8 @@
           <li><a href="{{ url('momc') }}"><i class="fa fa-circle-o"></i>6.Monitor MC.</a></li>      
         </ul>
     </li>
+
+   
 
     <li class="treeview">
           <a href="">
@@ -105,3 +108,4 @@
     
   
   </ul>
+</section>
