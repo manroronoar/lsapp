@@ -1,7 +1,7 @@
 @extends('includepage.template_master')
 @section('content')
-<div class="box box-success">
-        
+      
+<div class="box box-success">    
         <div class="box-body">
                 <div class="lockscreen-logo">
               
@@ -9,6 +9,7 @@
                 </div>
         </div>   
       </div>
+    
 
 
 <div class="box box-success form-group">

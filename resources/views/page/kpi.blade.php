@@ -4,201 +4,113 @@
 
 <div class="row">
 
+  <div class="col-md-3 col-sm-6 col-xs-12">
+    <div class="info-box">
+      <span class="info-box-icon"><i class="fa fa-tags"></i></span>
 
-    <div class="col-lg-3 col-xs-6">
-      <!-- small box -->
-      <div class="small-box bg-aqua">
-        <div class="inner">
-          <h3>{{$countmc}} MC</h3>
-          <p>MACHINE</p>
-        </div>
-        <div class="icon">
-          <i class="ion ion-bag"></i>
-        </div>
-        <a href="{{ route('mcs.index') }}" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+      <div class="info-box-content">
+        <span class="info-box-text"><b>TARGET / OUTPUT<b></span>
+        <span class="info-box-number">135,000 / 134,580</span>
+
+      <!--  <div class="progress progress-sm active">
+          <div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 20%">
+            <span class="sr-only">20% Complete</span>
+          </div>
+        </div> -->
+       <p></p>
+        
+            <span class="progress-description">
+              19/12/2019 00:00:00 - 23:59:59(time now)
+            </span>
       </div>
     </div>
-
-
-
-
-    <!-- ./col -->
-    <div class="col-lg-3 col-xs-6">
-      <!-- small box -->
-      <div class="small-box bg-green">
-        <div class="inner">
-          <h3>{{ $countheaderset }}  JOBS</h3>
-          <p>HEADER SETTINGS     
-             </p>
-        </div>
-        <div class="icon">
-          <i class="ion ion-stats-bars"></i>
-        </div>
-      
-      <a href="{{ route('hsi.index') }}" class="small-box-footer">More info   <i class="fa fa-arrow-circle-right"></i></a>
-      </div>
-    </div>
-
-
-
-
-    <!-- ./col -->
-    <div class="col-lg-3 col-xs-6">
-      <!-- small box -->
-      <div class="small-box bg-yellow">
-        <div class="inner">
-          <h3>{{$countnode}} UNIT</h3>
-          <p>NODES</p>
-        </div>
-        <div class="icon">
-          <i class="ion ion-person-add"></i>
-        </div>
-        <a href="{{ route('nod.index') }}" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
-      </div>
-    </div>
-
-
-
-    <!-- ./col -->
-    <div class="col-lg-3 col-xs-6">
-      <!-- small box -->
-      <div class="small-box bg-red">
-        <div class="inner">
-          <h3>MC.</h3>
-          <p>MONITOR</p>
-        </div>
-        <div class="icon">
-          <i class="ion ion-pie-graph"></i>
-        </div>
-        <a href="{{ url('momc') }}" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
-      </div>
-    </div>
-    <!-- ./col -->
   </div>
 
-  <div class="row">
-    <div class="col-md-12">
-      <div class="box">
-        <div class="box-header with-border">
-          <h3 class="box-title">Monthly Recap Report</h3>
+  <div class="col-md-3 col-sm-6 col-xs-12">
+    <div class="info-box">
+      <span class="info-box-icon"><i class="fa fa-tags"></i></span>
 
+      <div class="info-box-content">
+        <span class="info-box-text">MC. DOWN</span>
+        <span class="info-box-number">41,410</span>
+
+        <p></p>
+            <span class="progress-description">
+              19/12/2019 00:00:00 - 23:59:59(time now)
+            </span>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-3 col-sm-6 col-xs-12">
+    <div class="info-box">
+      <span class="info-box-icon"><i class="fa fa-tags"></i></span>
+
+      <div class="info-box-content">
+        <span class="info-box-text">OEE</span>
+        <span class="info-box-number">97.27 %</span>
+
+        <p></p>
+            <span class="progress-description">
+              19/12/2019 00:00:00 - 23:59:59(time now)
+            </span>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-3 col-sm-6 col-xs-12">
+    <div class="info-box">
+      <span class="info-box-icon"><i class="fa fa-tags"></i></span>
+
+      <div class="info-box-content">
+        <span class="info-box-text">OLE</span>
+        <span class="info-box-number">98.27 %</span>
+
+        <p></p>
+            <span class="progress-description">
+              19/12/2019 00:00:00 - 23:59:59(time now)
+            </span>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="row">
+  <div class="col-md-8">
+    <div class="box">
+      <div class="box-header with-border">
+        <h3 class="box-title">Monthly Recap Report</h3>
+      </div>
+      <!-- /.box-header -->
+      <div class="box-body">
+        <div class="row">
+          <div class="col-md-12">
+            <p class="text-center">
+              <strong>OUTPUT : 1/11/2019 - 30/11/2019</strong>
+            </p>
+
+            <div class="chart">
+              <canvas id="areaChart" style="height:300px"></canvas>
+            </div>
+
+            <!-- /.chart-responsive -->
+          </div>
   
+          <!-- /.col -->
         </div>
-
-
-
-
-
-
-        <!-- /.box-header -->
-        <div class="box-body">
-          <div class="row">
-            <div class="col-md-12">
-              <p class="text-center">
-                <strong>OUTPUT : 1/11/2019 - 30/11/2019</strong>
-              </p>
-
-              <div class="chart">
-                <canvas id="areaChart" style="height:300px"></canvas>
-              </div>
-
-              <!-- /.chart-responsive -->
-            </div>
-    
-            <!-- /.col -->
-          </div>
-          <!-- /.row -->
-        </div>
-        <!-- ./box-body -->
-        <div class="box-footer">
-          <div class="row">
-            <div class="col-sm-3 col-xs-6">
-              <div class="info-box bg-aqua">
-                <span class="info-box-icon"><i class="ion-ios-chatbubble-outline"></i></span>
-    
-                <div class="info-box-content">
-                  <span class="info-box-text">TARGET/MONTHLY </span>
-                  <span class="info-box-number">36,000</span>
-    
-                  <div class="progress">
-                    <div class="progress-bar" style="width: 40%"></div>
-                  </div>
-                  <span class="progress-description">
-                    In 30 Days
-                      </span>
-                </div>
-                <!-- /.info-box-content -->
-              </div>
-            </div>
-            <!-- /.col -->
-            <div class="col-sm-3 col-xs-6">
-              <div class="info-box bg-green">
-                <span class="info-box-icon"><i class="ion ion-ios-heart-outline"></i></span>
-    
-                <div class="info-box-content">
-                  <span class="info-box-text">OUTPUT</span>
-                  <span class="info-box-number">35,580 Item</span>
-    
-                  <div class="progress">
-                    <div class="progress-bar" style="width: 20%"></div>
-                  </div>
-                  <span class="progress-description">
-                    In 30 Days
-                      </span>
-                </div>
-                <!-- /.info-box-content -->
-              </div>
-              <!-- /.description-block -->
-            </div>
-            <!-- /.col -->
-            <div class="col-sm-3 col-xs-6">
-              <div class="info-box bg-yellow">
-                <span class="info-box-icon"><i class="ion ion-ios-pricetag-outline"></i></span>
-    
-                <div class="info-box-content">
-                  <span class="info-box-text">DIFF OUTPUT</span>
-                  <span class="info-box-number">420 Item</span>
-    
-                  <div class="progress">
-                    <div class="progress-bar" style="width: 50%"></div>
-                  </div>
-                  <span class="progress-description">
-                    In 30 Days
-                      </span>
-                </div>
-                <!-- /.info-box-content -->
-              </div>
-              <!-- /.description-block -->
-            </div>
-            <!-- /.col -->
-            <div class="col-sm-3 col-xs-6">
-              <div class="info-box bg-red">
-                <span class="info-box-icon"><i class="ion ion-ios-cloud-download-outline"></i></span>
-    
-                <div class="info-box-content" >
-                  <span class="info-box-text ">DOWN TIME/min</span>
-                  <span class="info-box-number ssss">3.13 Hr.</span>
-    
-                  <div class="progress">
-                    <div class="progress-bar" style="width: 70%"></div>
-                  </div>
-                  <span class="progress-description">
-                        In 30 Days
-                      </span>
-                </div>
-                <!-- /.info-box-content -->
-              </div>
-              <!-- /.description-block -->
-            </div>
-          </div>
-          <!-- /.row -->
-        </div>
-        <!-- /.box-footer -->
+        <!-- /.row -->
       </div>
-      <!-- /.box -->
     </div>
-    <!-- /.col -->
   </div>
+
+  <div class="col-md-4">
+    <div class="box">
+    </div>
+  </div>
+
+</div>
+
 
 
   <script>
@@ -262,10 +174,10 @@
             label               : 'AC',
             fillColor           : 'rgba(60,141,188,0.9)',
             strokeColor         : 'rgba(60,141,188,0.8)',
-            pointColor          : '#3b8bba',
+            pointColor          : '#4b8bba',
             pointStrokeColor    : 'rgba(60,141,188,1)',
             pointHighlightFill  : '#fff',
-            pointHighlightStroke: 'rgba(60,141,188,1)',
+            pointHighlightStroke: 'rgba(74,74,74)',
             data                : targetchartb
           }
         ]
