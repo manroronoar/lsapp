@@ -10,18 +10,11 @@
 
       <div class="info-box-content">
         <span class="info-box-text"><b>TARGET / OUTPUT<b></span>
-        <span class="info-box-number">135,000 / 134,580</span>
-
-      <!--  <div class="progress progress-sm active">
-          <div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 20%">
-            <span class="sr-only">20% Complete</span>
-          </div>
-        </div> -->
-       <p></p>
-        
-            <span class="progress-description">
-              19/12/2019 00:00:00 - 23:59:59(time now)
-            </span>
+          <span class="info-box-number"></span>
+          <p></p>
+          <p></p>
+        <span class="info-box-number target"></span> 
+      
       </div>
     </div>
   </div>
@@ -32,12 +25,10 @@
 
       <div class="info-box-content">
         <span class="info-box-text">MC. DOWN</span>
-        <span class="info-box-number">41,410</span>
-
+        <span class="info-box-number"></span>
         <p></p>
-            <span class="progress-description">
-              19/12/2019 00:00:00 - 23:59:59(time now)
-            </span>
+        <p></p>
+      <span class="info-box-number target"></span> 
       </div>
     </div>
   </div>
@@ -51,8 +42,8 @@
         <span class="info-box-number">97.27 %</span>
 
         <p></p>
-            <span class="progress-description">
-              19/12/2019 00:00:00 - 23:59:59(time now)
+            <span class="progress-description dateyimeN">
+             
             </span>
       </div>
     </div>
@@ -67,8 +58,8 @@
         <span class="info-box-number">98.27 %</span>
 
         <p></p>
-            <span class="progress-description">
-              19/12/2019 00:00:00 - 23:59:59(time now)
+            <span class="progress-description dateyimeN">
+             
             </span>
       </div>
     </div>
@@ -77,50 +68,185 @@
 </div>
 
 <div class="row">
-  <div class="col-md-8">
+  <div class="col-md-12">
     <div class="box">
       <div class="box-header with-border">
-        <h3 class="box-title">Monthly Recap Report</h3>
+        <h3 class="box-title">Monthly Recap Report</h3> 
+        <div class="box-tools pull-right">
+          <strong class="btn ">OUTPUT : 1/11/2019 - 30/11/2019</strong>
+        </div>
+        
       </div>
       <!-- /.box-header -->
       <div class="box-body">
         <div class="row">
-          <div class="col-md-12">
-            <p class="text-center">
-              <strong>OUTPUT : 1/11/2019 - 30/11/2019</strong>
-            </p>
-
+        
+          <div class="col-md-7">
             <div class="chart">
               <canvas id="areaChart" style="height:300px"></canvas>
-            </div>
-
-            <!-- /.chart-responsive -->
+            </div>  
           </div>
-  
+
+          <div class="col-md-3">
+            <div class="chart">
+              <canvas id="pieChart" height="180"></canvas>
+            </div>
+          </div>
           <!-- /.col -->
+          <div class="col-md-2">
+            <ul class="nav nav-pills nav-stacked">
+              <li><a href="#">AY1
+                <span class="pull-right text-red"><i class="fa fa-angle-down"></i> 12%</span></a></li>
+              <li><a href="#">AY2 <span class="pull-right text-green"><i class="fa fa-angle-up"></i> 4%</span></a>
+              </li>
+              <li><a href="#">AY3
+                <span class="pull-right text-yellow"><i class="fa fa-angle-left"></i> 0%</span></a></li>
+            </ul>
+          </div>
+       
         </div>
         <!-- /.row -->
       </div>
     </div>
   </div>
 
-  <div class="col-md-4">
-    <div class="box">
+</div>
+<div class="box ">
+  <div class="box-header with-border">
+    <h3 class="box-title">Latest Orders</h3>
+
+    <div class="box-tools pull-right">
+     
     </div>
   </div>
-
+  <!-- /.box-header -->
+  <div class="box-body">
+    <div class="table-responsive">
+      <table class="table no-margin">
+        <thead>
+        <tr>
+          <th>Order ID</th>
+          <th>Item</th>
+          <th>Status</th>
+          <th>Popularity</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td><a href="pages/examples/invoice.html">OR9842</a></td>
+          <td>Call of Duty IV</td>
+          <td><span class="label label-success">Shipped</span></td>
+          <td>
+            <div class="sparkbar" data-color="#00a65a" data-height="20"><canvas width="34" height="20" style="display: inline-block; width: 34px; height: 20px; vertical-align: top;"></canvas></div>
+          </td>
+        </tr>
+        <tr>
+          <td><a href="pages/examples/invoice.html">OR1848</a></td>
+          <td>Samsung Smart TV</td>
+          <td><span class="label label-warning">Pending</span></td>
+          <td>
+            <div class="sparkbar" data-color="#f39c12" data-height="20"><canvas width="34" height="20" style="display: inline-block; width: 34px; height: 20px; vertical-align: top;"></canvas></div>
+          </td>
+        </tr>
+        <tr>
+          <td><a href="pages/examples/invoice.html">OR7429</a></td>
+          <td>iPhone 6 Plus</td>
+          <td><span class="label label-danger">Delivered</span></td>
+          <td>
+            <div class="sparkbar" data-color="#f56954" data-height="20"><canvas width="34" height="20" style="display: inline-block; width: 34px; height: 20px; vertical-align: top;"></canvas></div>
+          </td>
+        </tr>
+        <tr>
+          <td><a href="pages/examples/invoice.html">OR7429</a></td>
+          <td>Samsung Smart TV</td>
+          <td><span class="label label-info">Processing</span></td>
+          <td>
+            <div class="sparkbar" data-color="#00c0ef" data-height="20"><canvas width="34" height="20" style="display: inline-block; width: 34px; height: 20px; vertical-align: top;"></canvas></div>
+          </td>
+        </tr>
+        <tr>
+          <td><a href="pages/examples/invoice.html">OR1848</a></td>
+          <td>Samsung Smart TV</td>
+          <td><span class="label label-warning">Pending</span></td>
+          <td>
+            <div class="sparkbar" data-color="#f39c12" data-height="20"><canvas width="34" height="20" style="display: inline-block; width: 34px; height: 20px; vertical-align: top;"></canvas></div>
+          </td>
+        </tr>
+        <tr>
+          <td><a href="pages/examples/invoice.html">OR7429</a></td>
+          <td>iPhone 6 Plus</td>
+          <td><span class="label label-danger">Delivered</span></td>
+          <td>
+            <div class="sparkbar" data-color="#f56954" data-height="20"><canvas width="34" height="20" style="display: inline-block; width: 34px; height: 20px; vertical-align: top;"></canvas></div>
+          </td>
+        </tr>
+        <tr>
+          <td><a href="pages/examples/invoice.html">OR9842</a></td>
+          <td>Call of Duty IV</td>
+          <td><span class="label label-success">Shipped</span></td>
+          <td>
+            <div class="sparkbar" data-color="#00a65a" data-height="20"><canvas width="34" height="20" style="display: inline-block; width: 34px; height: 20px; vertical-align: top;"></canvas></div>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+    <!-- /.table-responsive -->
+  </div>
+  <!-- /.box-body -->
+  <div class="box-footer clearfix">
+    <a href="javascript:void(0)" class="btn btn-sm btn-info btn-flat pull-left">Place New Order</a>
+    <a href="javascript:void(0)" class="btn btn-sm btn-default btn-flat pull-right">View All Orders</a>
+  </div>
+  <!-- /.box-footer -->
 </div>
+
+
 
 
 
   <script>
     $(function () {
-      $.get("{{ url('momc/readdataChart') }}", function (data) {
-             
-                
-      console.log(data)  
+          var today = new Date();
+          var dd = today.getDate();
+          var mm = today.getMonth() + 1; //January is 0!   
+          var yyyy = today.getFullYear();
+          var timeHs = today.getHours();
+          var timeMs = today.getMinutes();
+          var timeSs = today.getSeconds()   ;  
 
-    //  $('.ssss').text(data.sumoutput);
+          if (dd < 10) {
+            dd = '0' + dd;
+          } 
+          if (mm < 10) {
+            mm = '0' + mm;
+          } 
+          if (timeHs < 10) {
+            timeHs = '0' + timeHs;
+          } 
+          if (timeMs < 10) {
+            timeMs = '0' + timeMs;
+          } 
+          if (timeSs < 10) {
+            timeSs = '0' + timeSs;
+          } 
+          var todayS = yyyy + '-' + mm + '-' + dd + ' 00:00:00'
+          var todayE = yyyy + '-' + mm + '-' + dd + ' 23:59:59'
+         // var todayE = yyyy + '-' + mm + '-' + dd + ' ' + timeHs + ':'+ timeMs + ':'+ timeSs;
+
+      $.get("{{ url('kpireaddatamc/readdata') }}"+ '/' + todayS + '/' + todayE, function (data) {
+     
+      var countr = data.result[0].countrow;
+      var targers = data.result[0].Prt;
+      var outputs =  data.result[0].Pra;
+      var oees = '';
+      var oles ='';
+
+     // alert(todayS + ' ' +todayE + ' ' +targers + ' ' +outputs + ' ' +oees + ' ' +oles);
+     $('.target').text(targers +' / '+ outputs);
+     $('.dateyimeN').text(todayS +' to '+ todayE);
+  
+      console.log(data)  
       var areaChartCanvas = $('#areaChart').get(0).getContext('2d')
       var areaChart       = new Chart(areaChartCanvas)
 
@@ -172,8 +298,8 @@
           },
           {
             label               : 'AC',
-            fillColor           : 'rgba(60,141,188,0.9)',
-            strokeColor         : 'rgba(60,141,188,0.8)',
+            fillColor           : 'rgba(87, 87, 87, 1)',
+            strokeColor         : 'rgba(0, 0, 0, 1)',
             pointColor          : '#4b8bba',
             pointStrokeColor    : 'rgba(60,141,188,1)',
             pointHighlightFill  : '#fff',
@@ -225,9 +351,63 @@
       //Create the line chart
       areaChart.Line(areaChartData, areaChartOptions)
   
-     
-     }) 
-    })
+      var pieChartCanvas = $('#pieChart').get(0).getContext('2d')
+      var pieChart       = new Chart(pieChartCanvas)
+      var PieData        = [
+        {
+          value    : 700,
+          color    : '#404040',
+          highlight: '#404040',
+          label    : 'AY1'
+        },
+        {
+          value    : 500,
+          color    : '#808080',
+          highlight: '#808080',
+          label    : 'AY2'
+        },
+        {
+          value    : 500,
+          color    : '#bfbfbf',
+          highlight: '#bfbfbf',
+          label    : 'AY3'
+        },
+        {
+          value    : 100,
+          color    : '#d2d6de',
+          highlight: '#d2d6de',
+          label    : 'TARGET'
+        }
+      ]
+      var pieOptions     = {
+        //Boolean - Whether we should show a stroke on each segment
+        segmentShowStroke    : true,
+        //String - The colour of each segment stroke
+        segmentStrokeColor   : '#fff',
+        //Number - The width of each segment stroke
+        segmentStrokeWidth   : 2,
+        //Number - The percentage of the chart that we cut out of the middle
+        percentageInnerCutout: 50, // This is 0 for Pie charts
+        //Number - Amount of animation steps
+        animationSteps       : 100,
+        //String - Animation easing effect
+        animationEasing      : 'easeOutBounce',
+        //Boolean - Whether we animate the rotation of the Doughnut
+        animateRotate        : true,
+        //Boolean - Whether we animate scaling the Doughnut from the centre
+        animateScale         : false,
+        //Boolean - whether to make the chart responsive to window resizing
+        responsive           : true,
+        // Boolean - whether to maintain the starting aspect ratio or not when responsive, if set to false, will take up entire container
+        maintainAspectRatio  : true,
+        //String - A legend template
+        legendTemplate       : '<ul class="<%=name.toLowerCase()%>-legend"><% for (var i=0; i<segments.length; i++){%><li><span style="background-color:<%=segments[i].fillColor%>"></span><%if(segments[i].label){%><%=segments[i].label%><%}%></li><%}%></ul>'
+      }
+      //Create pie or douhnut chart
+      // You can switch between pie and douhnut using the method below.
+      pieChart.Doughnut(PieData, pieOptions)
+     });
+    });
   </script>
   
 @endsection     

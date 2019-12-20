@@ -20,10 +20,12 @@
 
 Auth::routes();
 
+Route::get('test', 'Testcontroller@index');
+
 
 //Route::resource('momc', 'kpimonitormcController');
 Route::get('momc', 'kpimonitormcController@index')->middleware('auth');
-Route::get('momc/readdata', 'kpimonitormcController@readdata')->middleware('auth');
+//Route::get('momc/readdata', 'kpimonitormcController@readdata')->middleware('auth');
 Route::get('momc/readdatabymc/{valuesmcs}', 'kpimonitormcController@readdatabymc')->middleware('auth');
 Route::get('momc/readdataindex/{valuemc}', 'kpimonitormcController@readdataindex')->middleware('auth');
 Route::get('momc/readdataChart', 'kpimonitormcController@Chart')->middleware('auth');
@@ -37,6 +39,7 @@ Route::get('oeed/readdmc/{yyyy}/{mmmm}/{dddd}/{yyyye}/{mmmme}/{dddde}/{varmc}/{s
 
 Route::resource('/', 'kpidashboardController')->middleware('auth');
 Route::resource('/kpi', 'kpidashboardController')->middleware('auth');
+Route::get('kpireaddatamc/readdata/{todayS}/{todayE}', 'kpiGetDataController@readdata')->middleware('auth');
 
 Route::resource('oee', 'kpioeeController')->middleware('auth');
 //Route::get('oee','kpioeeController@index');

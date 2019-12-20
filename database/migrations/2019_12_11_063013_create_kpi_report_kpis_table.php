@@ -41,6 +41,7 @@ class CreateKpiReportKpisTable extends Migration
             $table->integer('Re_Count_Bit8');
             $table->integer('Re_Sum_Sec_Bit8');
             $table->string('Re_Shift');
+            $table->string('Re_Location');
             $table->dateTime('Re_Hs_S');
             $table->dateTime('Re_Hs_E');
             $table->dateTime('Re_Cal_By_Hs');
