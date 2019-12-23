@@ -2,70 +2,76 @@
 @section('content')
 
 
+
 <div class="row">
+  <div class="col-lg-3 col-xs-6">
+    <!-- small box -->
+    <div class="small-box bg-aqua">
+      <div class="inner ">
+        <h3 class = "target"></h3>
 
-  <div class="col-md-3 col-sm-6 col-xs-12">
-    <div class="info-box">
-      <span class="info-box-icon"><i class="fa fa-tags"></i></span>
-
-      <div class="info-box-content">
-        <span class="info-box-text"><b>TARGET / OUTPUT<b></span>
-          <span class="info-box-number"></span>
-          <p></p>
-          <p></p>
-        <span class="info-box-number target"></span> 
-      
+        <p>TARGET / OUTPUT</p>
       </div>
+      <div class="icon">
+        <i class="ion ion-bag"></i>
+      </div>
+      <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
     </div>
   </div>
+  <!-- ./col -->
 
-  <div class="col-md-3 col-sm-6 col-xs-12">
-    <div class="info-box">
-      <span class="info-box-icon"><i class="fa fa-tags"></i></span>
+  <div class="col-lg-3 col-xs-6">
+    <!-- small box -->
+    <div class="small-box bg-green">
+      <div class="inner">
+        <h3 class = "target"><sup style="font-size: 20px">%</sup></h3>
 
-      <div class="info-box-content">
-        <span class="info-box-text">MC. DOWN</span>
-        <span class="info-box-number"></span>
-        <p></p>
-        <p></p>
-      <span class="info-box-number target"></span> 
+        <p>MC. DOWN</p>
       </div>
+      <div class="icon">
+        <i class="ion ion-stats-bars"></i>
+      </div>
+      <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
     </div>
   </div>
+  <!-- ./col -->
+  <div class="col-lg-3 col-xs-6">
+    <!-- small box -->
+    <div class="small-box bg-yellow">
+      <div class="inner">
+        <h3 class = "target"></h3>
 
-  <div class="col-md-3 col-sm-6 col-xs-12">
-    <div class="info-box">
-      <span class="info-box-icon"><i class="fa fa-tags"></i></span>
-
-      <div class="info-box-content">
-        <span class="info-box-text">OEE</span>
-        <span class="info-box-number">97.27 %</span>
-
-        <p></p>
-            <span class="progress-description dateyimeN">
-             
-            </span>
+        <p>OLE</p>
       </div>
+      <div class="icon">
+        <i class="ion ion-person-add"></i>
+      </div>
+      <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
     </div>
   </div>
+  <!-- ./col -->
+  <div class="col-lg-3 col-xs-6">
+    <!-- small box -->
+    <div class="small-box bg-red">
+      <div class="inner">
+        <h3 class = "target"></h3>
 
-  <div class="col-md-3 col-sm-6 col-xs-12">
-    <div class="info-box">
-      <span class="info-box-icon"><i class="fa fa-tags"></i></span>
-
-      <div class="info-box-content">
-        <span class="info-box-text">OLE</span>
-        <span class="info-box-number">98.27 %</span>
-
-        <p></p>
-            <span class="progress-description dateyimeN">
-             
-            </span>
+        <p>OEE</p>
       </div>
+      <div class="icon">
+        <i class="ion ion-pie-graph"></i>
+      </div>
+      <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
     </div>
   </div>
-
+  <!-- ./col -->
 </div>
+
+
+
+
+
+
 
 <div class="row">
   <div class="col-md-12">
