@@ -86,7 +86,6 @@ Route::get('seq/destroy/{id}', 'kpisetqualityController@destroy');
 Route::get('testgetjson', 'GetnodejsonController@index');
 Route::post('testgetjson', 'GetnodejsonController@store');
 
-
 //Route::resource('sample', 'ShiftController');
 ///Route::post('sample/update', 'ShiftController@update')->name('sample.update');
 //Route::get('sample/destroy/{id}', 'ShiftController@destroy');

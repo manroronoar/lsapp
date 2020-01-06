@@ -22,7 +22,9 @@ class kpiGetDataController extends Controller
      $todayS = $request->todayS;
      $todayE = $request->todayE;
     // $data =  kpi_mcs::distinct()->get(['Mc_Number']);
-
+    $countmcMc_Number = kpi_mcs::select('Mc_Number')->distinct()->get();
+    $countmcRe_McNumber = DB::table('kpi_report_kpis')->select(DB::raw('distinct(Re_McNumber)'))->whereBetween('Re_Hs_S', [$todayS, $todayE])->get();
+   //  dd($countmcstotal);
      $data =  DB::table('kpi_report_kpis')
      ->select(DB::raw('count(id) as countrow,
                          SUM(Re_Ar_Target) as Art,
@@ -50,8 +52,19 @@ class kpiGetDataController extends Controller
      ->whereBetween('Re_Hs_S', [$todayS, $todayE])
      ->get();
 
-     return response()->json(['result' => $data,'todayS' => $todayS,'todayE' => $todayE]);
-  
+
+        $datachart =  DB::table('kpi_report_kpis')  
+        ->select(DB::raw('Re_Pr_Actual as item1, Re_Pr_Target as item2, DATE_FORMAT(Re_Hs_S,"%H:%i:%s")  as y '))   
+        ->whereBetween('Re_Hs_S', [$todayS, $todayE])
+        ->get();
+
+     return response()->json(['result' => $data,
+                              'datachart' => $datachart,
+                              'countmcMc_Number' => $countmcMc_Number,
+                              'countmcRe_McNumber' => $countmcRe_McNumber,
+                              'todayS' => $todayS,
+                              'todayE' => $todayE]);
+    
      
     }
 }
