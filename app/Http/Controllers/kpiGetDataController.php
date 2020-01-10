@@ -79,6 +79,10 @@ class kpiGetDataController extends Controller
      ->whereBetween('Re_Hs_S', [$todayS, $todayE])
      ->get();
 
+     
+
+
+
      $dataAY2 =  DB::table('kpi_report_kpis')
      ->select(DB::raw('count(id) as countrow,
                          SUM(Re_Ar_Target) as Art,
@@ -133,15 +137,68 @@ class kpiGetDataController extends Controller
      ->whereBetween('Re_Hs_S', [$todayS, $todayE])
      ->get();
 
-        $datachart =  DB::table('kpi_report_kpis')  
-        ->select(DB::raw('Re_Pr_Actual as item1, Re_Pr_Target as item2, DATE_FORMAT(Re_Hs_S,"%H:%i:%s")  as y '))   
-        ->whereBetween('Re_Hs_S', [$todayS, $todayE])
-        ->get();
+      $datachart =  DB::table('kpi_report_kpis')  
+      ->select(DB::raw('Re_Pr_Actual as item1, Re_Pr_Target as item2, DATE_FORMAT(Re_Hs_S,"%H:%i:%s")  as y '))   
+      ->whereBetween('Re_Hs_S', [$todayS, $todayE])
+      ->get();
+
+
+
+
+      $datastatus= DB::table('kpi_getnodejsons')
+        // ->select('Gn_node' ,DB::raw('MAX(Gn_tsupd) as Gn_tsupd'))
+         ->select(DB::raw('Gn_node,MAX(Gn_tsupd) as Gn_tsupd,Gn_posbit,(CASE
+           WHEN Gn_posbit = 1 THEN "Down"
+           WHEN Gn_posbit = 2 THEN "Idee"
+           WHEN Gn_posbit = 3 THEN "Setup"
+           WHEN Gn_posbit = 4 THEN "P.M"
+           WHEN Gn_posbit = 5 THEN "Running"
+           WHEN Gn_posbit = 6 THEN "By Off"
+           ELSE Gn_posbit
+           END) as status'))
+         ->groupBy('Gn_node');
+       //  ->get();
+    
+        $datajoinstatus1 = DB::table('kpi_mcs')
+           ->select('kpi_mcs.Mc_Number','kpi_mcs.mc_location','datastatus.Gn_node',DB::raw('MAX(datastatus.Gn_tsupd) as Gn_tsupd'),'datastatus.status')
+          //  ->select(DB::raw('MAX(datastatus.Gn_tsupd) as Gn_tsupd'))
+            ->joinSub($datastatus, 'datastatus', function ($join) {
+                $join->on('kpi_mcs.Mc_Node', '=', 'datastatus.Gn_node');
+            })
+            ->where('kpi_mcs.mc_location','=','AY1')
+            ->groupBy('kpi_mcs.Mc_Number')
+            ->get();
+     
+        $datajoinstatus2 = DB::table('kpi_mcs')
+            ->select('kpi_mcs.Mc_Number','kpi_mcs.mc_location','datastatus.Gn_node',DB::raw('MAX(datastatus.Gn_tsupd) as Gn_tsupd'),'datastatus.status')
+          //  ->select(DB::raw('MAX(datastatus.Gn_tsupd) as Gn_tsupd'))
+            ->joinSub($datastatus, 'datastatus', function ($join) {
+                $join->on('kpi_mcs.Mc_Node', '=', 'datastatus.Gn_node');
+            })
+            ->where('kpi_mcs.mc_location','=','AY2')
+            ->groupBy('kpi_mcs.Mc_Number')
+            ->get();
+
+        $datajoinstatus3 = DB::table('kpi_mcs')
+            ->select('kpi_mcs.Mc_Number','kpi_mcs.mc_location','datastatus.Gn_node',DB::raw('MAX(datastatus.Gn_tsupd) as Gn_tsupd'),'datastatus.status')
+          //  ->select(DB::raw('MAX(datastatus.Gn_tsupd) as Gn_tsupd'))
+            ->joinSub($datastatus, 'datastatus', function ($join) {
+                $join->on('kpi_mcs.Mc_Node', '=', 'datastatus.Gn_node');
+            })
+            ->where('kpi_mcs.mc_location','=','AY3')
+            ->groupBy('kpi_mcs.Mc_Number')
+            ->get();
+
+                
+
 
      return response()->json(['result' => $data,
-                              'dataay1' => $dataAY1,
+                              'dataay1' => $dataAY1,                     
                               'dataay2' => $dataAY2,
                               'dataay3' => $dataAY3,
+                              'datajoinstatusAY1' => $datajoinstatus1,
+                              'datajoinstatusAY2' => $datajoinstatus2,
+                              'datajoinstatusAY3' => $datajoinstatus3,
                               'datachart' => $datachart,
                               'countmcMc_Number' => $countmcMc_Number,
                               'countmcRe_McNumber' => $countmcRe_McNumber,
