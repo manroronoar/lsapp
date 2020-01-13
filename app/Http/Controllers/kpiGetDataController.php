@@ -26,7 +26,7 @@ class kpiGetDataController extends Controller
     // $data =  kpi_mcs::distinct()->get(['Mc_Number']);
     $countmcMc_Number = kpi_mcs::select('Mc_Number')->distinct()->get();
     $countmcRe_McNumber = DB::table('kpi_report_kpis')->select(DB::raw('distinct(Re_McNumber)'))->whereBetween('Re_Hs_S', [$todayS, $todayE])->get();
-   //  dd($countmcstotal);
+    // dd($countmcstotal);
      $data =  DB::table('kpi_report_kpis')
      ->select(DB::raw('count(id) as countrow,
                          SUM(Re_Ar_Target) as Art,
@@ -145,10 +145,18 @@ class kpiGetDataController extends Controller
      ->where('Re_Hs_S','like',$tomonths)
      ->get();
 
-      $datachart =  DB::table('kpi_report_kpis')  
-      ->select(DB::raw('Re_Pr_Actual as item1, Re_Pr_Target as item2, DATE_FORMAT(Re_Hs_S,"%H:%i:%s")  as y '))   
+     // $datachart =  DB::table('kpi_report_kpis')  
+     // ->select(DB::raw('Re_Pr_Actual as item1, Re_Pr_Target as item2, DATE_FORMAT(Re_Hs_S,"%H:%i:%s")  as y '))   
      // ->whereBetween('Re_Hs_S', [$todayS, $todayE])
-     ->where('Re_Hs_S','like',$tomonths)
+     //->where('Re_Hs_S','like',$tomonths)
+      //->get();
+
+      $datachart =  DB::table('kpi_report_kpis')  
+      ->select(DB::raw('sum(Re_Pr_Actual) as ac, sum(Re_Pr_Target) as tr,YEAR(Re_Hs_S) year, MONTH(Re_Hs_S) month, DAY(Re_Hs_S) day'))      
+      //GROUP BY YEAR(Re_Hs_S), MONTH(Re_Hs_S) ,DAY(Re_Hs_S)
+      //->where('year','=','2019')
+      ->where('Re_Hs_S','like',$tomonths)
+      ->groupBy('year','month','day')
       ->get();
 
       $datastatus= DB::table('kpi_getnodejsons')

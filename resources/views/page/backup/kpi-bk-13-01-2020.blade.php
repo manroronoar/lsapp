@@ -278,11 +278,12 @@
             <div class="row">
             
               <div class="col-md-7">
+                <div class="chart">
+                  <canvas id="lineChart" style="height:250px"></canvas>
+                </div>
                 <!--<div class="chart">
-                  <canvas id="lineChart" style="height:200px"></canvas> 
-                </div>-->
-                <div class="chart" id="revenue-chart" style="height: 200px;"></div>
-               
+                  <canvas id="areaChart" style="height:300px"></canvas>
+                </div>  -->
               </div>
 
               <div class="col-md-3">
@@ -406,12 +407,12 @@
             var tr = "<tr>";
             if ((value.status == "Idle") || (value.status == "Running"))
             {
-            //  console.log(value.status)  
+              console.log(value.status)  
               tr = tr + "<td>"+ value.Mc_Number +"</td><td><span class='label label-success'>"+ value.status +"</span></td>";
             }
             else
             {
-            //  console.log(value.status)  
+              console.log(value.status)  
               tr = tr + "<td>"+ value.Mc_Number +"</td><td><span class='label label-danger'>"+ value.status +"</span></td>";
             }
 					
@@ -486,31 +487,108 @@
     //##################################################################################################################################
     //##########################################################  Chart   ##############################################################
       console.log(data)  
-   
-      var area = new Morris.Area({
-      element: 'revenue-chart',
-      resize: false,
-      data: [
-        {y: '1', item1: 2666, item2: 2666},
-        {y: '2', item1: 2778, item2: 2294},
-        {y: '3', item1: 4912, item2: 1969},
-        {y: '4', item1: 3767, item2: 3597},
-        {y: '5', item1: 6810, item2: 1914},
-        {y: '6', item1: 5670, item2: 4293},
-        {y: '7', item1: 4820, item2: 3795},
-        {y: '8', item1: 15073, item2: 5967},
-        {y: '9', item1: 10687, item2: 4460},
-        {y: '10', item1: 8432, item2: 5713}
-      ],
-      xkey: 'y',
-      ykeys: ['item1', 'item2'],
-      labels: ['Item 1', 'Item 2'],
-      lineColors: ['#a0d0e0', '#3c8dbc'],
-      hideHover: 'auto'
-    });
-    
+      var areaChartCanvas = $('#areaChart').get(0).getContext('2d')
+      var areaChart       = new Chart(areaChartCanvas)
+
+      var targetcharta = [50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50];
+      var targetchartb = [48, 49, 50, 50, 50, 50, 50, 50, 47, 48, 49, 50, 49, 49, 49, 49, 45, 48, 50, 49, 50, 47, 50, 46, 49, 48, 50, 47, 50, 50];
+      var targetchartdate = ['1/11/2019',
+                             '2/11/2019',
+                             '3/11/2019',
+                             '4/11/2019',
+                             '5/11/2019',
+                             '6/11/2019',
+                             '7/11/2019',
+                             '8/11/2019',
+                             '9/11/2019',
+                             '10/11/2019',
+                             '11/11/2019',
+                             '12/11/2019',
+                             '13/11/2019',
+                             '14/11/2019',
+                             '15/11/2019',
+                             '16/11/2019',
+                             '17/11/2019',
+                             '18/11/2019',
+                             '19/11/2019',
+                             '20/11/2019',
+                             '21/11/2019',
+                             '22/11/2019',
+                             '23/11/2019',
+                             '24/11/2019',
+                             '25/11/2019',
+                             '26/11/2019',
+                             '27/11/2019',
+                             '28/11/2019',
+                             '29/11/2019',
+                             '30/11/2019']
+
+      var areaChartData = {
+        labels  : targetchartdate,
+        datasets: [
+          {
+            label               : 'TARGET',
+            fillColor           : 'rgba(210, 214, 222, 1)',
+            strokeColor         : 'rgba(210, 214, 222, 1)',
+            pointColor          : 'rgba(210, 214, 222, 1)',
+            pointStrokeColor    : '#c1c7d1',
+            pointHighlightFill  : '#fff',
+            pointHighlightStroke: 'rgba(220,220,220,1)',
+            data                : targetcharta
+          },
+          {//234, 243, 246
+            label               : 'AC',
+            fillColor           : 'rgba(60,141,188,0.9)',
+            strokeColor         : 'rgba(60,141,188,0.8)',
+            pointColor          : '#3b8bba',
+            pointStrokeColor    : 'rgba(60,141,188,1)',
+            pointHighlightFill  : '#fff',
+            pointHighlightStroke: 'rgba(60,141,188,1)',
+            data                : targetchartb
+          }
+        ]
+      }
+  
+      var areaChartOptions = {
+        //Boolean - If we should show the scale at all
+        showScale               : true,
+        //Boolean - Whether grid lines are shown across the chart
+        scaleShowGridLines      : false,
+        //String - Colour of the grid lines
+        scaleGridLineColor      : 'rgba(0,0,0,.05)',
+        //Number - Width of the grid lines
+        scaleGridLineWidth      : 1,
+        //Boolean - Whether to show horizontal lines (except X axis)
+        scaleShowHorizontalLines: true,
+        //Boolean - Whether to show vertical lines (except Y axis)
+        scaleShowVerticalLines  : true,
+        //Boolean - Whether the line is curved between points
+        bezierCurve             : true,
+        //Number - Tension of the bezier curve between points
+        bezierCurveTension      : 0.3,
+        //Boolean - Whether to show a dot for each point
+        pointDot                : false,
+        //Number - Radius of each point dot in pixels
+        pointDotRadius          : 4,
+        //Number - Pixel width of point dot stroke
+        pointDotStrokeWidth     : 1,
+        //Number - amount extra to add to the radius to cater for hit detection outside the drawn point
+        pointHitDetectionRadius : 20,
+        //Boolean - Whether to show a stroke for datasets
+        datasetStroke           : true,
+        //Number - Pixel width of dataset stroke
+        datasetStrokeWidth      : 2,
+        //Boolean - Whether to fill the dataset with a color
+        datasetFill             : true,
+        //String - A legend template
+        legendTemplate          : '<ul class="<%=name.toLowerCase()%>-legend"><% for (var i=0; i<datasets.length; i++){%><li><span style="background-color:<%=datasets[i].lineColor%>"></span><%if(datasets[i].label){%><%=datasets[i].label%><%}%></li><%}%></ul>',
+        //Boolean - whether to maintain the starting aspect ratio or not when responsive, if set to false, will take up entire container
+        maintainAspectRatio     : true,
+        //Boolean - whether to make the chart responsive to window resizing
+        responsive              : true
+      }
       //Create the line chart
-      //areaChart.Line(areaChartData, areaChartOptions)
+      areaChart.Line(areaChartData, areaChartOptions)
   
       var pieChartCanvas = $('#pieChart').get(0).getContext('2d')
       var pieChart       = new Chart(pieChartCanvas)
