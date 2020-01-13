@@ -21,6 +21,8 @@ class kpiGetDataController extends Controller
       //  todayS + ' ' +todayE
      $todayS = $request->todayS;
      $todayE = $request->todayE;
+     $tomonths  =  $request->tomonths . '%';
+    // $ttttt = '2019-12-%';
     // $data =  kpi_mcs::distinct()->get(['Mc_Number']);
     $countmcMc_Number = kpi_mcs::select('Mc_Number')->distinct()->get();
     $countmcRe_McNumber = DB::table('kpi_report_kpis')->select(DB::raw('distinct(Re_McNumber)'))->whereBetween('Re_Hs_S', [$todayS, $todayE])->get();
@@ -49,7 +51,10 @@ class kpiGetDataController extends Controller
                          SUM(Re_Sum_Sec_Bit8) as S8,
                          SUM(Re_Count_Bit8) as C8'))
     // ->where('Re_McNumber', '=', $request->varmc)
-     ->whereBetween('Re_Hs_S', [$todayS, $todayE])
+    // ->whereBetween('Re_Hs_S', [$todayS, $todayE])
+   
+    ->where('Re_Hs_S','like',$tomonths)
+   // where  Re_Hs_S like('2019-12-%')
      ->get();
 
      $dataAY1 =  DB::table('kpi_report_kpis')
@@ -76,7 +81,8 @@ class kpiGetDataController extends Controller
                          SUM(Re_Sum_Sec_Bit8) as S8,
                          SUM(Re_Count_Bit8) as C8'))
      ->where('Re_Location', '=', 'AY1')
-     ->whereBetween('Re_Hs_S', [$todayS, $todayE])
+     //->whereBetween('Re_Hs_S', [$todayS, $todayE])
+     ->where('Re_Hs_S','like',$tomonths)
      ->get();
 
      
@@ -107,7 +113,8 @@ class kpiGetDataController extends Controller
                          SUM(Re_Sum_Sec_Bit8) as S8,
                          SUM(Re_Count_Bit8) as C8'))
      ->where('Re_Location', '=', 'AY2')
-     ->whereBetween('Re_Hs_S', [$todayS, $todayE])
+    // ->whereBetween('Re_Hs_S', [$todayS, $todayE])
+    ->where('Re_Hs_S','like',$tomonths)
      ->get();
 
      $dataAY3 =  DB::table('kpi_report_kpis')
@@ -134,22 +141,21 @@ class kpiGetDataController extends Controller
                          SUM(Re_Sum_Sec_Bit8) as S8,
                          SUM(Re_Count_Bit8) as C8'))
      ->where('Re_Location', '=', 'AY3')
-     ->whereBetween('Re_Hs_S', [$todayS, $todayE])
+     //->whereBetween('Re_Hs_S', [$todayS, $todayE])
+     ->where('Re_Hs_S','like',$tomonths)
      ->get();
 
       $datachart =  DB::table('kpi_report_kpis')  
       ->select(DB::raw('Re_Pr_Actual as item1, Re_Pr_Target as item2, DATE_FORMAT(Re_Hs_S,"%H:%i:%s")  as y '))   
-      ->whereBetween('Re_Hs_S', [$todayS, $todayE])
+     // ->whereBetween('Re_Hs_S', [$todayS, $todayE])
+     ->where('Re_Hs_S','like',$tomonths)
       ->get();
-
-
-
 
       $datastatus= DB::table('kpi_getnodejsons')
         // ->select('Gn_node' ,DB::raw('MAX(Gn_tsupd) as Gn_tsupd'))
          ->select(DB::raw('Gn_node,MAX(Gn_tsupd) as Gn_tsupd,Gn_posbit,(CASE
            WHEN Gn_posbit = 1 THEN "Down"
-           WHEN Gn_posbit = 2 THEN "Idee"
+           WHEN Gn_posbit = 2 THEN "Idle"
            WHEN Gn_posbit = 3 THEN "Setup"
            WHEN Gn_posbit = 4 THEN "P.M"
            WHEN Gn_posbit = 5 THEN "Running"
@@ -188,7 +194,13 @@ class kpiGetDataController extends Controller
             ->where('kpi_mcs.mc_location','=','AY3')
             ->groupBy('kpi_mcs.Mc_Number')
             ->get();
+            
 
+
+        $countmcay1 = DB::table('kpi_mcs')->select(DB::raw('DISTINCT(Mc_Number),Mc_Location'))->where('Mc_Location','=','AY1')->get();
+        $countmcay2 = DB::table('kpi_mcs')->select(DB::raw('DISTINCT(Mc_Number),Mc_Location'))->where('Mc_Location','=','AY2')->get();
+        $countmcay3 = DB::table('kpi_mcs')->select(DB::raw('DISTINCT(Mc_Number),Mc_Location'))->where('Mc_Location','=','AY3')->get();
+      
                 
 
 
@@ -199,6 +211,9 @@ class kpiGetDataController extends Controller
                               'datajoinstatusAY1' => $datajoinstatus1,
                               'datajoinstatusAY2' => $datajoinstatus2,
                               'datajoinstatusAY3' => $datajoinstatus3,
+                              'countmcay1' => $countmcay1,
+                              'countmcay2' => $countmcay2,
+                              'countmcay3' => $countmcay3,
                               'datachart' => $datachart,
                               'countmcMc_Number' => $countmcMc_Number,
                               'countmcRe_McNumber' => $countmcRe_McNumber,

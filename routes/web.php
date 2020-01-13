@@ -39,7 +39,7 @@ Route::get('oeed/readdmc/{yyyy}/{mmmm}/{dddd}/{yyyye}/{mmmme}/{dddde}/{varmc}/{s
 
 Route::resource('/', 'kpidashboardController')->middleware('auth');
 Route::resource('/kpi', 'kpidashboardController')->middleware('auth');
-Route::get('kpireaddatamc/readdata/{todayS}/{todayE}', 'kpiGetDataController@readdata')->middleware('auth');
+Route::get('kpireaddatamc/readdata/{todayS}/{todayE}/{tomonths}', 'kpiGetDataController@readdata')->middleware('auth');
 
 Route::resource('oee', 'kpioeeController')->middleware('auth');
 //Route::get('oee','kpioeeController@index');

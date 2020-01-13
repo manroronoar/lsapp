@@ -81,7 +81,7 @@
   <div class="col-md-4">  
     <div class="box">
       <div class="box-header with-border">
-        <h3 class="box-title"><b>AY1</b></h3>
+        <h3 class="box-title"><b>Location AY1</b></h3>
         <div class="box-tools pull-right">       
         </div>
       </div>
@@ -91,45 +91,41 @@
                   <div class=""> 
                   </div> 
                   <div class=""> 
-                    <h5>target<span class="pull-right  "><i class=""></i> 1200 </span></h5>               
+                    <h5><b>Target<span class="pull-right" id="Targetay1"></span></b></h5>               
                   </div>
                   <div class=""> 
-                    <h5>output<span class="pull-right  "><i class=""></i> 1185 </span></h5> 
+                    <h5><b>Output<span class="pull-right" id ="Outputay1"></span></b></h5> 
                   </div>
                   <div class=""> 
-                    <h5>oee<span class="pull-right  "><i class=""></i> 98.74% </span></h5> 
+                    <h5><b>Diff Output<span class="pull-right" id ="Diffay1"></span></b></h5> 
                   </div>
                   <div class=""> 
-                    <h5>ole<span class="pull-right  "><i class=""></i> 98.45% </span></h5> 
+                    <h5><b>Oee<span class="pull-right" id ="Oeeay1"></span></b></h5> 
                   </div>
                   <div class=""> 
-                    <h5>mctotal<span class="pull-right  "><i class=""></i> 5 Mc. </span></h5>             
+                    <h5><b>Ole<span class="pull-right" id ="Oleay1"></span></b></h5> 
                   </div>
                   <div class=""> 
-                    <h5>mcrun<span class="pull-right  "><i class=""></i> 2 Mc. </span></h5>               
+                    <h5><b>Mc.Total<span class="pull-right" id ="Mctay1"></span></b></h5>             
                   </div>
-      
+                  <div class=""> 
+                    <h5><b>Mc.Run<span class="pull-right" id = "Mcray1"></span></b></h5>               
+                  </div>
                 </div>
 
                 <div class="col-md-6">  
-                  <div class=""> 
-                    <h5>Mc. name<span class="pull-right  "><i class=""></i> Status</span></h5>   
-                  </div>
-                  <div class=""> 
-                    <h5>Mc001<span class="pull-right  "><i class=""></i> run</span></h5>               
-                   </div>
-                  <div class=""> 
-                    <h5>Mc002<span class="pull-right  "><i class=""></i> down</span></h5>               
-                  </div>
-                  <div class=""> 
-                    <h5>Mc003<span class="pull-right  "><i class=""></i> down</span></h5>               
-                  </div>
-                  <div class=""> 
-                    <h5>Mc004<span class="pull-right  "><i class=""></i> down</span></h5>               
-                  </div>
-                  <div class=""> 
-                    <h5>Mc005<span class="pull-right  "><i class=""></i> run</span></h5>               
-                  </div>
+                  <table class="table table-striped table-hover" id="myTable1">
+                    <thead>
+                      <tr>            
+                        <th>Mc.Name</th>
+                        <th>Mc.Status</th>
+                      <tr>
+                    </thead>
+                    <tbody>
+                      
+                    </tbody>
+                  
+                  </table>
                 </div>
        </div>
     </div>
@@ -139,7 +135,7 @@
   <div class="col-md-4">  
     <div class="box">
       <div class="box-header with-border">
-        <h3 class="box-title"><b>AY2</b></h3>
+        <h3 class="box-title"><b>Location AY2</b></h3>
         <div class="box-tools pull-right">       
         </div>
       </div>
@@ -149,45 +145,42 @@
                   <div class=""> 
                   </div> 
                   <div class=""> 
-                    <h5>target<span class="pull-right  "><i class=""></i> 1200 </span></h5>               
+                    <h5><b>Target<span class="pull-right" id="Targetay2"></span></b></h5>               
                   </div>
                   <div class=""> 
-                    <h5>output<span class="pull-right  "><i class=""></i> 1185 </span></h5> 
+                    <h5><b>Output<span class="pull-right" id ="Outputay2"></span></b></h5> 
                   </div>
                   <div class=""> 
-                    <h5>oee<span class="pull-right  "><i class=""></i> 98.74% </span></h5> 
+                    <h5><b>Diff Output<span class="pull-right" id ="Diffay2"></span></b></h5> 
                   </div>
                   <div class=""> 
-                    <h5>ole<span class="pull-right  "><i class=""></i> 98.45% </span></h5> 
+                    <h5><b>Oee<span class="pull-right" id ="Oeeay2"></span></b></h5> 
                   </div>
                   <div class=""> 
-                    <h5>mctotal<span class="pull-right  "><i class=""></i> 5 Mc. </span></h5>             
+                    <h5><b>Ole<span class="pull-right" id ="Oleay2"></span></b></h5> 
                   </div>
                   <div class=""> 
-                    <h5>mcrun<span class="pull-right  "><i class=""></i> 2 Mc. </span></h5>               
+                    <h5><b>Mc.Total<span class="pull-right" id ="Mctay2"></span></b></h5>             
+                  </div>
+                  <div class=""> 
+                    <h5><b>Mc.Run<span class="pull-right" id = "Mcray2"></span></b></h5>               
                   </div>
       
                 </div>
 
                 <div class="col-md-6">  
-                  <div class=""> 
-                    <h5>Mc. name<span class="pull-right  "><i class=""></i> Status</span></h5>   
-                  </div>
-                  <div class=""> 
-                    <h5>Mc001<span class="pull-right  "><i class=""></i> run</span></h5>               
-                   </div>
-                  <div class=""> 
-                    <h5>Mc002<span class="pull-right  "><i class=""></i> down</span></h5>               
-                  </div>
-                  <div class=""> 
-                    <h5>Mc003<span class="pull-right  "><i class=""></i> down</span></h5>               
-                  </div>
-                  <div class=""> 
-                    <h5>Mc004<span class="pull-right  "><i class=""></i> down</span></h5>               
-                  </div>
-                  <div class=""> 
-                    <h5>Mc005<span class="pull-right  "><i class=""></i> run</span></h5>               
-                  </div>
+                  <table class="table table-striped table-hover" id="myTable2">
+                    <thead>
+                      <tr>            
+                        <th>Mc.Name</th>
+                        <th>Mc.Status</th>
+                      <tr>
+                    </thead>
+                    <tbody>
+                     
+                    </tbody>
+                  
+                  </table>
                 </div>
        </div>
     </div>
@@ -196,7 +189,7 @@
   <div class="col-md-4">  
     <div class="box">
       <div class="box-header with-border">
-        <h3 class="box-title"><b>AY3</b></h3>
+        <h3 class="box-title"><b>Location AY3</b></h3>
         <div class="box-tools pull-right">       
         </div>
       </div>
@@ -206,50 +199,47 @@
                   <div class=""> 
                   </div> 
                   <div class=""> 
-                    <h5>target<span class="pull-right  "><i class=""></i> 1200 </span></h5>               
+                    <h5><b>Target<span class="pull-right" id="Targetay3"></span></b></h5>               
                   </div>
                   <div class=""> 
-                    <h5>output<span class="pull-right  "><i class=""></i> 1185 </span></h5> 
+                    <h5><b>Output<span class="pull-right" id ="Outputay3"></span></b></h5> 
                   </div>
                   <div class=""> 
-                    <h5>oee<span class="pull-right  "><i class=""></i> 98.74% </span></h5> 
+                    <h5><b>Diff Output<span class="pull-right" id ="Diffay3"></span></b></h5> 
                   </div>
                   <div class=""> 
-                    <h5>ole<span class="pull-right  "><i class=""></i> 98.45% </span></h5> 
+                    <h5><b>Oee<span class="pull-right" id ="Oeeay3"></span></b></h5> 
                   </div>
                   <div class=""> 
-                    <h5>mctotal<span class="pull-right  "><i class=""></i> 5 Mc. </span></h5>             
+                    <h5><b>Ole<span class="pull-right" id ="Oleay3"></span></b></h5> 
                   </div>
                   <div class=""> 
-                    <h5>mcrun<span class="pull-right  "><i class=""></i> 2 Mc. </span></h5>               
+                    <h5><b>Mc.Total<span class="pull-right" id ="Mctay3"></span></b></h5>             
                   </div>
+                  <div class=""> 
+                    <h5><b>Mc.Run<span class="pull-right" id = "Mcray3"></span></b></h5>               
+                  </div>
+      
       
                 </div>
 
                 <div class="col-md-6">  
-                  <div class=""> 
-                    <h5>Mc. name<span class="pull-right  "><i class=""></i> Status</span></h5>   
-                  </div>
-                  <div class=""> 
-                    <h5>Mc001<span class="pull-right  "><i class=""></i> run</span></h5>               
-                   </div>
-                  <div class=""> 
-                    <h5>Mc002<span class="pull-right  "><i class=""></i> down</span></h5>               
-                  </div>
-                  <div class=""> 
-                    <h5>Mc003<span class="pull-right  "><i class=""></i> down</span></h5>               
-                  </div>
-                  <div class=""> 
-                    <h5>Mc004<span class="pull-right  "><i class=""></i> down</span></h5>               
-                  </div>
-                  <div class=""> 
-                    <h5>Mc005<span class="pull-right  "><i class=""></i> run</span></h5>               
-                  </div>
+                  <table class="table table-striped table-hover" id="myTable3">
+                    <thead>
+                      <tr>            
+                        <th>Mc.Name</th>
+                        <th>Mc.Status</th>
+                      <tr>
+                    </thead>
+                    <tbody>
+                    
+                    </tbody>
+                  
+                  </table>
                 </div>
        </div>
     </div>
   </div>
-
 
 </div>
 
@@ -351,11 +341,14 @@
           if (timeSs < 10) {
             timeSs = '0' + timeSs;
           } 
-          var todayS = yyyy + '-' + mm + '-' + dd + ' 00:00:00'
-          var todayE = yyyy + '-' + mm + '-' + dd + ' 23:59:59'
+          var todayS = yyyy + '-' + mm + '-' + dd + ' 00:00:00';
+          var todayE = yyyy + '-' + mm + '-' + dd + ' 23:59:59';
+          var tomonths = yyyy + '-' + mm + '-';
+        //  var todayS = yyyy + '-' + mm + '-' + '%'
+        //  var todayE = yyyy + '-' + mm + '-' + '%'
          // var todayE = yyyy + '-' + mm + '-' + dd + ' ' + timeHs + ':'+ timeMs + ':'+ timeSs;
 
-      $.get("{{ url('kpireaddatamc/readdata') }}"+ '/' + todayS + '/' + todayE, function (data) {
+      $.get("{{ url('kpireaddatamc/readdata') }}"+ '/' + todayS + '/' + todayE +'/' + tomonths, function (data) {
        // parseInt(data.Result[0].S1);
       var countr = data.result[0].countrow;
       //parseInt(data.Result[0].S1);
@@ -379,9 +372,7 @@
       else if (difftargers <= 0)
       {
         $('.target').html("<h3>"+ targers +' / '+ outputs  +"<span class='pull-right text-green'><i class='fa fa-angle-down'></i>"  + difftargers +"</span></h3>");
-      }
-    
-    
+      }  
     //  $('.target').text(targers +' / '+ outputs );
       $('.difftarger').text(difftargers);
       $('.dateyimeN').text(todayS +' to '+ todayE);
@@ -396,13 +387,100 @@
       var outputs1 =  parseInt(data.dataay1[0].Pra);
       var difftargers1 = targers1 - outputs1;
       var mcrun1  = data.datajoinstatusAY1.length;
-      var mctotal1 = data.datajoinstatusAY1.length;
+      var mctotal1 = data.countmcay1.length;
       var oees1 = (data.dataay1[0].Oeea / countr1).toFixed(2);
-      alert(countr1 + ' ' + targers1 + ' ' +outputs1 + ' ' + difftargers1 + ' ' +mcrun1 + ' ' +mctotal1 + ' ' + oees1);
+
+
+      $('#Targetay1').text(targers1);
+      $('#Outputay1').text(outputs1);
+      $('#Diffay1').text(difftargers1);
+      $('#Oeeay1').text(oees1 +' %');
+      $('#Oleay1').text('');
+      $('#Mctay1').text(mctotal1  +' Mc.');
+      $('#Mcray1').text(mcrun1 +' Mc.');
+
+
+      $.each(data.datajoinstatusAY1, function (i,value) {
+            var tr = "<tr>";
+            if ((value.status == "Idle") || (value.status == "Running"))
+            {
+              console.log(value.status)  
+              tr = tr + "<td>"+ value.Mc_Number +"</td><td><span class='label label-success'>"+ value.status +"</span></td>";
+            }
+            else
+            {
+              console.log(value.status)  
+              tr = tr + "<td>"+ value.Mc_Number +"</td><td><span class='label label-danger'>"+ value.status +"</span></td>";
+            }
+					
+						tr = tr + "</tr>";
+						$('#myTable1 > tbody:last').append(tr);
+        })
+    //  alert(countr1 + ' ' + targers1 + ' ' +outputs1 + ' ' + difftargers1 + ' ' +mcrun1 + ' ' +mctotal1 + ' ' + oees1);
+    //  <h5>target<span class="pull-right  "><i class=""></i> 1200 </span></h5>     
+    //  <h5>Mc001<span class="pull-right  "><i class=""></i> run</span></h5>        
     //##################################################################################################################################
     //##########################################################  AY2   ################################################################
+    var countr2 = data.dataay2[0].countrow;  
+      var targers2 =  parseInt(data.dataay2[0].Prt);    
+      var outputs2 =  parseInt(data.dataay2[0].Pra);
+      var difftargers2 = targers2 - outputs2;
+      var mcrun2  = data.datajoinstatusAY2.length;
+      var mctotal2 = data.countmcay2.length;
+      var oees2 = (data.dataay2[0].Oeea / countr2).toFixed(2);
+
+      $('#Targetay2').text(targers2);
+      $('#Outputay2').text(outputs2);
+      $('#Oeeay2').text(oees2 +' %');
+      $('#Diffay2').text(difftargers2);
+      $('#Oleay2').text('');
+      $('#Mctay2').text(mctotal2  +' Mc.');
+      $('#Mcray2').text(mcrun2 +' Mc.');
+
+      $.each(data.datajoinstatusAY2, function (i,value) {
+            var tr = "<tr>";
+            if ((value.status == "Idle") || (value.status == "Running"))
+            {
+              tr = tr + "<td>"+ value.Mc_Number +"</td><td><span class='label label-success'>"+ value.status +"</span></td>";
+            }
+            else
+            {
+              tr = tr + "<td>"+ value.Mc_Number +"</td><td><span class='label label-danger'>"+ value.status +"</span></td>";
+            }
+						tr = tr + "</tr>";
+						$('#myTable2 > tbody:last').append(tr);
+        })
     //##################################################################################################################################
     //##########################################################  AY3   ################################################################
+      var countr3 = data.dataay3[0].countrow;  
+      var targers3 =  parseInt(data.dataay3[0].Prt);    
+      var outputs3 =  parseInt(data.dataay3[0].Pra);
+      var difftargers3 = targers3 - outputs3;
+      var mcrun3  = data.datajoinstatusAY3.length;
+      var mctotal3 = data.countmcay3.length;
+      var oees3 = (data.dataay3[0].Oeea / countr3).toFixed(2);
+
+      $('#Targetay3').text(targers3);
+      $('#Outputay3').text(outputs3);
+      $('#Diffay3').text(difftargers3);
+      $('#Oeeay3').text(oees3 +' %');
+      $('#Oleay3').text('');
+      $('#Mctay3').text(mctotal3 +' Mc.');
+      $('#Mcray3').text(mcrun3  +' Mc.');
+
+      $.each(data.datajoinstatusAY3, function (i,value) {
+            var tr = "<tr>";
+            if ((value.status == "Idle") || (value.status == "Running"))
+            {
+              tr = tr + "<td>"+ value.Mc_Number +"</td><td><span class='label label-success'>"+ value.status +"</span></td>";
+            }
+            else
+            {
+              tr = tr + "<td>"+ value.Mc_Number +"</td><td><span class='label label-danger'>"+ value.status +"</span></td>";
+            }
+						tr = tr + "</tr>";
+						$('#myTable3 > tbody:last').append(tr);
+        })
     //##################################################################################################################################
     //##########################################################  Chart   ##############################################################
       console.log(data)  
@@ -568,6 +646,6 @@
       });
     });
   </script>
-  
+
 @endsection     
  
