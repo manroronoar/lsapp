@@ -187,7 +187,7 @@
   </div>
 
   <div class="col-md-4">  
-    <div class="box">
+    <div class="box" id="boxay3">
       <div class="box-header with-border">
         <h3 class="box-title"><b>Location AY3</b></h3>
         <div class="box-tools pull-right">       
@@ -278,27 +278,26 @@
             <div class="row">
             
               <div class="col-md-7">
-                <!--<div class="chart">
-                  <canvas id="lineChart" style="height:200px"></canvas> 
-                </div>-->
-                <div class="chart" id="revenue-chart" style="height: 200px;"></div>
+                <div class="chart">
+                  <canvas id="lineChart" style="height:320px"></canvas> 
+                </div>
+               <!-- <div class="chart" id="revenue-chart" style="height: 200px;"></div>-->
                
               </div>
 
               <div class="col-md-3">
                 <div class="chart">
-                  <canvas id="pieChart" height="180"></canvas>
+                  <canvas id="pieChart" height="200"></canvas>
                 </div>
               </div>
             
               <div class="col-md-2">
                 <ul class="nav nav-pills nav-stacked">
-                  <li><a href="#">AY1
-                    <span class="pull-right text-red"><i class="fa fa-angle-down"></i> 12%</span></a></li>
-                  <li><a href="#">AY2 <span class="pull-right text-green"><i class="fa fa-angle-up"></i> 4%</span></a>
-                  </li>
-                  <li><a href="#">AY3
-                    <span class="pull-right text-yellow"><i class="fa fa-angle-left"></i> 0%</span></a></li>
+                  <li><a href="#" class="text-red">Location AY1 <span class="pull-right text-red"><i class="" id="acay1"></i> </span></a></li>
+                  <li><a href="#" class="text-green">Location AY2 <span class="pull-right text-green"><i class="" id="acay2"></i> </span></a></li>
+                  <li><a href="#" class="text-yellow">Location AY3<span class="pull-right text-yellow"><i class="" id="acay3"></i> </span></a></li>
+                  <li><a href="#" class="" style="color: #00c0ef;">Diff Target<span class="pull-right" style="color: #00c0ef;"><i class="" id="diffac"></i> </span></a></li>
+                  
                 </ul>
               </div>
           
@@ -487,58 +486,160 @@
     //##########################################################  Chart   ##############################################################
       console.log(data)  
    
-      var area = new Morris.Area({
-      element: 'revenue-chart',
-      resize: false,
-      data: [
-        {y: '1', item1: 2666, item2: 2666},
-        {y: '2', item1: 2778, item2: 2294},
-        {y: '3', item1: 4912, item2: 1969},
-        {y: '4', item1: 3767, item2: 3597},
-        {y: '5', item1: 6810, item2: 1914},
-        {y: '6', item1: 5670, item2: 4293},
-        {y: '7', item1: 4820, item2: 3795},
-        {y: '8', item1: 15073, item2: 5967},
-        {y: '9', item1: 10687, item2: 4460},
-        {y: '10', item1: 8432, item2: 5713}
-      ],
-      xkey: 'y',
-      ykeys: ['item1', 'item2'],
-      labels: ['Item 1', 'Item 2'],
-      lineColors: ['#a0d0e0', '#3c8dbc'],
-      hideHover: 'auto'
-    });
+      //--------------
+    //- AREA CHART -
+    //--------------
+
+    // Get context with jQuery - using jQuery's .get() method.
+    // var areaChartCanvas = $('#areaChart').get(0).getContext('2d')
+    // This will get the first returned node in the jQuery collection.
+    // var areaChart       = new Chart(areaChartCanvas)
+        //alert(data.datachart[0].ac);
+        var chartData = {
+          ac : [],
+          tr : [],
+          date : []
+        }
+        var len  = data.datachart.length;
+        for (var i = 0;i < len ; i++) 
+        {  
+          chartData.ac.push(data.datachart[i].ac);
+          chartData.tr.push(data.datachart[i].tr);
+          chartData.date.push(data.datachart[i].day + '-' + data.datachart[i].month + '-' + data.datachart[i].year);
+        }
+        console.log(chartData)  
+
+    var areaChartData = {
+      labels  : chartData.date,
+      datasets: [
+        {
+          label               : 'Electronics',
+          fillColor           : 'rgba(210, 214, 222, 1)',
+          strokeColor         : 'rgba(210, 214, 222, 1)',
+          pointColor          : 'rgba(210, 214, 222, 1)',
+          pointStrokeColor    : '#c1c7d1',
+          pointHighlightFill  : '#fff',
+          pointHighlightStroke: 'rgba(220,220,220,1)',
+          data                : chartData.tr
+        },
+        {
+          label               : 'Digital Goods',
+          fillColor           : 'rgba(60,141,188,0.9)',
+          strokeColor         : 'rgba(60,141,188,0.8)',
+          pointColor          : '#3b8bba',
+          pointStrokeColor    : 'rgba(60,141,188,1)',
+          pointHighlightFill  : '#fff',
+          pointHighlightStroke: 'rgba(60,141,188,1)',
+          data                : chartData.ac
+        }
+      ]
+    }
+
+    var areaChartOptions = {
+      //Boolean - If we should show the scale at all
+      showScale               : true,
+      //Boolean - Whether grid lines are shown across the chart
+      scaleShowGridLines      : false,
+      //String - Colour of the grid lines
+      scaleGridLineColor      : 'rgba(0,0,0,.05)',
+      //Number - Width of the grid lines
+      scaleGridLineWidth      : 1,
+      //Boolean - Whether to show horizontal lines (except X axis)
+      scaleShowHorizontalLines: true,
+      //Boolean - Whether to show vertical lines (except Y axis)
+      scaleShowVerticalLines  : true,
+      //Boolean - Whether the line is curved between points
+      bezierCurve             : true,
+      //Number - Tension of the bezier curve between points
+      bezierCurveTension      : 0.3,
+      //Boolean - Whether to show a dot for each point
+      pointDot                : false,
+      //Number - Radius of each point dot in pixels
+      pointDotRadius          : 4,
+      //Number - Pixel width of point dot stroke
+      pointDotStrokeWidth     : 1,
+      //Number - amount extra to add to the radius to cater for hit detection outside the drawn point
+      pointHitDetectionRadius : 20,
+      //Boolean - Whether to show a stroke for datasets
+      datasetStroke           : true,
+      //Number - Pixel width of dataset stroke
+      datasetStrokeWidth      : 2,
+      //Boolean - Whether to fill the dataset with a color
+      datasetFill             : true,
+      //String - A legend template
+      legendTemplate          : '<ul class="<%=name.toLowerCase()%>-legend"><% for (var i=0; i<datasets.length; i++){%><li><span style="background-color:<%=datasets[i].lineColor%>"></span><%if(datasets[i].label){%><%=datasets[i].label%><%}%></li><%}%></ul>',
+      //Boolean - whether to maintain the starting aspect ratio or not when responsive, if set to false, will take up entire container
+      maintainAspectRatio     : true,
+      //Boolean - whether to make the chart responsive to window resizing
+      responsive              : true
+    }
+
+    //Create the line chart
+   // areaChart.Line(areaChartData, areaChartOptions)
+
+    //-------------
+    //- LINE CHART -
+    //--------------
+    var lineChartCanvas          = $('#lineChart').get(0).getContext('2d')
+    var lineChart                = new Chart(lineChartCanvas)
+    var lineChartOptions         = areaChartOptions
+    lineChartOptions.datasetFill = false
+    lineChart.Line(areaChartData, lineChartOptions)
     
       //Create the line chart
       //areaChart.Line(areaChartData, areaChartOptions)
-  
+
+     // var outputs =  data.result[0].Pra;
+     // var targers =  parseInt(data.result[0].Prt);    
+     // var outputs =  parseInt(data.result[0].Pra);
+     // var difftargers = targers - outputs;
+     // var mcrun  = data.countmcRe_McNumber.length;
+     // var mctotal = data.countmcMc_Number.length;
+     // var oees = (data.result[0].Oeea / countr).toFixed(2);
+
+     var targetay1 =   ((parseInt(data.dataay1[0].Pra)) / (parseInt(data.result[0].Prt))).toFixed(2);
+     var targetay2 =    ((parseInt(data.dataay2[0].Pra)) / (parseInt(data.result[0].Prt))).toFixed(2);
+     var targetay3 =   ((parseInt(data.dataay3[0].Pra)) / (parseInt(data.result[0].Prt))).toFixed(2);
+     var difftr = (difftargers / (parseInt(data.result[0].Prt))).toFixed(2);
+     //targers
+      
+
+     $('#acay1').text(targetay1 + ' %');
+     $('#acay2').text(targetay2 + ' %');
+     $('#acay3').text(targetay3 + ' %');
+     $('#diffac').text(difftr + ' %');
+     //acay1
       var pieChartCanvas = $('#pieChart').get(0).getContext('2d')
       var pieChart       = new Chart(pieChartCanvas)
       var PieData        = [
         {
-          value    : 700,
-          color    : '#a0d0e0',
-          highlight: '#a0d0e0',
-          label    : 'AY1'
-        },
-        {
-          value    : 500,
-          color    : '#00c0ef',
-          highlight: '#00c0ef',
-          label    : 'AY2'
-        },
-        {
-          value    : 500,
-          color    : '#3c8dbc',
-          highlight: '#3c8dbc',
-          label    : 'AY3'
-        },
-        {
-          value    : 100,
-          color    : '#d2d6de',
-          highlight: '#d2d6de',
-          label    : 'TARGET'
-        }
+        //value    : 36000,
+        value    : parseInt(data.dataay1[0].Pra),
+        color    : '#f56954',
+        highlight: '#f56954',
+        label    : 'Location AY1'
+      },
+      {
+       // value    : 36000,
+        value    : parseInt(data.dataay2[0].Pra),
+        color    : '#00a65a',
+        highlight: '#00a65a',
+        label    : 'Location AY2'
+      },
+      {
+        //value    : 36000,
+        value    : parseInt(data.dataay3[0].Pra),
+        color    : '#f39c12',
+        highlight: '#f39c12',
+        label    : 'Location AY3'
+      },
+      {
+        //value    : 4000,
+        value    : difftargers,
+        color    : '#00c0ef',
+        highlight: '#00c0ef',
+        label    : 'Diff Target'
+      }
       ]
       var pieOptions     = {
         //Boolean - Whether we should show a stroke on each segment
