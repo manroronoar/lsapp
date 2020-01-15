@@ -22,7 +22,8 @@ class Testcontroller extends Controller
    public function index()
    {
     //$mcs_list = kpi_mcs::get();
-    return view('page.Testaddmc');
+   // return view('page.Testaddmc');
+   return view('page.kpi_LoAY1');
 
    }
    public function readdata()

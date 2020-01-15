@@ -7,7 +7,7 @@
   <div class="col-lg-3 col-xs-6">
     <!-- small box -->
     <div class="small-box " style="background: white;">
-      <div class="inner ">
+      <div class="inner " style="color:black;">
      
 
 
@@ -18,7 +18,7 @@
       <div class="icon">
         <i class="ion ion-bag"></i>
       </div>
-      <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+      <a href="#" class="small-box-footer" style="color:black;">More info <i class="fa fa-arrow-circle-right"></i></a>
     </div>
   </div>
   <!-- ./col -->
@@ -26,7 +26,7 @@
   <div class="col-lg-3 col-xs-6">
     <!-- small box -->
     <div class="small-box " style="background: white;">
-      <div class="inner">
+      <div class="inner"style="color:black;">
         <h3 class = "mcrun"><sup style="font-size: 20px">%</sup></h3>
 
         <p><b>MC. RUN</b></p>
@@ -34,14 +34,14 @@
       <div class="icon">
         <i class="ion ion-stats-bars"></i>
       </div>
-      <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+      <a href="#" class="small-box-footer" style="color:black;">More info <i class="fa fa-arrow-circle-right"></i></a>
     </div>
   </div>
 
   <div class="col-lg-3 col-xs-6">
     <!-- small box -->
     <div class="small-box "style="background: white;">
-      <div class="inner">
+      <div class="inner" style="color:black;">
         <h3 class = "oees"></h3>
 
         <p><b>OEE</b></p>
@@ -49,7 +49,7 @@
       <div class="icon">
         <i class="ion ion-pie-graph"></i>
       </div>
-      <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+      <a href="#" class="small-box-footer" style="color:black;">More info <i class="fa fa-arrow-circle-right"></i></a>
     </div>
   </div>
   <!-- ./col -->
@@ -58,7 +58,7 @@
   <div class="col-lg-3 col-xs-6">
     <!-- small box -->
     <div class="small-box " style="background: white;">
-      <div class="inner">
+      <div class="inner" style="color:black;">
         <h3 class = "oles"></h3>
 
         <p><b>OLE</b></p>
@@ -66,7 +66,7 @@
       <div class="icon">
         <i class="ion ion-person-add"></i>
       </div>
-      <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+      <a href="#" class="small-box-footer" style="color:black;">More info <i class="fa fa-arrow-circle-right"></i></a>
     </div>
   </div>
   <!-- ./col -->
@@ -78,14 +78,15 @@
 
 <div class="row">
 
-  <div class="col-md-4">  
-    <div class="box">
+  <div class="col-md-4 "  id = "ay1">
+    <a href="{{ url('loay1') }}">  
+    <div class="box box-default" id="boxay1">
       <div class="box-header with-border">
         <h3 class="box-title"><b>Location AY1</b></h3>
         <div class="box-tools pull-right">       
         </div>
       </div>
-                <div class="box-body ">
+                <div class="box-body " style="color:black;">
                   <div class="col-md-6 chart-responsive">  
             
                   <div class=""> 
@@ -129,17 +130,19 @@
                 </div>
        </div>
     </div>
+    </a>
   </div>
 
 
-  <div class="col-md-4">  
+  <div class="col-md-4" id = "ay2">
+    <a href="{{ url('loay2') }}">   
     <div class="box">
       <div class="box-header with-border">
         <h3 class="box-title"><b>Location AY2</b></h3>
         <div class="box-tools pull-right">       
         </div>
       </div>
-                <div class="box-body ">
+                <div class="box-body " style="color:black;">
                   <div class="col-md-6 chart-responsive">  
             
                   <div class=""> 
@@ -184,16 +187,18 @@
                 </div>
        </div>
     </div>
+    </a>
   </div>
 
-  <div class="col-md-4">  
+  <div class="col-md-4" id = "ay3">
+    <a href="{{ url('loay3') }}">   
     <div class="box" id="boxay3">
       <div class="box-header with-border">
         <h3 class="box-title"><b>Location AY3</b></h3>
         <div class="box-tools pull-right">       
         </div>
       </div>
-                <div class="box-body ">
+                <div class="box-body " style="color:black;">
                   <div class="col-md-6 chart-responsive">  
             
                   <div class=""> 
@@ -239,28 +244,10 @@
                 </div>
        </div>
     </div>
+   </a>
   </div>
 
 </div>
-
-
-
-  <!-- <div class="row">
-  <div class="col-md-12">
-    <div class="box">
-      <div class="box-header with-border">
-        <h3 class="box-title">Area Chart</h3>
-
-        <div class="box-tools pull-right">
-          <strong class="btndate "></strong>
-        </div>
-      </div>
-      <div class="box-body chart-responsive">
-        <div class="chart" id="revenue-chart" style="height: 300px;"></div>
-      </div>
-    </div>
-  </div>
-</div> -->
 
   
     <div class="row">
@@ -293,11 +280,11 @@
             
               <div class="col-md-2">
                 <ul class="nav nav-pills nav-stacked">
-                  <li><a href="#" class="text-red">Location AY1 <span class="pull-right text-red"><i class="" id="acay1"></i> </span></a></li>
-                  <li><a href="#" class="text-green">Location AY2 <span class="pull-right text-green"><i class="" id="acay2"></i> </span></a></li>
-                  <li><a href="#" class="text-yellow">Location AY3<span class="pull-right text-yellow"><i class="" id="acay3"></i> </span></a></li>
-                  <li><a href="#" class="" style="color: #00c0ef;">Diff Target<span class="pull-right" style="color: #00c0ef;"><i class="" id="diffac"></i> </span></a></li>
-                  
+                  <li><a  class="text-red">Location AY1 <span class="pull-right text-red"><i class="" id="acay1"></i> </span></a></li>
+                  <li><a  class="text-green">Location AY2 <span class="pull-right text-green"><i class="" id="acay2"></i> </span></a></li>
+                  <li><a  class="text-yellow">Location AY3<span class="pull-right text-yellow"><i class="" id="acay3"></i> </span></a></li>
+                  <li><a  class="" style="color: #00c0ef;">Diff Target<span class="pull-right" style="color: #00c0ef;"><i class="" id="diffac"></i> </span></a></li>
+                  <li></li>
                 </ul>
               </div>
           
@@ -308,12 +295,6 @@
       </div>
 
     </div>
-
-
-
-
-
-
 
 
 
@@ -513,7 +494,7 @@
       labels  : chartData.date,
       datasets: [
         {
-          label               : 'Electronics',
+          label               : 'TR',
           fillColor           : 'rgba(210, 214, 222, 1)',
           strokeColor         : 'rgba(210, 214, 222, 1)',
           pointColor          : 'rgba(210, 214, 222, 1)',
@@ -523,7 +504,7 @@
           data                : chartData.tr
         },
         {
-          label               : 'Digital Goods',
+          label               : 'AC',
           fillColor           : 'rgba(60,141,188,0.9)',
           strokeColor         : 'rgba(60,141,188,0.8)',
           pointColor          : '#3b8bba',
@@ -671,6 +652,7 @@
       });
     });
   </script>
+
 
 @endsection     
  

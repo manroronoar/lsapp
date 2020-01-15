@@ -30,6 +30,10 @@ Route::get('momc/readdatabymc/{valuesmcs}', 'kpimonitormcController@readdatabymc
 Route::get('momc/readdataindex/{valuemc}', 'kpimonitormcController@readdataindex')->middleware('auth');
 Route::get('momc/readdataChart', 'kpimonitormcController@Chart')->middleware('auth');
 
+Route::get('loay1', 'kpiLocationAY1Controller@index')->middleware('auth');
+
+
+
 //Route::get('momc/readdmc/{yyyy}/{mmmm}/{dddd}/{varmc}/{searchreport}/{shift}', 'kpimonitormcController@readdataforoeebymc')->middleware('auth');
 //Route::resource('oeed', 'kpioeeDetailController')->middleware('auth');
 Route::get('oeed/{mcnumber}', 'kpioeeDetailController@index')->middleware('auth');
@@ -45,6 +49,7 @@ Route::resource('oee', 'kpioeeController')->middleware('auth');
 //Route::get('oee','kpioeeController@index');
 //Route::post('oee', 'kpioeedetail')->middleware('auth');
 //Route::resource('oeed', 'kpioeeDetailController')->middleware('auth');
+
 
 Route::resource('mcs', 'kpimcsController')->middleware('auth');
 Route::post('mcs/update', 'kpimcsController@update')->name('mcs.update');

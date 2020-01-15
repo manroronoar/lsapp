@@ -7,13 +7,12 @@
 
 
 
+  <script src="{{ asset('https://cdn.zingchart.com/zingchart.min.js') }}"></script>
 
   <link rel="stylesheet" href="{{ asset('datetime/bootstrap-datetimepicker/4.17.37/css/bootstrap-datetimepicker.css') }}">
   <script src="{{ asset('datetime/jquery/2.1.3/jquery.js') }}"></script>
   <script src="{{ asset('datetime/moment.js/2.15.2/moment.min.js') }}"></script>
   <script src="{{ asset('datetime/bootstrap-datetimepicker/4.17.37/js/bootstrap-datetimepicker.min.js') }}"></script>
-
-
      
   <script src="{{ asset('datatables/js/jquery.min.js') }}"></script>
   <link rel="stylesheet" href="{{ asset('datatables/css/bootstrap.min.css') }}">
@@ -22,7 +21,6 @@
   <link rel="stylesheet" href="{{ asset('datatables/css/dataTables.bootstrap.min.css') }}">
   <script src="{{ asset('datatables/js/bootstrap.min.js') }}"></script> 
   
-
  <!-- Bootstrap 3.3.7 -->
  <link rel="stylesheet" href="{{ asset('AdminLTE-master/bower_components/bootstrap/dist/css/bootstrap.min.css') }}">
  <!-- Font Awesome --> 
@@ -51,7 +49,17 @@
 <style>
           input {
                text-transform: uppercase;
-          }                 
+          }     
+
+          #myChart,#myChartoee {
+          height:100%;
+          width:100%;
+          min-height:100px;
+          }    
+          
+          .zc-ref {
+          display: none;
+          }        
 </style>
 
 
