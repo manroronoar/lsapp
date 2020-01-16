@@ -256,7 +256,7 @@
           <div class="box-header with-border">
             <h3 class="box-title">Monthly Recap Report</h3> 
             <div class="box-tools pull-right">
-              <strong class="btn ">OUTPUT : 1/11/2019 - 30/11/2019</strong>
+              <strong class="btn ">OUTPUT : Date</strong>
             </div>
             
           </div>

@@ -5,6 +5,11 @@
 <div class="row">   
     <div class="col-md-12">  
       <div class="box" id="boxay3">
+        <div class="box-header with-border">
+          <h3 class="box-title"><b>Location AY1</b></h3>
+          <div class="box-tools pull-right">       
+          </div>
+        </div>
         <div class="box-body text-right" >
           <div>col</div>  
         </div>
@@ -17,7 +22,7 @@
             <div class="col-md-2">  
               <div class="box" id="boxay1">
                 <div class="box-header with-border">
-                  <h3 class="box-title"><b>AY1 Output</b></h3>
+                  <h3 class="box-title"><b>OUTPUT</b></h3>
                   <div class="box-tools pull-right">       
                   </div>
                 </div>
@@ -30,7 +35,7 @@
             <div class="col-md-2">  
               <div class="box" id="boxay1">
                 <div class="box-header with-border">
-                  <h3 class="box-title"><b>AY1 Oee</b></h3>
+                  <h3 class="box-title"><b>OEE</b></h3>
                   <div class="box-tools pull-right">       
                   </div>
                 </div>
@@ -43,7 +48,7 @@
             <div class="col-md-2">  
               <div class="box" id="boxay1">
                 <div class="box-header with-border">
-                  <h3 class="box-title"><b>AY1 Ole</b></h3>
+                  <h3 class="box-title"><b>OLE</b></h3>
                   <div class="box-tools pull-right">       
                   </div>
                 </div>
@@ -56,7 +61,7 @@
             <div class="col-md-6">  
               <div class="box" id="boxay1">
                 <div class="box-header with-border">
-                  <h3 class="box-title"><b>AY1 Ole</b></h3>
+                  <h3 class="box-title"><b>DETAIL</b></h3>
                   <div class="box-tools pull-right">       
                   </div>
                 </div>
@@ -88,14 +93,51 @@
               </div>
             </div> 
     </div>
+
     <div class="row">   
-      <div class="col-md-12">  
+   <!--   <div class="col-md-12">  
         <div class="box" id="boxay3">
           <div class="box-body text-right" >
             <div>col</div>  
           </div>
         </div>
+      </div>-->
+
+    <div class="col-md-12">
+      <div class="box">
+        <div class="box-header">
+          <h3 class="box-title"><b>MC.</b></h3>
+        </div>
+       
+        <div class="box-body">
+          <table id="example1" class="table table-bordered table-striped">
+            <thead>
+            <tr>
+              <th></th>
+              <th></th>
+              <th></th>
+              <th></th>
+             
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+            </tr>
+            </tbody>
+            <!--<tfoot>
+            <tr>
+              <th>1</th>
+              <th>2</th>
+              <th>3</th>
+              <th>4</th>
+              <th>5</th>
+            </tr>
+            </tfoot>-->
+          </table>
+        </div>
       </div>
+    </div>
+
   </div>
 
   <script>
@@ -131,6 +173,8 @@
          // var todayE = yyyy + '-' + mm + '-' + dd + ' ' + timeHs + ':'+ timeMs + ':'+ timeSs;
 
       $.get("{{ url('kpireaddatamc/readdata') }}"+ '/' + todayS + '/' + todayE +'/' + tomonths, function (data) {
+
+        console.log(data);
        // parseInt(data.Result[0].S1);
       var countr = data.result[0].countrow;
       //parseInt(data.Result[0].S1);
@@ -200,12 +244,43 @@
         })
     //  alert(countr1 + ' ' + targers1 + ' ' +outputs1 + ' ' + difftargers1 + ' ' +mcrun1 + ' ' +mctotal1 + ' ' + oees1);
     //  <h5>target<span class="pull-right  "><i class=""></i> 1200 </span></h5>     
-    //  <h5>Mc001<span class="pull-right  "><i class=""></i> run</span></h5>        
+    //  <h5>Mc001<span class="pull-right  "><i class=""></i> run</span></h5>       
+        $('#example1').DataTable({
+              "data" : data.datajoinstatusAY1,
+              columns : [
+                {"data" : "Mc_Number",
+                "title" : "Mc.Number"
+                },
+                {"data" : "mc_location",
+                "title" : "Mc.location"
+                },
+                {"data" : "Gn_node",
+                "title" : "Node"
+                },
+                {"data" : "status",
+                "title" : "Status",
+                "render": function(datum, type, row) {
+                  if ((datum == "Idle") || (datum == "Running"))
+                      {
+                        return '<div class="label label-success" ><label ><b>'+ datum +'</b></label></div>';
+                      }
+                      else
+                      {
+                        return '<div class="label label-danger" ><label ><b>'+ datum +'</b></label></div>';
+                      }
+                    }
+                }       
+              ]
+            
+          })
       })
     });
   </script>
 
    <script type="text/javascript">
+   var gaugeay1 = 750;
+   var gaugeay2 = 100;
+   var gaugeay3 = 100;
    
         var myConfigay1 = {
             type: "gauge",
@@ -223,7 +298,7 @@
                 fontSize:35,
                 rules:[
                 {
-                    rule: '%v >= 700',
+                    rule: '%v >= ' + gaugeay1,
                     text: '%v<br>EXCELLENT'
                 },
                 {
@@ -290,9 +365,9 @@
         
             series : [
                 {
-                    values : [800], // starting value
+                    values : [gaugeay1], // starting value
                     backgroundColor:'black',
-                indicator:[5,10,10,10,0.50],
+                indicator:[3,1,20,20,0.5],
                 animation:{  
                 effect:2,
                 method:1,
@@ -519,5 +594,7 @@
         });
     
 </script>
+     
+ 
 @endsection     
  
