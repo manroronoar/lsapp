@@ -23,15 +23,15 @@ class kpidashboardController extends Controller
     public function index()
     {
         //
-        $countheaderset = kpi_headerset::count();
-        $countnode = kpi_node::count();
-        $countmcs = kpi_mcs::select('Mc_Number')->distinct()->get();
-        $countmc = count($countmcs);
+       // $countheaderset = kpi_headerset::count();
+       // $countnode = kpi_node::count();
+       // $countmcs = kpi_mcs::select('Mc_Number')->distinct()->get();
+       // $countmc = count($countmcs);
 
-        return view('page.kpi')
-        ->with('countheaderset',$countheaderset)
-        ->with('countmc',$countmc)
-        ->with('countnode',$countnode);   
+        return view('page.kpi');
+      //  ->with('countheaderset',$countheaderset)
+      //  ->with('countmc',$countmc)
+      //  ->with('countnode',$countnode);   
     }
     public function readdata()
     {

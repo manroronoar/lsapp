@@ -110,6 +110,7 @@
         </div>
        
         <div class="box-body">
+          <div class="table-responsive">
           <table id="example1" class="table table-bordered table-striped">
             <thead>
             <tr>
@@ -134,6 +135,7 @@
             </tr>
             </tfoot>-->
           </table>
+          </div>
         </div>
       </div>
     </div>
@@ -339,7 +341,7 @@
                 }
                 ]
             },
-            labels:['300','','','','','','580','640','700','750','','850'],
+            labels:['0','','','','','','580','640','700','750','','850'],
             ring:{
                 size:30,
                 rules:[
@@ -471,7 +473,7 @@
                 {
                     values : [800], // starting value
                     backgroundColor:'black',
-                indicator:[5,10,10,10,0.50],
+                indicator:[3,1,20,20,0.5],
                 animation:{  
                 effect:2,
                 method:1,
@@ -575,7 +577,7 @@
                 {
                     values : [800], // starting value
                     backgroundColor:'black',
-                indicator:[5,10,10,10,0.50],
+                indicator:[3,1,20,20,0.5],
                 animation:{  
                 effect:2,
                 method:1,
