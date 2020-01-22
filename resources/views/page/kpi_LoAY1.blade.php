@@ -2,20 +2,20 @@
 @section('content')
 
 
-<div class="row">   
-    <div class="col-md-12">  
-      <div class="box" id="boxay3">
-        <div class="box-header with-border">
-          <h3 class="box-title"><b>Location AY1</b></h3>
-          <div class="box-tools pull-right">       
+    <div class="row">   
+        <div class="col-md-12">  
+          <div class="box" id="boxay3">
+            <div class="box-header with-border">
+              <h3 class="box-title"><b>Location AY1</b></h3>
+              <div class="box-tools pull-right">       
+              </div>
+            </div>
+            <div class="box-body text-right" >
+              <div>col</div>  
+            </div>
           </div>
         </div>
-        <div class="box-body text-right" >
-          <div>col</div>  
-        </div>
-      </div>
     </div>
-</div>
 
 
     <div class="row">   
@@ -247,7 +247,8 @@
     //  alert(countr1 + ' ' + targers1 + ' ' +outputs1 + ' ' + difftargers1 + ' ' +mcrun1 + ' ' +mctotal1 + ' ' + oees1);
     //  <h5>target<span class="pull-right  "><i class=""></i> 1200 </span></h5>     
     //  <h5>Mc001<span class="pull-right  "><i class=""></i> run</span></h5>       
-        $('#example1').DataTable({
+    var jq = $.noConflict(); 
+       jq('#example1').DataTable({
               "data" : data.datajoinstatusAY1,
               columns : [
                 {"data" : "Mc_Number",

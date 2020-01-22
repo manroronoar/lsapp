@@ -25,9 +25,10 @@
           <li><a href="{{ route('kpi.index') }}"><i class="fa fa-circle-o"></i>1.Safety accidents</a></li>
           <li><a href=""><i class="fa fa-circle-o"></i>2.Quality Complaints</a></li>
           <li><a href=""><i class="fa fa-circle-o"></i>3.Internal PPM</a></li>
-          <li><a href="{{ route('oee.index') }}"><i class="fa fa-circle-o"></i>3.OEE</a></li>
+         <!-- <li><a href="{{ route('oee.index') }}"><i class="fa fa-circle-o"></i>3.OEE</a></li>-->
+         <li><a href=""><i class="fa fa-circle-o"></i>3.OEE</a></li>
           <li><a href=""><i class="fa fa-circle-o"></i>5.OLE </a></li>        
-          <li><a href="{{ url('momc') }}"><i class="fa fa-circle-o"></i>6.Monitor MC.</a></li>      
+          <li><a href="{{ url('motmc') }}"><i class="fa fa-circle-o"></i>6.Monitor MC.</a></li>      
         </ul>
     </li>
 

@@ -28,6 +28,14 @@ class kpimonitormcController extends Controller
         return view('page.kpi_monitormc');
     }
 
+    public function index2(Request $request)
+    {
+        //kpi_monitormc.blade
+        //$data =  kpi_mcs::distinct()->get(['Mc_Number']);
+        //dd($data);
+        return view('page.kpi_monitormc2');
+    }
+
     public function readdata()
     {
     

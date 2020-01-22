@@ -24,6 +24,7 @@ Route::get('test', 'Testcontroller@index');
 
 
 //Route::resource('momc', 'kpimonitormcController');
+Route::get('motmc', 'kpimonitormcController@index2')->middleware('auth');
 Route::get('momc', 'kpimonitormcController@index')->middleware('auth');
 Route::get('momc/readdata', 'kpimonitormcController@readdata')->middleware('auth');
 Route::get('momc/readdatabymc/{valuesmcs}', 'kpimonitormcController@readdatabymc')->middleware('auth');
@@ -36,6 +37,8 @@ Route::get('loay1', 'kpiLocationAY1Controller@index')->middleware('auth');
 
 //Route::get('momc/readdmc/{yyyy}/{mmmm}/{dddd}/{varmc}/{searchreport}/{shift}', 'kpimonitormcController@readdataforoeebymc')->middleware('auth');
 //Route::resource('oeed', 'kpioeeDetailController')->middleware('auth');
+Route::get('oeeds/{mcnumber}', 'kpioeeDetailController@index2')->middleware('auth');
+Route::get('oeeds/readdmc/{yyyy}/{mmmm}/{dddd}/{yyyye}/{mmmme}/{dddde}/{varmc}/{shift}/{typeday}', 'kpioeeDetailController@readdata2')->middleware('auth');
 Route::get('oeed/{mcnumber}', 'kpioeeDetailController@index')->middleware('auth');
 Route::get('oeed/readdmc/{yyyy}/{mmmm}/{dddd}/{yyyye}/{mmmme}/{dddde}/{varmc}/{shift}/{typeday}', 'kpioeeDetailController@readdata')->middleware('auth');
 //Route::get('oeed', 'kpioeeDetailController')->middleware('auth');

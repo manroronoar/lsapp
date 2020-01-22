@@ -34,7 +34,8 @@
       <div class="icon">
         <i class="ion ion-stats-bars"></i>
       </div>
-      <a href="#" class="small-box-footer" style="color:black;">More info <i class="fa fa-arrow-circle-right"></i></a>
+      
+      <a href="{{ url('motmc') }}" class="small-box-footer" style="color:black;">More info <i class="fa fa-arrow-circle-right"></i></a>
     </div>
   </div>
 
