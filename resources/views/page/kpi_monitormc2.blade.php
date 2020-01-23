@@ -3,14 +3,14 @@
 
 
 
-  <div class="box box-success">    
+<!--  <div class="box box-success">    
     <div class="box-body">
             <div class="lockscreen-logo">
           
             <h1 class="bold" align="center">MACHINE MONITOR</h1>
             </div>
     </div>   
-  </div>
+  </div> -->
 
 
 
