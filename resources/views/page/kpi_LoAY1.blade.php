@@ -281,6 +281,7 @@
   </script>
 
    <script type="text/javascript">
+   
    var gaugeay1 = 750;
    var gaugeay2 = 100;
    var gaugeay3 = 100;

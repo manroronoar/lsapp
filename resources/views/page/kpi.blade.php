@@ -11,7 +11,7 @@
      
 
 
-         <h3 class = "target"></h3>
+         <h3  id = "target"></h3>
       <!--   <h3><span class=" text-red "><i class="fa fa-angle-down difftarger"></i></span></h3>-->
         <p><b>TARGET / OUTPUT</b></p>
       </div>
@@ -255,7 +255,8 @@
       <div class="col-md-12">
         <div class="box">
           <div class="box-header with-border">
-            <h3 class="box-title">Monthly Recap Report</h3> 
+            <h3 class="box-title"><b>Monthly Recap Report</b></h3>
+          
             <div class="box-tools pull-right">
               <strong class="btn ">OUTPUT : Date</strong>
             </div>
@@ -280,13 +281,18 @@
               </div>
             
               <div class="col-md-2">
-                <ul class="nav nav-pills nav-stacked">
-                  <li><a  class="text-red">Location AY1 <span class="pull-right text-red"><i class="" id="acay1"></i> </span></a></li>
-                  <li><a  class="text-green">Location AY2 <span class="pull-right text-green"><i class="" id="acay2"></i> </span></a></li>
-                  <li><a  class="text-yellow">Location AY3<span class="pull-right text-yellow"><i class="" id="acay3"></i> </span></a></li>
-                  <li><a  class="" style="color: #00c0ef;">Diff Target<span class="pull-right" style="color: #00c0ef;"><i class="" id="diffac"></i> </span></a></li>
-                  <li></li>
-                </ul>
+                <p>
+                <p>
+                <p>
+                  <div  class="text-red"><h4> Location AY1 <span class="pull-right text-red" id="acay1"></span></h4></div>
+                  <p>
+                  <div  class="text-green"><h4>Location AY2 <span class="pull-right text-green" class="" id="acay2"> </span></h4></div>
+                  <p>
+                  <div  class="text-yellow"><h4>Location AY3<span class="pull-right text-yellow" class="" id="acay3"> </span></h4></div>
+                  <p>
+                  <div  class="" style="color: #00c0ef;"><h4>Diff Target<span class="pull-right" style="color: #00c0ef;" id="diffac"> </span></h4></div>
+                  <p>
+
               </div>
           
             </div>
@@ -350,11 +356,11 @@
      // alert(todayS + ' ' +todayE + ' ' +targers + ' ' +outputs + ' ' +oees + ' ' +oles);
      if (difftargers > 0   )
       {
-        $('.target').html("<h3>"+ targers +' / '+ outputs  +"<span class='pull-right text-red'><i class='fa fa-angle-down'></i>" + difftargers +"</span></h3>");
+        $('#target').html("<h3>"+ targers +' / '+ outputs  +"<span class='pull-right text-red'><i class='fa fa-angle-down'></i>" + difftargers +"</span></h3>");
       }
       else if (difftargers <= 0)
       {
-        $('.target').html("<h3>"+ targers +' / '+ outputs  +"<span class='pull-right text-green'><i class='fa fa-angle-down'></i>"  + difftargers +"</span></h3>");
+        $('#target').html("<h3>"+ targers +' / '+ outputs  +"<span class='pull-right text-green'><i class='fa fa-angle-down'></i>"  + difftargers +"</span></h3>");
       }  
     //  $('.target').text(targers +' / '+ outputs );
       $('.difftarger').text(difftargers);
