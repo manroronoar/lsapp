@@ -39,8 +39,10 @@ Route::get('loay1', 'kpiLocationAY1Controller@index')->middleware('auth');
 //Route::resource('oeed', 'kpioeeDetailController')->middleware('auth');
 Route::get('oeeds/{mcnumber}', 'kpioeeDetailController@index2')->middleware('auth');
 Route::get('oeeds/readdmc/{yyyy}/{mmmm}/{dddd}/{yyyye}/{mmmme}/{dddde}/{varmc}/{shift}/{typeday}', 'kpioeeDetailController@readdata2')->middleware('auth');
+Route::get('oeeds/readdmcbydate/{yyyybyy}/{mmmmbym}/{ddddbyd}/{varmc}/{shift}', 'kpioeeDetailController@readdata2')->middleware('auth');
+
 Route::get('oeed/{mcnumber}', 'kpioeeDetailController@index')->middleware('auth');
-Route::get('oeed/readdmc/{yyyy}/{mmmm}/{dddd}/{yyyye}/{mmmme}/{dddde}/{varmc}/{shift}/{typeday}', 'kpioeeDetailController@readdata')->middleware('auth');
+Route::get('oeed/readdmc/{yyyy}/{mmmm}/{dddd}/{varmc}/{shift}/{typeday}', 'kpioeeDetailController@readdata')->middleware('auth');
 //Route::get('oeed', 'kpioeeDetailController')->middleware('auth');
 
 

@@ -157,10 +157,13 @@
               <div class="knob-label">data-width="120"</div>
             </div>-->
             <!-- ./col -->
-            <div class="row" id ="rowtest">
-              <div id="content"></div>
+
+
+            <div  id ="addrow">
+             <div class="chart" id="content"></div> 
             </div>
 
+           
       </form>
   
 
@@ -328,7 +331,8 @@
                         var typeday = 'M';
                       // alert(typeday + timeDiff);
                       $.get("{{ url('oeeds/readdmc') }}" + '/' + yyyy + '/' + mmmm+ '/' + dddd + '/' + yyyye + '/' + mmmme+ '/' + dddde +'/' +varmc  +'/' +shift +'/' + typeday, function (data) {
-                           
+                           console.log(data) 
+
                            var outputtarget = parseInt(data.Result[0].Pra);
                            var countrow  = parseInt(data.Result[0].countrow);
                            var sumoee = parseInt(data.Result[0].Oeea);
@@ -383,52 +387,92 @@
                              // alert(outputtarget);
                            $('.DOWN').text(((downtime / 60 / 60).toFixed(2)) + ' Hr.');
                              // alert(data.DatatoChart)
-                             console.log(data) 
+                       
+                            
+                            $('#addrow').empty();
+                             $.each(data.DatatoChart, function (i,value) {
+                                
+                                  var ss = value.y;
+                                  var ress = ss.split("/");
+                                  yyyy = ress[0];
+                                  mmmm = ress[1];
+                                  dddd = ress[2];
+                                  typeday = 'D';
+                                 // alert(yyyy + mmmm + dddd);
+                                 var key = 'Chart' + i;
+                                             
+                                 var CssAdd = '<div class="row">'
+                                             +'<div class="col-md-12">'
+                                             +'<div class="box">'
+                                             +'<div class="box-header with-border">'
+                                             +'<h3 class="box-title">'+ ss +'</h3> '
+                                             +'<div class="box-tools pull-right">'
+                                             +'<strong class="btn "></strong>'
+                                             +'</div> '
+                                             +'</div>'
+                                             +'<div class="box-body">'
+                                             +'<div class="row">'
+                                             + '<div  id ="'+ key +'"></div>'
+                                             +'</div></div></div></div></div>'
 
+                                  $('#addrow').append(CssAdd);
 
-                             $.each(data.testdata, function (i,value) {
-                                  var ss = value.countrow;
-                                  CssAdd = "<div class ='row'><div>"+ value.countrow +"</div></div>"
-                                  $('#content').append(CssAdd);
+                                  $.get("{{ url('oeeds/readdmc') }}" + '/' + yyyy + '/' + mmmm+ '/' + dddd + '/' + yyyye + '/' + mmmme+ '/' + dddde +'/' +varmc  +'/' +shift +'/' + typeday, function (datas) {
+                                    console.log(datas) 
+                                  $(key).empty();
+                                              //  "use strict";
+                                                var bar = new Morris.Bar({
+                                                element: key,
+                                                resize: true,
+                                                data: datas.DatatoChart,
+
+                                                  barColors: ['#4287f5'],
+                                                  lineColors: '#4287f5',
+                                                  grid  : {
+                                                      borderWidth: 1,
+                                                      borderColor: '#f3f3f3',
+                                                      tickColor  : '#f3f3f3'
+                                                    },
+                                                  xkey: 'y',
+                                                  ykeys: ['a'],
+                                                  labels: ['output'],
+                                                  hideHover: 'auto'
+                                                        }); 
+                                })                   
                               })
 
-
-
-
-
-
-
                              $("#bar-charts").empty();
-                         if(data.DatatoChart  != 0)
-                               {
-                             //   alert(data.DatatoChart.length)  ;
-                             
-                                   $("#bar-charts").empty();
-                                         //  "use strict";
-                                           var bar = new Morris.Bar({
-                                           element: 'bar-charts',
-                                           resize: true,
-                                           data: data.DatatoChart,
+                              if(data.DatatoChart  != 0)
+                                    {
+                                  //   alert(data.DatatoChart.length)  ;
+                                  
+                                        $("#bar-charts").empty();
+                                              //  "use strict";
+                                                var bar = new Morris.Bar({
+                                                element: 'bar-charts',
+                                                resize: true,
+                                                data: data.DatatoChart,
 
-                                             barColors: ['#4287f5'],
-                                             lineColors: '#4287f5',
-                                             grid  : {
-                                                 borderWidth: 1,
-                                                 borderColor: '#f3f3f3',
-                                                 tickColor  : '#f3f3f3'
-                                               },
-                                             xkey: 'y',
-                                             ykeys: ['a'],
-                                             labels: ['output'],
-                                             hideHover: 'auto'
-                                                   }); 
-                               }
+                                                  barColors: ['#4287f5'],
+                                                  lineColors: '#4287f5',
+                                                  grid  : {
+                                                      borderWidth: 1,
+                                                      borderColor: '#f3f3f3',
+                                                      tickColor  : '#f3f3f3'
+                                                    },
+                                                  xkey: 'y',
+                                                  ykeys: ['a'],
+                                                  labels: ['output'],
+                                                  hideHover: 'auto'
+                                                        }); 
+                                    }
                        
-                         });
+                               });
                       }
                       else if (timeDiff == 0)
                       {
                         var typeday = 'D';
+                        $('#addrow').empty();
                       // alert(typeday) + timeDiff;
                       $.get("{{ url('oeeds/readdmc') }}" + '/' + yyyy + '/' + mmmm+ '/' + dddd + '/' + yyyye + '/' + mmmme+ '/' + dddde +'/' +varmc  +'/' +shift +'/' + typeday, function (data) {
                            
