@@ -201,32 +201,29 @@
       </div>
                 <div class="box-body " style="color:black;">
                   <div class="col-md-6 chart-responsive">  
-            
-                  <div class=""> 
-                  </div> 
-                  <div class=""> 
-                    <h5><b>Target<span class="pull-right" id="Targetay3"></span></b></h5>               
-                  </div>
-                  <div class=""> 
-                    <h5><b>Output<span class="pull-right" id ="Outputay3"></span></b></h5> 
-                  </div>
-                  <div class=""> 
-                    <h5><b>Diff Output<span class="pull-right" id ="Diffay3"></span></b></h5> 
-                  </div>
-                  <div class=""> 
-                    <h5><b>Oee<span class="pull-right" id ="Oeeay3"></span></b></h5> 
-                  </div>
-                  <div class=""> 
-                    <h5><b>Ole<span class="pull-right" id ="Oleay3"></span></b></h5> 
-                  </div>
-                  <div class=""> 
-                    <h5><b>Mc.Total<span class="pull-right" id ="Mctay3"></span></b></h5>             
-                  </div>
-                  <div class=""> 
-                    <h5><b>Mc.Run<span class="pull-right" id = "Mcray3"></span></b></h5>               
-                  </div>
-      
-      
+                    <div class=""> 
+                    </div> 
+                    <div class=""> 
+                      <h5><b>Target<span class="pull-right" id="Targetay3"></span></b></h5>               
+                    </div>
+                    <div class=""> 
+                      <h5><b>Output<span class="pull-right" id ="Outputay3"></span></b></h5> 
+                    </div>
+                    <div class=""> 
+                      <h5><b>Diff Output<span class="pull-right" id ="Diffay3"></span></b></h5> 
+                    </div>
+                    <div class=""> 
+                      <h5><b>Oee<span class="pull-right" id ="Oeeay3"></span></b></h5> 
+                    </div>
+                    <div class=""> 
+                      <h5><b>Ole<span class="pull-right" id ="Oleay3"></span></b></h5> 
+                    </div>
+                    <div class=""> 
+                      <h5><b>Mc.Total<span class="pull-right" id ="Mctay3"></span></b></h5>             
+                    </div>
+                    <div class=""> 
+                      <h5><b>Mc.Run<span class="pull-right" id = "Mcray3"></span></b></h5>               
+                    </div>
                 </div>
 
                 <div class="col-md-6">  

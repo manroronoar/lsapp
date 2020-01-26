@@ -51,7 +51,7 @@ class kpiGetDataController extends Controller
                          SUM(Re_Sum_Sec_Bit8) as S8,
                          SUM(Re_Count_Bit8) as C8'))
     // ->where('Re_McNumber', '=', $request->varmc)
-    // ->whereBetween('Re_Hs_S', [$todayS, $todayE])
+     ->whereBetween('Re_Hs_S', [$todayS, $todayE])
    
     ->where('Re_Hs_S','like',$tomonths)
    // where  Re_Hs_S like('2019-12-%')
@@ -81,7 +81,7 @@ class kpiGetDataController extends Controller
                          SUM(Re_Sum_Sec_Bit8) as S8,
                          SUM(Re_Count_Bit8) as C8'))
      ->where('Re_Location', '=', 'AY1')
-     //->whereBetween('Re_Hs_S', [$todayS, $todayE])
+     ->whereBetween('Re_Hs_S', [$todayS, $todayE])
      ->where('Re_Hs_S','like',$tomonths)
      ->get();
 
@@ -113,7 +113,7 @@ class kpiGetDataController extends Controller
                          SUM(Re_Sum_Sec_Bit8) as S8,
                          SUM(Re_Count_Bit8) as C8'))
      ->where('Re_Location', '=', 'AY2')
-    // ->whereBetween('Re_Hs_S', [$todayS, $todayE])
+     ->whereBetween('Re_Hs_S', [$todayS, $todayE])
     ->where('Re_Hs_S','like',$tomonths)
      ->get();
 
@@ -141,7 +141,7 @@ class kpiGetDataController extends Controller
                          SUM(Re_Sum_Sec_Bit8) as S8,
                          SUM(Re_Count_Bit8) as C8'))
      ->where('Re_Location', '=', 'AY3')
-     //->whereBetween('Re_Hs_S', [$todayS, $todayE])
+     ->whereBetween('Re_Hs_S', [$todayS, $todayE])
      ->where('Re_Hs_S','like',$tomonths)
      ->get();
 

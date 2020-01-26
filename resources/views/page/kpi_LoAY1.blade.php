@@ -11,7 +11,14 @@
               </div>
             </div>
             <div class="box-body text-right" >
-              <div>col</div>  
+              <div class="col-md-4" align="right">
+   
+              </div>
+        
+              <div class="input-group col-md-8" align="right">
+               
+              </div>
+
             </div>
           </div>
         </div>
@@ -53,7 +60,7 @@
                   </div>
                 </div>
                     <div class="box-body " >
-                      <div class="" id='myChartole'></div>
+                      <div class="Chart" id='myChartole'></div>
                     </div>
               </div>
             </div> 
@@ -176,7 +183,7 @@
 
       $.get("{{ url('kpireaddatamc/readdata') }}"+ '/' + todayS + '/' + todayE +'/' + tomonths, function (data) {
 
-        console.log(data);
+       console.log(data);
        // parseInt(data.Result[0].S1);
       var countr = data.result[0].countrow;
       //parseInt(data.Result[0].S1);
@@ -248,6 +255,12 @@
     //  <h5>target<span class="pull-right  "><i class=""></i> 1200 </span></h5>     
     //  <h5>Mc001<span class="pull-right  "><i class=""></i> run</span></h5>       
     var jq = $.noConflict(); 
+
+    var defaultDate = new Date(); 
+      // var defaultDate = '2019/11/01'
+
+
+
        jq('#example1').DataTable({
               "data" : data.datajoinstatusAY1,
               columns : [
@@ -276,15 +289,10 @@
               ]
             
           })
-      })
-    });
-  </script>
 
-   <script type="text/javascript">
-   
-   var gaugeay1 = 750;
-   var gaugeay2 = 100;
-   var gaugeay3 = 100;
+          var gaugeay1 = 750;
+          var gaugeay2 = 100;
+          var gaugeay3 = 100;
    
         var myConfigay1 = {
             type: "gauge",
@@ -295,39 +303,31 @@
             marginTop:100
             },
             plot:{
-            size:'100%',
+            size:'80%',
             valueBox: {
                 placement: 'center',
                 text:'%v', //default
-                fontSize:35,
+                fontSize:28,
                 rules:[
                 {
                     rule: '%v >= ' + gaugeay1,
                     text: '%v<br>EXCELLENT'
                 },
                 {
-                    rule: '%v < 700 && %v > 640',
-                    text: '%v<br>Good'
-                },
-                {
-                    rule: '%v < 640 && %v > 580',
-                    text: '%v<br>Fair'
-                },
-                {
-                    rule: '%v <  580',
+                    rule: '%v <  900',
                     text: '%v<br>Bad'
                 }   
                 ]
             }
             },
         tooltip:{
-            borderRadius:5
+            borderRadius:2
         },
             scaleR:{
             aperture:180,
-            minValue:300,
-            maxValue:850,
-            step:50,
+            minValue:0,
+            maxValue:900,
+            step:100,
             center:{
                 visible:false
             },
@@ -343,24 +343,16 @@
                 }
                 ]
             },
-            labels:['0','','','','','','580','640','700','750','','850'],
+            labels:['','','','','','','','','','','',''],
             ring:{
                 size:30,
                 rules:[
                 {
-                    rule:'%v <= 580',
+                    rule:'%v < 800',
                     backgroundColor:'#E53935'
                 },
                 {
-                    rule:'%v > 580 && %v < 640',
-                    backgroundColor:'#EF5350'
-                },
-                {
-                    rule:'%v >= 640 && %v < 700',
-                    backgroundColor:'#FFA726'
-                },
-                {
-                    rule:'%v >= 700',
+                    rule:'%v >= 800',
                     backgroundColor:'#29B6F6'
                 }      
                 ]
@@ -597,8 +589,17 @@
             width: '100%'
         });
     
-</script>
-     
+
+      })
+    });
+  </script>
+
+
+      
+
+            
+          
+  
  
 @endsection     
  

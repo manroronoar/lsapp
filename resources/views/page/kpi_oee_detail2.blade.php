@@ -13,13 +13,13 @@
     <h3 class="box-title  valmcs"><b>Mc. {{$mcnumberkey}} <b></h3>
   </div>
   <div class="box-body">
-    <div class="row col-md-12">
+   
 
-      <div class="col-md-6" align="right">
+      <div class="col-md-4" align="right">
    
       </div>
 
-      <div class="input-group col-md-6" align="right">
+      <div class="input-group col-md-8" align="right">
         <span class="input-group-addon">Shift:</span>
         <select class="form-control" name="Hs_Shift" id="Hs_Shift">
           <option value="All">All</option>
@@ -40,7 +40,7 @@
 
 
 
-    </div>
+    
   </div>
   <!-- /.box-body -->
 </div>
@@ -50,7 +50,7 @@
 <div class="row">
         <div class="col-md-3 col-sm-6 col-xs-12">
           <div class="info-box">
-            <span class="info-box-icon bg-red"><i class="ion ion-ios-gear-outline"></i></span>
+            <span class="info-box-icon "><i class="ion ion-ios-gear-outline"></i></span>
 
             <div class="info-box-content">
               <span class="info-box-text"><h4><b>OEE</b></h4></span>
@@ -63,7 +63,7 @@
         <!-- /.col -->
         <div class="col-md-3 col-sm-6 col-xs-12">
           <div class="info-box">
-            <span class="info-box-icon bg-blue"><i class="ion ion-ios-gear-outline"></i></span>
+            <span class="info-box-icon "><i class="ion ion-ios-gear-outline"></i></span>
 
             <div class="info-box-content">
               <span class="info-box-text "><h4><b>OUTPUT</b></h4></span>
@@ -80,7 +80,7 @@
 
         <div class="col-md-3 col-sm-6 col-xs-12">
           <div class="info-box">
-            <span class="info-box-icon bg-green"><i class="ion ion-ios-gear-outline"></i></span>
+            <span class="info-box-icon "><i class="ion ion-ios-gear-outline"></i></span>
 
             <div class="info-box-content">
               <span class="info-box-text"><h4><b>DIFF OUTPUT</b></h4></span>
@@ -93,7 +93,7 @@
         <!-- /.col -->
         <div class="col-md-3 col-sm-6 col-xs-12">
           <div class="info-box">
-            <span class="info-box-icon bg-aqua"><i class="ion ion-ios-gear-outline"></i></span>
+            <span class="info-box-icon "><i class="ion ion-ios-gear-outline"></i></span>
 
             <div class="info-box-content">
               <span class="info-box-text "><h4><b>DOWN</b></h4></span>
@@ -110,7 +110,7 @@
       <div class="table-responsive">
          <table id="user_table" class="table table-bordered table-striped dataTable no-footer">
           <thead>
-           <tr class="bg-green color-palette">
+           <tr class="color-palette" style="background-color: rgb(204, 204, 204);">
                @foreach ( $datakey as $item) 
                <th scope="row" class="text-center">BIT {{ $item['Bi_Type'] }}</th>
                
@@ -135,7 +135,7 @@
 
             <div class="box box">
               <div class="box-header with-border">
-                <h3 class="box-title">OUTPUT : ITEM</h3>
+                <h3 class="box-title">Output To Chart</h3>
   
                 <div class="box-tools pull-right">
                <!--   <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i> -->
@@ -266,12 +266,12 @@
                                            resize: true,
                                            data: data.DatatoChart,
 
-                                             barColors: ['#4287f5'],
-                                             lineColors: '#4287f5',
+                                             barColors: ['#7D7D7D'],
+                                             lineColors: '#7D7D7D',
                                              grid  : {
                                                  borderWidth: 1,
-                                                 borderColor: '#f3f3f3',
-                                                 tickColor  : '#f3f3f3'
+                                                 borderColor: '#000000',
+                                                 tickColor  : '#000000'
                                                },
                                              xkey: 'y',
                                              ykeys: ['a'],
@@ -400,38 +400,127 @@
                                   typeday = 'D';
                                  // alert(yyyy + mmmm + dddd);
                                  var key = 'Chart' + i;
-                                             
-                                 var CssAdd = '<div class="row">'
+                                 var data = 'data'+ key
+                                      
+
+
+                                  $.get("{{ url('oeeds/loopchart') }}" + '/' + yyyy + '/' + mmmm+ '/' + dddd + '/' + yyyye + '/' + mmmme+ '/' + dddde +'/' +varmc  +'/' +shift +'/' + typeday, function (data) {
+                                    console.log(data) 
+
+                                   //  Item
+                                    var outputtargetl = (parseInt(data.Result[0].Pra) + ' Item');
+                                    var countrowl  = parseInt(data.Result[0].countrow);
+                                    var sumoeel = parseInt(data.Result[0].Oeea);
+                                    var totaloeel = ((sumoee/countrow).toFixed(2) + ' %');  
+                                    var diffoutputl = (parseInt(data.Result[0].Prt - data.Result[0].Pra) + ' Item');
+                                       
+                              
+                                    var sumserb1t = ((((parseInt(data.Result[0].S1))  / 60 / 60).toFixed(2)) + ' Hr.');   
+                                    var sumserb2t = ((((parseInt(data.Result[0].S2))  / 60 / 60).toFixed(2)) + ' Hr.'); 
+                                    var sumserb3t = ((((parseInt(data.Result[0].S3))  / 60 / 60).toFixed(2)) + ' Hr.'); 
+                                    var sumserb4t = ((((parseInt(data.Result[0].S4))  / 60 / 60).toFixed(2)) + ' Hr.'); 
+                                    var sumserb5t = ((((parseInt(data.Result[0].S5))  / 60 / 60).toFixed(2)) + ' Hr.'); 
+                                    var sumserb6t = ((((parseInt(data.Result[0].S6))  / 60 / 60).toFixed(2)) + ' Hr.'); 
+                                    var sumserb7t = ((((parseInt(data.Result[0].S7))  / 60 / 60).toFixed(2)) + ' Hr.'); 
+                                    var sumserb8t = ((((parseInt(data.Result[0].S8))  / 60 / 60).toFixed(2)) + ' Hr.'); 
+
+                                    var downtime  = ((((parseInt(data.Result[0].S1) + parseInt(data.Result[0].S3) + parseInt(data.Result[0].S4) 
+                                        + parseInt(data.Result[0].S6) + parseInt(data.Result[0].S7) + parseInt(data.Result[0].S8))  / 60 / 60) .toFixed(2))+ ' Hr.');
+                                  // alert(sumserb1t);
+                                    var CssAdd = '<div class="row">'
                                              +'<div class="col-md-12">'
                                              +'<div class="box">'
                                              +'<div class="box-header with-border">'
-                                             +'<h3 class="box-title">'+ ss +'</h3> '
+                                             +'<h3 class="box-title"><b>'+ ss +'</b></h3> '
                                              +'<div class="box-tools pull-right">'
                                              +'<strong class="btn "></strong>'
                                              +'</div> '
                                              +'</div>'
                                              +'<div class="box-body">'
+                                           //  +'<div class="row"> '
+                                              +'<div class="table-responsive">'
+                                                +'<table id="user_table" class="table table-bordered table-striped dataTable no-footer">'
+                                                  +'  <thead>'
+                                                    +' <tr class="color-palette" style="background-color:  rgb(204, 204, 204);">'		
+                                                      +'   <td scope="row" class="text-center" >BIT BUTOFF</td>'
+                                                      +'   <td scope="row" class="text-center" >BIT MCRUNING</td>'
+                                                      +'   <td scope="row" class="text-center" >BIT MCPM</td>'
+                                                      +'   <td scope="row" class="text-center" >BIT MCSETUP</td>'
+                                                      +'   <td scope="row" class="text-center" >BIT MCIDLE</td>'
+                                                      +'   <td scope="row" class="text-center" >BIT MCDOWN</td>'
+                                                      +' </tr>'
+                                                      +' </thead>'
+                                                      +' <tbody id="tb"> '                                        
+                                                      +'  <tr role="row" class="odd" style="border: groove">'                                     
+                                                      +'  <td scope="row" class="text-center" id="b6'+ dddd +'">'+sumserb6t+'</td>'
+                                                      +'  <td scope="row" class="text-center" id="b5'+ dddd +'">'+sumserb5t+'</td>'
+                                                      +'  <td scope="row" class="text-center" id="b4'+ dddd +'">'+sumserb4t+'</td>'
+                                                      +'  <td scope="row" class="text-center" id="b3'+ dddd +'">'+sumserb3t+'</td>'
+                                                      +'  <td scope="row" class="text-center" id="b2'+ dddd +'">'+sumserb2t+'</td>'
+                                                      +'  <td scope="row" class="text-center" id="b1'+ dddd +'">'+sumserb1t+'</td>'      
+                                                      +' </tr>'
+                                                      +' </tbody>'
+                                                      +' </table>'
+                                              +' </div>'
+                                            // +'</div>'
+
+                                            +' <div class="row">'
+                                            +' <div class="col-sm-3 col-xs-6">'
+                                            +'   <div class="description-block border-right">'
+                                          //  +'    <span class="description-percentage text-green"><i class="fa fa-caret-up"></i> 17%</span>'
+                                            +'     <h5 class="description-header" id="oee'+ dddd +'">'+ totaloeel +'</h5>'
+                                            +'     <span class="description-text">OEE</span>'
+                                            +'   </div>'
+                                            +'  </div>'
+          
+                                            +'  <div class="col-sm-3 col-xs-6">'
+                                            +'   <div class="description-block border-right">'
+                                          //  +'     <span class="description-percentage text-yellow"><i class="fa fa-caret-left"></i> 0%</span>'
+                                            +'      <h5 class="description-header" id="output'+ dddd +'">'+ outputtargetl +'</h5>'
+                                            +'    <span class="description-text">OUTPUT</span>'
+                                            +'  </div>'
+                                            +' </div>'
+      
+                                            +'  <div class="col-sm-3 col-xs-6">'
+                                            +'    <div class="description-block border-right">'
+                                          //  +'      <span class="description-percentage text-green"><i class="fa fa-caret-up"></i> 20%</span>'
+                                            +'      <h5 class="description-header" id="diffoutput'+ dddd +'">'+ diffoutputl +'</h5>'
+                                            +'      <span class="description-text">DIFF OUTPUT</span>'
+                                            +'     </div>'
+                                            +'   </div>'
+
+                                            +'  <div class="col-sm-3 col-xs-6">'
+                                            +'    <div class="description-block">'
+                                         //   +'       <span class="description-percentage text-red"><i class="fa fa-caret-down"></i> 18%</span>'
+                                            +'      <h5 class="description-header" id="diffoutput'+ dddd +'">'+ downtime +'</h5>'
+                                            +'      <span class="description-text">DOWN</span>'
+                                            +'    </div>'            
+                                            +'  </div>'
+                                            +' </div>'
+
+
                                              +'<div class="row">'
-                                             + '<div  id ="'+ key +'"></div>'
-                                             +'</div></div></div></div></div>'
+                                        
+                                             +'<div class ="col-md-12" id="">'
+                                             + '<div id ="'+ key +'"></div></div>'
+                                             +'</div></div></div></div></div></div>'
 
                                   $('#addrow').append(CssAdd);
+                                                   
 
-                                  $.get("{{ url('oeeds/readdmc') }}" + '/' + yyyy + '/' + mmmm+ '/' + dddd + '/' + yyyye + '/' + mmmme+ '/' + dddde +'/' +varmc  +'/' +shift +'/' + typeday, function (datas) {
-                                    console.log(datas) 
-                                  $(key).empty();
+                                    $(key).empty();
                                               //  "use strict";
                                                 var bar = new Morris.Bar({
                                                 element: key,
                                                 resize: true,
-                                                data: datas.DatatoChart,
+                                                data: data.DatatoChart,
 
-                                                  barColors: ['#4287f5'],
-                                                  lineColors: '#4287f5',
+                                                  barColors: ['#7D7D7D'],
+                                                  lineColors: '#7D7D7D',
                                                   grid  : {
                                                       borderWidth: 1,
-                                                      borderColor: '#f3f3f3',
-                                                      tickColor  : '#f3f3f3'
+                                                      borderColor: '#000000',
+                                                      tickColor  : '#000000'
                                                     },
                                                   xkey: 'y',
                                                   ykeys: ['a'],
@@ -453,12 +542,12 @@
                                                 resize: true,
                                                 data: data.DatatoChart,
 
-                                                  barColors: ['#4287f5'],
-                                                  lineColors: '#4287f5',
+                                                  barColors: ['#7D7D7D'],
+                                                  lineColors: '#7D7D7D',
                                                   grid  : {
                                                       borderWidth: 1,
-                                                      borderColor: '#f3f3f3',
-                                                      tickColor  : '#f3f3f3'
+                                                      borderColor: '#000000',
+                                                      tickColor  : '#000000'
                                                     },
                                                   xkey: 'y',
                                                   ykeys: ['a'],
@@ -544,12 +633,12 @@
                                            resize: true,
                                            data: data.DatatoChart,
 
-                                             barColors: ['#4287f5'],
-                                             lineColors: '#4287f5',
+                                             barColors: ['#7D7D7D'],
+                                             lineColors: '#7D7D7D',
                                              grid  : {
                                                  borderWidth: 1,
-                                                 borderColor: '#f3f3f3',
-                                                 tickColor  : '#f3f3f3'
+                                                 borderColor: '#000000',
+                                                 tickColor  : '#000000'
                                                },
                                              xkey: 'y',
                                              ykeys: ['a'],

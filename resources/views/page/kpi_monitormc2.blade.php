@@ -49,8 +49,8 @@
            jQuery.each(data.result, function (i,value) {
               //  alert(value.id);
              var templateString = '<div class="addcard col-lg-2 col-xs-4" id = "'+ value.Mc_Number +'"> '
-            + '<div class="small-box bg-green">'
-            + '<div class="inner"> <h3></h3>' 
+            + '<div class="small-box" style="background: white;"> '
+            + '<div class="inner" style="color:black;"> <h3></h3>' 
             + ' <p><h3>'+ value.Mc_Number +'</h3></p> </div>  <div class="icon">  <i class="ion ion-stats-bars"></i> </div>'
             + ' <a href="" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>'
             +  '</div></div>'
@@ -79,8 +79,8 @@
                    $.each(data.result, function (i,value) {
                      //  alert(value.id);
                    var templateString = '<div class="addcard col-lg-2 col-xs-4" id = "'+ value.Mc_Number +'"> '
-                   + '<div class="small-box bg-green">'
-                   + '<div class="inner"> <h3></h3>' 
+                    + '<div class="small-box" style="background: white;"> '
+                    + '<div class="inner" style="color:black;"> <h3></h3>' 
                    + ' <p><h3>'+ value.Mc_Number +'</h3></p> </div>  <div class="icon">  <i class="ion ion-stats-bars"></i> </div>'
                    + ' <a href="" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>'
                    +  '</div></div>'
@@ -98,8 +98,8 @@
              $.each(data.result, function (i,value) {
               //  alert(value.id);
              var templateString = '<div class="addcard col-lg-2 col-xs-4" id = "'+ value.Mc_Number +'"> '
-            + '<div class="small-box bg-green">'
-            + '<div class="inner"> <h3></h3>' 
+            + '<div class="small-box" style="background: white;"> '
+            + '<div class="inner" style="color:black;"> <h3></h3>' 
             + ' <p><h3>'+ value.Mc_Number +'</h3></p> </div>  <div class="icon">  <i class="ion ion-stats-bars"></i> </div>'
             + ' <a href="" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>'
             +  '</div></div>'
