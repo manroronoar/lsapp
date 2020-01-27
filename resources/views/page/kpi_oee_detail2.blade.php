@@ -10,13 +10,11 @@
 
 <div class="box ">
   <div class="box-header with-border">
-    <h3 class="box-title  valmcs"><b>Mc. {{$mcnumberkey}} <b></h3>
+    <h3 class="box-title  valmcs"><b>Mc. {{$mcnumberkey}} </b></h3>
   </div>
   <div class="box-body">
    
-
       <div class="col-md-4" align="right">
-   
       </div>
 
       <div class="input-group col-md-8" align="right">
@@ -36,13 +34,8 @@
           <button type="button" name="summit" id="summit" class="btn btn-success">SEARCH</button> 
         </span>
       </div>
-
-
-
-
-    
   </div>
-  <!-- /.box-body -->
+
 </div>
 
     

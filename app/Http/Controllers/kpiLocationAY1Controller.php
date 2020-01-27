@@ -4,6 +4,19 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\kpi_oee_detail;
+use App\kpi_mcs;
+use App\kpi_node;
+use App\kpi_getnodejson;
+use App\kpi_headerset;
+use App\kpi_oeedetail;
+use App\kpi_bittypedown;
+use App\kpi_shift;
+use Illuminate\Support\Collection;
+use Illuminate\Http\Response;
+use DB;
+use DataTables;
+use Validator;
 
 class kpiLocationAY1Controller extends Controller
 {
@@ -14,9 +27,10 @@ class kpiLocationAY1Controller extends Controller
      */
     public function index()
     {
-        //
+        //  $datatypebit = kpi_bittypedown::latest()->get()->toArray();
+        $listshift = kpi_shift::select('Sh_Name')->get();
 
-        return view('page.kpi_LoAY1');
+        return view('page.kpi_LoAY1')->with('listshift',$listshift);
     }
 
     /**

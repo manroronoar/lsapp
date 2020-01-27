@@ -16,8 +16,24 @@
               </div>
         
               <div class="input-group col-md-8" align="right">
-               
-              </div>
+                  <span class="input-group-addon">Shift:</span>
+                  <select class="form-control" name="Hs_Shift" id="Hs_Shift">  
+                      <option value="All">All</option>
+                        @foreach ($listshift as $item) 
+                    <option  value="{{$item->Sh_Name}}">{{$item['Sh_Name']}}</option>
+                        @endforeach  
+                  </select>
+                 
+                  <span class="input-group-addon">Start Date:</span>
+                  <input name="datetimeS" id="datetimeS"  type="text" class="form-control "> 
+          
+                  <span class="input-group-addon">End Date:</span>
+                  <input name="datetimeE" id="datetimeE"  type="text" class="form-control"> 
+                 
+                  <span class="input-group-btn">
+                    <button type="button" name="summit" id="summit" class="btn btn-primary">SEARCH</button> 
+                  </span>              
+                 </div>
 
             </div>
           </div>
@@ -594,8 +610,28 @@
     });
   </script>
 
+<script>
+  var jq = $.noConflict(); 
+  jq(document).ready(function(){
+   
+  });
+</script>
+   <script type="text/javascript">
+    var jqd = $.noConflict(); 
+    var defaultDate = new Date(); 
+  // var defaultDate = '2019/11/01'
 
-      
+      jqd(function () {
+      jqd('#datetimeS').datetimepicker({
+              format: 'YYYY/MM/DD',
+              defaultDate: defaultDate
+          });
+      jqd('#datetimeE').datetimepicker({
+          format: 'YYYY/MM/DD',
+          defaultDate: defaultDate
+      });      
+      });
+  </script>     
 
             
           
