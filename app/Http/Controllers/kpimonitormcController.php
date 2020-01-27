@@ -40,7 +40,29 @@ class kpimonitormcController extends Controller
     {
     
      //$data =  DB::table('kpi_mcs')->distinct()->get(['Mc_Number']);
-     $data =  kpi_mcs::distinct()->get(['Mc_Number']);
+     $datastatus= DB::table('kpi_getnodejsons')
+     // ->select('Gn_node' ,DB::raw('MAX(Gn_tsupd) as Gn_tsupd'))
+      ->select(DB::raw('Gn_node,MAX(Gn_tsupd) as Gn_tsupd,Gn_posbit,(CASE
+        WHEN Gn_posbit = 1 THEN "Down"
+        WHEN Gn_posbit = 2 THEN "Idle"
+        WHEN Gn_posbit = 3 THEN "Setup"
+        WHEN Gn_posbit = 4 THEN "P.M"
+        WHEN Gn_posbit = 5 THEN "Running"
+        WHEN Gn_posbit = 6 THEN "By Off"
+        ELSE Gn_posbit
+        END) as status'))
+      ->groupBy('Gn_node');
+
+      $data = DB::table('kpi_mcs')
+      ->select('kpi_mcs.Mc_Number','datastatus.Gn_node','datastatus.status')
+     //  ->select(DB::raw('MAX(datastatus.Gn_tsupd) as Gn_tsupd'))
+       ->joinSub($datastatus, 'datastatus', function ($join) {
+           $join->on('kpi_mcs.Mc_Node', '=', 'datastatus.Gn_node');
+       })
+       ->groupBy('kpi_mcs.Mc_Number')
+       //->take(5)
+       ->get();
+   //  $data =  kpi_mcs::distinct()->get(['Mc_Number']);
 
      return response()->json(['result' => $data]);
   

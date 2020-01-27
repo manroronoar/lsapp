@@ -17,6 +17,7 @@
   <div class="box-body col-md-12">    
     
           <div class=" col-xs-3">
+            
           </div>
 
           <div class="col-xs-3">
@@ -47,13 +48,26 @@
         $.get("{{ url('momc/readdata') }}", function (data) {
            console.log(data)      
            jQuery.each(data.result, function (i,value) {
-              //  alert(value.id);
-             var templateString = '<div class="addcard col-lg-2 col-xs-4" id = "'+ value.Mc_Number +'"> '
-            + '<div class="small-box" style="background: white;"> '
-            + '<div class="inner" style="color:black;"> <h3></h3>' 
-            + ' <p><h3>'+ value.Mc_Number +'</h3></p> </div>  <div class="icon">  <i class="ion ion-stats-bars"></i> </div>'
-            + ' <a href="" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>'
-            +  '</div></div>'
+           
+            var templateString = '<div class="addcard col-lg-2 col-xs-4" id = "'+ value.Mc_Number +'">';
+         
+              templateString = templateString + '<div class="small-box" style="background: white;"> ';
+              templateString = templateString+ '<div class="inner" style="color:black;">';
+              templateString = templateString+ '<h3>'+ value.Mc_Number +'</h3>' ;
+
+          if ((value.status == "Idle") || (value.status == "Running"))
+          {
+              templateString = templateString + '<p><h3><span class=" label label-success">'+ value.status +'</span></h3></p> </div>';
+          }
+          else
+          {
+              templateString = templateString + '<p><h3><span class=" label label-danger">'+ value.status +'</span></h3></p> </div>' ;
+          }
+              templateString = templateString + '<div class="pull-center icon">  <i class="ion ion-stats-bars"></i> </div>';
+              templateString = templateString + '<a href="" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>';
+              templateString = templateString + '</div></div>';
+
+
           //  + '<p>' + mokData[i].name + '</p><p></p><button id="tes">Start</button></div></div>';
             $('#addcard').append(templateString);
             })
@@ -79,11 +93,11 @@
                    $.each(data.result, function (i,value) {
                      //  alert(value.id);
                    var templateString = '<div class="addcard col-lg-2 col-xs-4" id = "'+ value.Mc_Number +'"> '
-                    + '<div class="small-box" style="background: white;"> '
-                    + '<div class="inner" style="color:black;"> <h3></h3>' 
-                   + ' <p><h3>'+ value.Mc_Number +'</h3></p> </div>  <div class="icon">  <i class="ion ion-stats-bars"></i> </div>'
-                   + ' <a href="" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>'
-                   +  '</div></div>'
+                    +'<div class="small-box" style="background: white;"> '
+                    +'<div class="inner" style="color:black;"> <h3>wwww</h3>' 
+                    +' <p><h3>'+ value.Mc_Number +'</h3></p> </div>  <div class="icon">  <i class="ion ion-stats-bars"></i> </div>'
+                    +' <a href="" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>'
+                    +'</div></div>'
                  //  + '<p>' + mokData[i].name + '</p><p></p><button id="tes">Start</button></div></div>';
                    $('#addcard').append(templateString);
                    })
@@ -98,11 +112,11 @@
              $.each(data.result, function (i,value) {
               //  alert(value.id);
              var templateString = '<div class="addcard col-lg-2 col-xs-4" id = "'+ value.Mc_Number +'"> '
-            + '<div class="small-box" style="background: white;"> '
-            + '<div class="inner" style="color:black;"> <h3></h3>' 
-            + ' <p><h3>'+ value.Mc_Number +'</h3></p> </div>  <div class="icon">  <i class="ion ion-stats-bars"></i> </div>'
-            + ' <a href="" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>'
-            +  '</div></div>'
+              +'<div class="small-box" style="background: white;"> '
+              +'<div class="inner" style="color:black;"> <h3>ssss</h3>' 
+              +'<p><h3>'+ value.Mc_Number + 'kkk'+'</h3></p> </div>  <div class="icon">  <i class="ion ion-stats-bars"></i> </div>'
+              +'<a href="" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>'
+              +'</div></div>'
           //  + '<p>' + mokData[i].name + '</p><p></p><button id="tes">Start</button></div></div>';
             $('#addcard').append(templateString);
             })

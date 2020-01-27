@@ -128,7 +128,7 @@
 
             <div class="box box">
               <div class="box-header with-border">
-                <h3 class="box-title">Output To Chart</h3>
+                <h3 class="box-title"><b>Output To Chart</b></h3>
   
                 <div class="box-tools pull-right">
                <!--   <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i> -->
@@ -668,8 +668,7 @@
       <script type="text/javascript">
         var jqd = $.noConflict(); 
         var defaultDate = new Date(); 
-      // var defaultDate = '2019/11/01'
-
+          // var defaultDate = '2019/11/01'
           jqd(function () {
           jqd('#datetimeS').datetimepicker({
                   format: 'YYYY/MM/DD',
@@ -678,10 +677,7 @@
           jqd('#datetimeE').datetimepicker({
               format: 'YYYY/MM/DD',
               defaultDate: defaultDate
-          });    
-
-             
-           
+              });             
           });
         </script>
 
