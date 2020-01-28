@@ -22,6 +22,7 @@ Auth::routes();
 
 Route::get('test', 'Testcontroller@index');
 
+Route::resource('testget', 'CalldatanodeController')->middleware('auth');
 
 //Route::resource('momc', 'kpimonitormcController');
 Route::get('motmc', 'kpimonitormcController@index2')->middleware('auth');
