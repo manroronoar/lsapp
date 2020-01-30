@@ -7,7 +7,8 @@
 </form>
 
  <script>
-     var jq = $.noConflict(); 
+     var
+      jq = $.noConflict(); 
       jq(document).ready(function(){
       jq('#sample_formshi').on('submit', function(event){  
      var action_url = '';
