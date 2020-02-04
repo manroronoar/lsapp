@@ -136,6 +136,7 @@ class ShiftController extends Controller
 
         if($error->fails())
         {
+         
             return response()->json(['errors' => $error->errors()->all()]);
         }
 

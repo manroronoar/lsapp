@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateKpiShiftsTable extends Migration
+class CreateKpiSafetiesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,14 @@ class CreateKpiShiftsTable extends Migration
      */
     public function up()
     {
-        Schema::create('kpi_shifts', function (Blueprint $table) {
+        Schema::create('kpi_safeties', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->dateTime('Sh_Name');
-            $table->string('Sh_Type');
-            $table->time('Sh_Timestart');
-            $table->time('Sh_Timestop');
-            $table->boolean('Sh_Status');
-            $table->string('Sh_User');
+            $table->timestamps('Sf_Date');
+            $table->string('Sf_Enid');
+            $table->string('Sf_Name');
+            $table->string('Sf_TypeSafetie');
+            $table->string('Sf_Remark');
+            $table->string('Sf_User');
             $table->timestamps();
         });
     }
@@ -32,6 +32,6 @@ class CreateKpiShiftsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('kpi_shifts');
+        Schema::dropIfExists('kpi_safeties');
     }
 }

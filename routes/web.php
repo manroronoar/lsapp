@@ -61,6 +61,10 @@ Route::resource('mcs', 'kpimcsController')->middleware('auth');
 Route::post('mcs/update', 'kpimcsController@update')->name('mcs.update');
 Route::get('mcs/destroy/{id}', 'kpimcsController@destroy');
 
+Route::resource('sft', 'kpisafetyController')->middleware('auth');
+Route::post('sft/update', 'kpisafetyController@update')->name('sft.update');
+Route::get('sft/destroy/{id}', 'kpisafetyController@destroy');
+
 Route::resource('nod', 'NodeController')->middleware('auth');
 Route::post('nod/update', 'NodeController@update')->name('nod.update');
 //Route::post('nod/edit/{id}', 'NodeController@edit');
