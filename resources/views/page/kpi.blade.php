@@ -71,9 +71,6 @@
     </div>
   </div>
   <!-- ./col -->
-
-
-
 </div>
 
 
@@ -81,7 +78,7 @@
 
   <div class="col-md-4 "  id = "ay1">
     <a href="{{ url('loay1') }}">  
-    <div class="box box-default" id="boxay1">
+    <div class="box box-solid" id="boxay1">
       <div class="box-header with-border">
         <h3 class="box-title"><b>Location AY1</b></h3>
         <div class="box-tools pull-right">       
@@ -137,7 +134,7 @@
 
   <div class="col-md-4" id = "ay2">
     <a href="{{ url('loay2') }}">   
-    <div class="box">
+    <div class="box box-solid">
       <div class="box-header with-border">
         <h3 class="box-title"><b>Location AY2</b></h3>
         <div class="box-tools pull-right">       
@@ -193,7 +190,7 @@
 
   <div class="col-md-4" id = "ay3">
     <a href="{{ url('loay3') }}">   
-    <div class="box" id="boxay3">
+    <div class="box box-solid" id="boxay3">
       <div class="box-header with-border">
         <h3 class="box-title"><b>Location AY3</b></h3>
         <div class="box-tools pull-right">       
@@ -246,11 +243,46 @@
   </div>
 
 </div>
+<div class="row">
+  <div class="col-md-12">
+    <div class="box box-solid">
+      <div class="box-header with-border">
+        <h3 class="box-title"><b>Safety Report</b></h3>
+        <div class="box-tools pull-right">
+          <strong class="btn "></strong>
+        </div>
+      </div>
+  
+      <div class="box-body">
+        <div class="table-responsive">
+          <table id="example1" class="table table-bordered table-striped">
+            <thead>
+            <tr>
+              <th></th>
+              <th></th>
+              <th></th>
+              <th></th>
+              <th></th>
+              <th></th>
+               
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+            </tr>
+            </tbody>
+          
+          </table>
+          </div>
+      </div>
+    </div>
+  </div>
 
+</div>
   
     <div class="row">
       <div class="col-md-12">
-        <div class="box">
+        <div class="box box-solid">
           <div class="box-header with-border">
             <h3 class="box-title"><b>Monthly Recap Report</b></h3>
           
@@ -300,8 +332,9 @@
 
     </div>
 
-
-
+    <script>
+ 
+  </script>
   <script>
     $(function () {
           var today = new Date();
@@ -351,6 +384,9 @@
      // var oles ='';
      //alert(oees);
      // alert(todayS + ' ' +todayE + ' ' +targers + ' ' +outputs + ' ' +oees + ' ' +oles);
+
+       // alert(targers);
+    
      if (difftargers > 0   )
       {
         $('#target').html("<h3>"+ targers +' / '+ outputs  +"<span class='pull-right text-red'><i class='fa fa-angle-down'></i>" + difftargers +"</span></h3>");
@@ -359,13 +395,52 @@
       {
         $('#target').html("<h3>"+ targers +' / '+ outputs  +"<span class='pull-right text-green'><i class='fa fa-angle-down'></i>"  + difftargers +"</span></h3>");
       }  
+      else
+      {
+        $('#target').html("<h3>"+ 0 +' / '+ 0  +"</h3>");
+      }
     //  $('.target').text(targers +' / '+ outputs );
       $('.difftarger').text(difftargers);
       $('.dateyimeN').text(todayS +' to '+ todayE);
       $('.mcrun').text(mctotal +' Mc. / '+ mcrun +' Run');   
       $('.oees').text(oees +' %');
       $('.oles').text(0 +' %');
-      $('.btndate').text(todayS +' to '+ todayE);      
+      $('.btndate').text(todayS +' to '+ todayE);     
+      //################################################################################################################################## 
+      var jq = $.noConflict(); 
+      jq('#example1').DataTable({
+      "data" : data.datasafety,
+      "filter": false,
+      "lengthChange": false,
+      "columns" : [
+        {
+          "data": "Sf_Date",
+          "title": "Date"
+        },
+        {
+          "data": "Sf_Enid",
+          "title": "En Id"
+        },
+        {
+          "data": "Sf_Name",
+          "title": "Name"
+        },
+        {
+          "data": "Sf_TypeSafetie",
+          "title": "Type"
+        },
+        {
+          "data": "Sf_Remark",
+          "title": "Remark"
+        },
+        {
+          "data": "Sf_User",
+          "title": "User"
+        }
+        
+      ]
+    
+  })
     //##################################################################################################################################
     //##########################################################  AY1   ################################################################
       var countr1 = data.dataay1[0].countrow;  

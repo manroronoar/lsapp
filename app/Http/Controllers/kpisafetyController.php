@@ -118,9 +118,38 @@ class kpisafetyController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, kpi_safety $kpi_safety)
     {
-        //
+        $rules = array(
+            'Dates'    =>  'required',
+            'Enid'     =>  'required',
+            'Name'    =>  'required',
+            'Type'    =>  'required',
+            'Remark'     =>  'required',
+            'User'    =>  'required'
+        );
+
+        $error = Validator::make($request->all(), $rules);
+     
+        
+        if($error->fails())
+        {
+     
+            return response()->json(['errors' => $error->errors()->all()]);
+        }
+
+        $form_data = array(
+            'Sf_Date'        =>  $request->Dates,
+            'Sf_Enid'         =>  $request->Enid,
+            'Sf_Name'      =>  $request->Name,        
+            'Sf_TypeSafetie'      =>  $request->Type,
+            'Sf_Remark'      =>  $request->Remark,
+            'Sf_User'      =>  $request->User
+        );
+      //  dd( $form_data); 
+      kpi_safety::whereId($request->hidden_id)->update($form_data);
+     
+      return response()->json(['success' => 'Data is successfully updated']);
     }
 
     /**
@@ -131,6 +160,7 @@ class kpisafetyController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $data = kpi_safety::findOrFail($id);
+        $data->delete();
     }
 }

@@ -25,7 +25,8 @@ class kpiGetDataController extends Controller
     // $ttttt = '2019-12-%';
     // $data =  kpi_mcs::distinct()->get(['Mc_Number']);
     $countmcMc_Number = kpi_mcs::select('Mc_Number')->distinct()->get();
-    $countmcRe_McNumber = DB::table('kpi_report_kpis')->select(DB::raw('distinct(Re_McNumber)'))->whereBetween('Re_Hs_S', [$todayS, $todayE])->get();
+   // $countmcRe_McNumber = DB::table('kpi_report_kpis')->select(DB::raw('distinct(Re_McNumber)'))->whereBetween('Re_Hs_S', [$todayS, $todayE])->get();
+   // $countmcRe_McNumber = DB::table('kpi_report_kpis')->select(DB::raw('distinct(Re_McNumber)'))->whereBetween('Re_Hs_S', [$todayS, $todayE])->get();
     // dd($countmcstotal);
      $data =  DB::table('kpi_report_kpis')
      ->select(DB::raw('count(id) as countrow,
@@ -181,6 +182,7 @@ class kpiGetDataController extends Controller
             })
             ->where('kpi_mcs.mc_location','=','AY1')
             ->groupBy('kpi_mcs.Mc_Number')
+            ->take(3)
             ->get();
      
         $datajoinstatus2 = DB::table('kpi_mcs')
@@ -191,6 +193,7 @@ class kpiGetDataController extends Controller
             })
             ->where('kpi_mcs.mc_location','=','AY2')
             ->groupBy('kpi_mcs.Mc_Number')
+            ->take(3)
             ->get();
 
         $datajoinstatus3 = DB::table('kpi_mcs')
@@ -201,16 +204,24 @@ class kpiGetDataController extends Controller
             })
             ->where('kpi_mcs.mc_location','=','AY3')
             ->groupBy('kpi_mcs.Mc_Number')
+            ->take(3)
             ->get();
             
-
+        $countmcRe_McNumber = DB::table('kpi_mcs')
+        ->select('kpi_mcs.Mc_Number','kpi_mcs.mc_location','datastatus.Gn_node',DB::raw('MAX(datastatus.Gn_tsupd) as Gn_tsupd'),'datastatus.status')
+      //  ->select(DB::raw('MAX(datastatus.Gn_tsupd) as Gn_tsupd'))
+        ->joinSub($datastatus, 'datastatus', function ($join) {
+            $join->on('kpi_mcs.Mc_Node', '=', 'datastatus.Gn_node');
+        })     
+        ->groupBy('kpi_mcs.Mc_Number')
+        ->get();
 
         $countmcay1 = DB::table('kpi_mcs')->select(DB::raw('DISTINCT(Mc_Number),Mc_Location'))->where('Mc_Location','=','AY1')->get();
         $countmcay2 = DB::table('kpi_mcs')->select(DB::raw('DISTINCT(Mc_Number),Mc_Location'))->where('Mc_Location','=','AY2')->get();
         $countmcay3 = DB::table('kpi_mcs')->select(DB::raw('DISTINCT(Mc_Number),Mc_Location'))->where('Mc_Location','=','AY3')->get();
       
-                
-
+        $datasafety  = DB::table('kpi_safeties')->get();
+       // kpi_safety
 
      return response()->json(['result' => $data,
                               'dataay1' => $dataAY1,                     
@@ -223,6 +234,7 @@ class kpiGetDataController extends Controller
                               'countmcay2' => $countmcay2,
                               'countmcay3' => $countmcay3,
                               'datachart' => $datachart,
+                              'datasafety' => $datasafety,
                               'countmcMc_Number' => $countmcMc_Number,
                               'countmcRe_McNumber' => $countmcRe_McNumber,
                               'todayS' => $todayS,

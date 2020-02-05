@@ -239,12 +239,12 @@
 	    jq('#User').attr('readonly', true);
     
       jq.get("{{ route('sft.index') }}" +'/' + id +'/edit', function (data) {
-      //jq('#Sh_Name').val(data.result.Sh_Name);
-     // jq('#Sh_Type').val(data.result.Sh_Type);
-    //  jq('#Sh_Timestart').val(data.result.Sh_Timestart);
-     // jq('#Sh_Timestop').val(data.result.Sh_Timestop);
-     // jq('#Sh_Status').val(data.result.Sh_Status);
-     // jq('#Sh_User').val(data.result.Sh_User);
+      jq('#Dates').val(data.result.Sf_Date);
+      jq('#Enid').val(data.result.Sf_Enid);
+      jq('#Name').val(data.result.Sf_Name);
+      jq('#Type').val(data.result.Sf_TypeSafetie);
+      jq('#Remark').val(data.result.Sf_Remark);
+      jq('#User').val(data.result.Sf_User);
       jq('#hidden_id').val(id);
       jq('.modal-title').text('Edit Record');
       jq('#action_button').val('Edit');
