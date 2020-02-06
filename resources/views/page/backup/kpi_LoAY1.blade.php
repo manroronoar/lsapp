@@ -50,8 +50,7 @@
                   </div>
                 </div>
                     <div class="box-body " >
-                     <!-- <div class="" id='myChart'></div> -->
-                     <div id="payloadMeterDiv"></div>
+                      <div class="" id='myChart'></div>
                     </div>
               </div>
             </div>
@@ -64,7 +63,7 @@
                   </div>
                 </div>
                     <div class="box-body " >
-                    <!--   <div class="" id='myChartoee'></div>-->
+                      <div class="" id='myChartoee'></div>
                     </div>
               </div>
             </div>
@@ -77,7 +76,7 @@
                   </div>
                 </div>
                     <div class="box-body " >
-                   <!--    <div class="Chart" id='myChartole'></div>-->
+                      <div class="Chart" id='myChartole'></div>
                     </div>
               </div>
             </div> 
@@ -260,8 +259,16 @@
 						tr = tr + "</tr>";
 						$('#myTable1 > tbody:last').append(tr);
         })
-
+    //  alert(countr1 + ' ' + targers1 + ' ' +outputs1 + ' ' + difftargers1 + ' ' +mcrun1 + ' ' +mctotal1 + ' ' + oees1);
+    //  <h5>target<span class="pull-right  "><i class=""></i> 1200 </span></h5>     
+    //  <h5>Mc001<span class="pull-right  "><i class=""></i> run</span></h5>       
     var jq = $.noConflict(); 
+
+    var defaultDate = new Date(); 
+      // var defaultDate = '2019/11/01'
+
+
+
        jq('#example1').DataTable({
               "data" : data.datajoinstatusAY1,
               columns : [
@@ -287,14 +294,311 @@
                       }
                     }
                 }       
-              ]         
+              ]
+            
           })
 
+          var gaugeay1 = 750;
+          var gaugeay2 = 100;
+          var gaugeay3 = 100;
+   
+        var myConfigay1 = {
+            type: "gauge",
+            globals: {
+            fontSize: 15
+            },
+            plotarea:{
+            marginTop:100
+            },
+            plot:{
+            size:'80%',
+            valueBox: {
+                placement: 'center',
+                text:'%v', //default
+                fontSize:28,
+                rules:[
+                {
+                    rule: '%v >= ' + gaugeay1,
+                    text: '%v<br>EXCELLENT'
+                },
+                {
+                    rule: '%v <  900',
+                    text: '%v<br>Bad'
+                }   
+                ]
+            }
+            },
+        tooltip:{
+            borderRadius:2
+        },
+            scaleR:{
+            aperture:180,
+            minValue:0,
+            maxValue:900,
+            step:100,
+            center:{
+                visible:false
+            },
+            tick:{
+                visible:false
+            },
+            item:{
+                offsetR:0,
+                rules:[
+                {
+                    rule:'%i == 9',
+                    offsetX:15
+                }
+                ]
+            },
+            labels:['','','','','','','','','','','',''],
+            ring:{
+                size:30,
+                rules:[
+                {
+                    rule:'%v < 800',
+                    backgroundColor:'#E53935'
+                },
+                {
+                    rule:'%v >= 800',
+                    backgroundColor:'#29B6F6'
+                }      
+                ]
+            }
+            },
+        
+            series : [
+                {
+                    values : [gaugeay1], // starting value
+                    backgroundColor:'black',
+                indicator:[3,1,20,20,0.5],
+                animation:{  
+                effect:2,
+                method:1,
+                sequence:4,
+                speed: 900
+            },
+                }
+            ]
+        };
+
+        zingchart.render({ 
+            id : 'myChart', 
+            data : myConfigay1, 
+            height: 300, 
+            width: '100%'
+        });
+
+
+        var myConfigoee = {
+            type: "gauge",
+            globals: {
+            fontSize: 15
+            },
+            plotarea:{
+            marginTop:100
+            },
+            plot:{
+            size:'100%',
+            valueBox: {
+                placement: 'center',
+                text:'%v', //default
+                fontSize:35,
+                rules:[
+                {
+                    rule: '%v >= 700',
+                    text: '%v<br>EXCELLENT'
+                },
+                {
+                    rule: '%v < 700 && %v > 640',
+                    text: '%v<br>Good'
+                },
+                {
+                    rule: '%v < 640 && %v > 580',
+                    text: '%v<br>Fair'
+                },
+                {
+                    rule: '%v <  580',
+                    text: '%v<br>Bad'
+                }   
+                ]
+            }
+            },
+        tooltip:{
+            borderRadius:5
+        },
+            scaleR:{
+            aperture:180,
+            minValue:300,
+            maxValue:850,
+            step:50,
+            center:{
+                visible:false
+            },
+            tick:{
+                visible:false
+            },
+            item:{
+                offsetR:0,
+                rules:[
+                {
+                    rule:'%i == 9',
+                    offsetX:15
+                }
+                ]
+            },
+            labels:['300','','','','','','580','640','700','750','','850'],
+            ring:{
+                size:30,
+                rules:[
+                {
+                    rule:'%v <= 580',
+                    backgroundColor:'#E53935'
+                },
+                {
+                    rule:'%v > 580 && %v < 640',
+                    backgroundColor:'#EF5350'
+                },
+                {
+                    rule:'%v >= 640 && %v < 700',
+                    backgroundColor:'#FFA726'
+                },
+                {
+                    rule:'%v >= 700',
+                    backgroundColor:'#29B6F6'
+                }      
+                ]
+            }
+            },
+        
+            series : [
+                {
+                    values : [800], // starting value
+                    backgroundColor:'black',
+                indicator:[3,1,20,20,0.5],
+                animation:{  
+                effect:2,
+                method:1,
+                sequence:4,
+                speed: 900
+            },
+                }
+            ]
+        };
+
+        zingchart.render({ 
+            id : 'myChartoee', 
+            data : myConfigoee, 
+            height: 300, 
+            width: '100%'
+        });
+
+
+        var myConfigole = {
+            type: "gauge",
+            globals: {
+            fontSize: 15
+            },
+            plotarea:{
+            marginTop:100
+            },
+            plot:{
+            size:'100%',
+            valueBox: {
+                placement: 'center',
+                text:'%v', //default
+                fontSize:35,
+                rules:[
+                {
+                    rule: '%v >= 700',
+                    text: '%v<br>EXCELLENT'
+                },
+                {
+                    rule: '%v < 700 && %v > 640',
+                    text: '%v<br>Good'
+                },
+                {
+                    rule: '%v < 640 && %v > 580',
+                    text: '%v<br>Fair'
+                },
+                {
+                    rule: '%v <  580',
+                    text: '%v<br>Bad'
+                }   
+                ]
+            }
+            },
+        tooltip:{
+            borderRadius:5
+        },
+            scaleR:{
+            aperture:180,
+            minValue:300,
+            maxValue:850,
+            step:50,
+            center:{
+                visible:false
+            },
+            tick:{
+                visible:false
+            },
+            item:{
+                offsetR:0,
+                rules:[
+                {
+                    rule:'%i == 9',
+                    offsetX:15
+                }
+                ]
+            },
+            labels:['300','','','','','','580','640','700','750','','850'],
+            ring:{
+                size:30,
+                rules:[
+                {
+                    rule:'%v <= 580',
+                    backgroundColor:'#E53935'
+                },
+                {
+                    rule:'%v > 580 && %v < 640',
+                    backgroundColor:'#EF5350'
+                },
+                {
+                    rule:'%v >= 640 && %v < 700',
+                    backgroundColor:'#FFA726'
+                },
+                {
+                    rule:'%v >= 700',
+                    backgroundColor:'#29B6F6'
+                }      
+                ]
+            }
+            },
+        
+            series : [
+                {
+                    values : [800], // starting value
+                    backgroundColor:'black',
+                indicator:[3,1,20,20,0.5],
+                animation:{  
+                effect:2,
+                method:1,
+                sequence:4,
+                speed: 900
+            },
+                }
+            ]
+        };
+
+        zingchart.render({ 
+            id : 'myChartole', 
+            data : myConfigole, 
+            height: 300, 
+            width: '100%'
+        });
+    
 
       })
-      
-     
-
     });
   </script>
 
@@ -320,24 +624,7 @@
       });      
       });
   </script>     
-  <script>
-    var jq = $.noConflict(); 
-         var $myFuelMeter = null;
-         jq( function () {
-             $myFuelMeter = jq('#payloadMeterDiv').dynameter({
-                 // REQUIRED.
-                 label: 'payload',
-                  value: 940,
-                  unit: 'lbs',
-                  min: 0,
-                  max: 1000,
-                  regions: {
-                      800: 'warn',
-                      900: 'error'
-         }
-             });
-         });
-       </script>
+
             
           
   

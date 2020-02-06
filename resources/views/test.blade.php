@@ -178,7 +178,8 @@
                 </div>
               </div>
               <div class="box-body chart-responsive">
-                <div class="chart" id="bar-charts" style="height: 300px;"></div>
+             <!--   <div class="chart" id="bar-charts" style="height: 300px;"></div> -->
+                <div class="chart" id="payloadMeterDiv"></div>
               </div>
               <!-- /.box-body -->
             </div>
@@ -192,67 +193,29 @@
             </div>-->
             <!-- ./col -->
       </form>
-  
+    
+   
 
       <script>
-        $(document).ready(function(){
-          var valdate = $('#datetimeS').val();
-            var valdateE = $('#datetimeE').val();
-            var typeday = '';
-
-            var mc = $('.valmcs').text();
-            var varm = mc.split("Mc. ");
-            var varmc = varm[1]
-
-         
-
-
-            
-
-            var dateStart = new Date($("#datetimeS").val());
-            var dateEnd =  new Date($("#datetimeE").val())
-            var timeDiff = Math.abs(dateEnd.getTime() - dateStart.getTime());
-            var diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24));    
+   var jq = $.noConflict(); 
+        var $payloadMeter = null;
+        jq( function () {
+            $payloadMeter = jq('div#payloadMeterDiv').dynameter({
+                // REQUIRED.
+                label: 'Payload',
+                value: 500,
+                unit: 'lbs',
+                min: 0,
+                max: 1000,
+                regions: {
+                800: 'warn',
+                900: 'error'
+        }
+            });
         });
       </script>
 
-      <script>
-        var jq = $.noConflict(); 
-        jq(document).ready(function(){
-         
-        });
-      </script>
-
-        <script>
-          $(document).on('click', '#summit', function(event) { 
-            var valdate = $('#datetimeS').val();
-            var valdateE = $('#datetimeE').val();
-            var typeday = '';
-          });
-        </script>
-
-
-
-      <script type="text/javascript">
-        var jqd = $.noConflict(); 
-        var defaultDate = new Date(); 
-      // var defaultDate = '2019/11/01'
-
-          jqd(function () {
-          jqd('#datetimeS').datetimepicker({
-                  format: 'YYYY/MM/DD',
-                  defaultDate: defaultDate
-              });
-          jqd('#datetimeE').datetimepicker({
-              format: 'YYYY/MM/DD',
-              defaultDate: defaultDate
-          });    
-
-             
-           
-          });
-        </script>
-
+      
          
 
 @endsection 

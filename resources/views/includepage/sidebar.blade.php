@@ -22,7 +22,7 @@
           </span>
         </a>
         <ul class="treeview-menu">
-          <li><a href="{{ route('kpi.index') }}"><i class="fa fa-circle-o"></i>1.Safety accidents</a></li>
+          <li><a href="{{ route('sft.index') }}"><i class="fa fa-circle-o"></i>1.Safety accidents</a></li>
           <li><a href=""><i class="fa fa-circle-o"></i>2.Quality Complaints</a></li>
           <li><a href=""><i class="fa fa-circle-o"></i>3.Internal PPM</a></li>
          <!-- <li><a href="{{ route('oee.index') }}"><i class="fa fa-circle-o"></i>3.OEE</a></li>-->

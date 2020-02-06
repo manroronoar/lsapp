@@ -5,6 +5,10 @@
  <!-- Tell the browser to be responsive to screen width -->
  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 
+     <!-- <link rel="stylesheet" type="text/css" href="{{ asset('jquery-dynameter-master/css/jquery.dynameter.css') }}">-->
+    <!--  <script type="text/javascript" src="{{ asset('jquery-dynameter-master/js/libs/jquery-1.10.2.min.js') }}"></script>-->
+     <!-- <script type="text/javascript" src="{{ asset('jquery-dynameter-master/js/libs/jquery-ui-1.10.3.custom.min.js') }}"></script>-->
+     <!-- <script type="text/javascript"  src="{{ asset('jquery-dynameter-master/js/jquery.dynameter.js') }}"></script>-->
  
      <link rel="stylesheet" href="{{ asset('datetime/bootstrap-datetimepicker/4.17.37/css/bootstrap-datetimepicker.css') }}">
      <script src="{{ asset('datetime/jquery/2.1.3/jquery.js') }}"></script>
@@ -22,10 +26,9 @@
      <script src="{{ asset('datatables/js/bootstrap.min.js') }}"></script> 
 
 
-     
   
 
-     <script src="{{ asset('https://cdn.zingchart.com/zingchart.min.js') }}"></script>
+     <!-- <script src="{{ asset('https://cdn.zingchart.com/zingchart.min.js') }}"></script>-->
 
  <!-- Bootstrap 3.3.7 -->
  <link rel="stylesheet" href="{{ asset('AdminLTE-master/bower_components/bootstrap/dist/css/bootstrap.min.css') }}">
