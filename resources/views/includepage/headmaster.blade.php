@@ -6,10 +6,12 @@
  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 
      <!-- <link rel="stylesheet" type="text/css" href="{{ asset('jquery-dynameter-master/css/jquery.dynameter.css') }}">-->
-    <!--  <script type="text/javascript" src="{{ asset('jquery-dynameter-master/js/libs/jquery-1.10.2.min.js') }}"></script>-->
+     <!-- <script type="text/javascript" src="{{ asset('jquery-dynameter-master/js/libs/jquery-1.10.2.min.js') }}"></script>-->
      <!-- <script type="text/javascript" src="{{ asset('jquery-dynameter-master/js/libs/jquery-ui-1.10.3.custom.min.js') }}"></script>-->
      <!-- <script type="text/javascript"  src="{{ asset('jquery-dynameter-master/js/jquery.dynameter.js') }}"></script>-->
- 
+
+
+    
      <link rel="stylesheet" href="{{ asset('datetime/bootstrap-datetimepicker/4.17.37/css/bootstrap-datetimepicker.css') }}">
      <script src="{{ asset('datetime/jquery/2.1.3/jquery.js') }}"></script>
      <script src="{{ asset('datetime/moment.js/2.15.2/moment.min.js') }}"></script>
@@ -30,46 +32,46 @@
 
      <!-- <script src="{{ asset('https://cdn.zingchart.com/zingchart.min.js') }}"></script>-->
 
- <!-- Bootstrap 3.3.7 -->
- <link rel="stylesheet" href="{{ asset('AdminLTE-master/bower_components/bootstrap/dist/css/bootstrap.min.css') }}">
- <!-- Font Awesome --> 
- <link rel="stylesheet" href="{{ asset('AdminLTE-master/bower_components/font-awesome/css/font-awesome.min.css') }}">
- <!-- Ionicons -->
- <link rel="stylesheet" href="{{ asset('AdminLTE-master/bower_components/Ionicons/css/ionicons.min.css') }}">
+     <!-- Bootstrap 3.3.7 -->
+     <link rel="stylesheet" href="{{ asset('AdminLTE-master/bower_components/bootstrap/dist/css/bootstrap.min.css') }}">
+     <!-- Font Awesome --> 
+     <link rel="stylesheet" href="{{ asset('AdminLTE-master/bower_components/font-awesome/css/font-awesome.min.css') }}">
+     <!-- Ionicons -->
+     <link rel="stylesheet" href="{{ asset('AdminLTE-master/bower_components/Ionicons/css/ionicons.min.css') }}">
 
-  <!-- Morris charts -->
-  <link rel="stylesheet" href="{{ asset('AdminLTE-master/bower_components/morris.js/morris.css') }}">
-
-
-
- <!-- jvectormap -->
- <!-- <link rel="stylesheet" href="{{ asset('AdminLTE-master/bower_components/jvectormap/jquery-jvectormap.css') }}">-->
- <!-- Theme style -->
- <link rel="stylesheet" href="{{ asset('AdminLTE-master/dist/css/AdminLTE.min.css') }}">
-
- <!-- AdminLTE Skins. Choose a skin from the css/skins
-      folder instead of downloading all of them to reduce the load. -->
- <link rel="stylesheet" href="{{ asset('AdminLTE-master/dist/css/skins/_all-skins.min.css') }}">
-
-<!-- Bootstrap 3.3.7 -->
-<script src="{{ asset('AdminLTE-master/bower_components/bootstrap/dist/js/bootstrap.min.js') }}"></script>
+     <!-- Morris charts -->
+     <link rel="stylesheet" href="{{ asset('AdminLTE-master/bower_components/morris.js/morris.css') }}">
 
 
-<style>
-          input {
-               text-transform: uppercase;
-          }     
 
-          #myChart,#myChartoee {
-          height:100%;
-          width:100%;
-          min-height:100px;
-          }    
-          
-          .zc-ref {
-          display: none;
-          }        
-</style>
+     <!-- jvectormap -->
+     <!-- <link rel="stylesheet" href="{{ asset('AdminLTE-master/bower_components/jvectormap/jquery-jvectormap.css') }}">-->
+     <!-- Theme style -->
+     <link rel="stylesheet" href="{{ asset('AdminLTE-master/dist/css/AdminLTE.min.css') }}">
+
+     <!-- AdminLTE Skins. Choose a skin from the css/skins
+          folder instead of downloading all of them to reduce the load. -->
+     <link rel="stylesheet" href="{{ asset('AdminLTE-master/dist/css/skins/_all-skins.min.css') }}">
+
+     <!-- Bootstrap 3.3.7 -->
+     <script src="{{ asset('AdminLTE-master/bower_components/bootstrap/dist/js/bootstrap.min.js') }}"></script>
+
+
+     <style>
+               input {
+                    text-transform: uppercase;
+               }     
+
+               #myChart,#myChartoee {
+               height:100%;
+               width:100%;
+               min-height:100px;
+               }    
+               
+               .zc-ref {
+               display: none;
+               }        
+     </style>
 
 
 

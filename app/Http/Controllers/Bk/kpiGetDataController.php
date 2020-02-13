@@ -18,40 +18,18 @@ class kpiGetDataController extends Controller
 {
     public function readdata(Request $request)
     {
-     //$shift =   $data =  DB::table('kpi_report_kpis')->where('','=',$request)->get();
+      $shift =   $data =  DB::table('kpi_report_kpis')->where('Re_Hs_S','like',$request)->get();
 
-     //if($counts = 1) 
-     //{
-      //shift B Sh_Timestart: "20:00:00", Sh_Timestop: "08:00:00"
-     //  if(($datashift[0]->Sh_Timestart) > ($datashift[0]->Sh_Timestop))
-     //    {
-      //     $todayS  = date ("Y-m-d", strtotime("-1 day", strtotime($todayS)));
-      //     $todayS  = $todayS .' '.$datashift[0]->Sh_Timestart;
-        //   $todayE  = $todayE .' '. $datashift[0]->Sh_Timestop;
-      //   }
-      //   else
-      //   {
-       //    $todayS  = $todayS .' '.$datashift[0]->Sh_Timestart;
-       //    $todayE  = $todayE .' '. $datashift[0]->Sh_Timestop;
-       //  }
-     //}   
-     
-     
-     //  todayS + ' ' +todayE
+      //  todayS + ' ' +todayE
      $todayS = $request->todayS;
      $todayE = $request->todayE;
      $tomonths  =  $request->tomonths . '%';
     // $ttttt = '2019-12-%';
     // $data =  kpi_mcs::distinct()->get(['Mc_Number']);
-     $countmcMc_Number = kpi_mcs::select('Mc_Number')->distinct()->get();
-    // $countmcRe_McNumber = DB::table('kpi_report_kpis')->select(DB::raw('distinct(Re_McNumber)'))->whereBetween('Re_Hs_S', [$todayS, $todayE])->get();
-    // $countmcRe_McNumber = DB::table('kpi_report_kpis')->select(DB::raw('distinct(Re_McNumber)'))->whereBetween('Re_Hs_S', [$todayS, $todayE])->get();
+    $countmcMc_Number = kpi_mcs::select('Mc_Number')->distinct()->get();
+   // $countmcRe_McNumber = DB::table('kpi_report_kpis')->select(DB::raw('distinct(Re_McNumber)'))->whereBetween('Re_Hs_S', [$todayS, $todayE])->get();
+   // $countmcRe_McNumber = DB::table('kpi_report_kpis')->select(DB::raw('distinct(Re_McNumber)'))->whereBetween('Re_Hs_S', [$todayS, $todayE])->get();
     // dd($countmcstotal);
-     $shift =   $data =  DB::table('kpi_report_kpis')->where('','=',$request)->get();
-
-
-
-
      $data =  DB::table('kpi_report_kpis')
      ->select(DB::raw('count(id) as countrow,
                          SUM(Re_Ar_Target) as Art,

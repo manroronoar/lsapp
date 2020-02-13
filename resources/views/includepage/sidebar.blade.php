@@ -23,11 +23,11 @@
         </a>
         <ul class="treeview-menu">
           <li><a href="{{ route('sft.index') }}"><i class="fa fa-circle-o"></i>1.Safety accidents</a></li>
-          <li><a href=""><i class="fa fa-circle-o"></i>2.Quality Complaints</a></li>
+          <li><a href="{{ route('cust.index') }}"><i class="fa fa-circle-o"></i>2.Customer Complaints</a></li>
           <li><a href=""><i class="fa fa-circle-o"></i>3.Internal PPM</a></li>
          <!-- <li><a href="{{ route('oee.index') }}"><i class="fa fa-circle-o"></i>3.OEE</a></li>-->
-         <li><a href=""><i class="fa fa-circle-o"></i>3.OEE</a></li>
-          <li><a href=""><i class="fa fa-circle-o"></i>5.OLE </a></li>        
+         <li><a href="{{ url('loay1') }}"><i class="fa fa-circle-o"></i>3.OEE</a></li>
+          <li><a href="{{ route('kpi.index') }}"><i class="fa fa-circle-o"></i>5.OLE </a></li>        
           <li><a href="{{ url('motmc') }}"><i class="fa fa-circle-o"></i>6.Monitor MC.</a></li>      
         </ul>
     </li>
@@ -86,7 +86,7 @@
         </a>
         <ul class="treeview-menu">
             <li><a href="/UserUpload"><i class="fa fa-circle-o"></i>1.Upload Emp</a></li>
-            <li><a href="/UserUpload"><i class="fa fa-circle-o"></i>2..OperatorTraining</a></li>
+            <li><a href="/UserUpload"><i class="fa fa-circle-o"></i>2.OperatorTraining</a></li>
                    
           </ul>
     </li>
@@ -96,7 +96,7 @@
           <i class="fa fa-lightbulb-o"></i>
           <span>Other Seting</span>
           <span class="pull-right-container">
-            <span class="label label-primary pull-right"></span>
+            <span class="fa fa-angle-left pull-right"></span>
           </span>
         </a>
         <ul class="treeview-menu">

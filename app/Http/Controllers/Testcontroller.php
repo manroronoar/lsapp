@@ -24,7 +24,7 @@ class Testcontroller extends Controller
     //$mcs_list = kpi_mcs::get();
    // return view('page.Testaddmc');
    //return view('page.kpi_LoAY1');
-   return view('test');
+   return view('sample_data');
    }
    public function readdata()
    {

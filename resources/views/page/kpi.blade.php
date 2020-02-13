@@ -243,42 +243,110 @@
   </div>
 
 </div>
-<div class="row">
-  <div class="col-md-12">
-    <div class="box box-solid">
-      <div class="box-header with-border">
-        <h3 class="box-title"><b>Safety Report</b></h3>
-        <div class="box-tools pull-right">
-          <strong class="btn "></strong>
+    <div class="row">
+      <div class="col-md-4">
+        <div class="box box-solid">
+          <div class="box-header with-border">
+            <h3 class="box-title"><b>Safety Report</b></h3>
+            <div class="box-tools pull-right">
+              <strong class="btn "></strong>
+            </div>
+          </div>
+      
+          <div class="box-body">
+            <div class="table-responsive">
+              <table id="safety" class="table table-bordered table-striped">
+                <thead>
+                <tr>
+                  <th></th>
+                  <th></th>
+                  <th></th>
+                  <th></th>
+                <!--  <th></th> -->
+                <!--  <th></th> -->
+                  
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                </tr>
+                </tbody>
+              
+              </table>
+              </div>
+          </div>
         </div>
       </div>
-  
-      <div class="box-body">
-        <div class="table-responsive">
-          <table id="example1" class="table table-bordered table-striped">
-            <thead>
-            <tr>
-              <th></th>
-              <th></th>
-              <th></th>
-              <th></th>
-              <th></th>
-              <th></th>
-               
-            </tr>
-            </thead>
-            <tbody>
-            <tr>
-            </tr>
-            </tbody>
-          
-          </table>
-          </div>
-      </div>
-    </div>
-  </div>
 
-</div>
+      <div class="col-md-4">
+        <div class="box box-solid">
+          <div class="box-header with-border">
+            <h3 class="box-title"><b>Customer Complaints</b></h3>
+            <div class="box-tools pull-right">
+              <strong class="btn "></strong>
+            </div>
+          </div>
+      
+          <div class="box-body">
+            <div class="table-responsive">
+              <table id="custcom" class="table table-bordered table-striped">
+                <thead>
+                <tr>
+                  <th></th>
+                  <th></th>
+                  <th></th>
+                  <th></th>
+                <!--  <th></th> -->
+                <!--  <th></th> -->
+                   
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                </tr>
+                </tbody>
+              
+              </table>
+              </div>
+          </div>
+        </div>
+      </div>
+     
+      <div class="col-md-4">
+        <div class="box box-solid">
+          <div class="box-header with-border">
+            <h3 class="box-title"><b> Internal PPM</b></h3>
+            <div class="box-tools pull-right">
+              <strong class="btn "></strong>
+            </div>
+          </div>
+      
+          <div class="box-body">
+            <div class="table-responsive">
+              <table id="example1" class="table table-bordered table-striped">
+                <thead>
+                <tr>
+                  <th></th>
+                  <th></th>
+                  <th></th>
+                  <th></th>
+                <!--  <th></th> -->
+                <!--  <th></th> -->
+                   
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                </tr>
+                </tbody>
+              
+              </table>
+              </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
   
     <div class="row">
       <div class="col-md-12">
@@ -332,9 +400,6 @@
 
     </div>
 
-    <script>
- 
-  </script>
   <script>
     $(function () {
           var today = new Date();
@@ -362,6 +427,8 @@
           } 
           var todayS = yyyy + '-' + mm + '-' + dd + ' 00:00:00';
           var todayE = yyyy + '-' + mm + '-' + dd + ' 23:59:59';
+          //var todayS = yyyy + '-' + mm + '-' + dd ;
+         // var todayE = yyyy + '-' + mm + '-' + dd ;
           var tomonths = yyyy + '-' + mm + '-';
         //  var todayS = yyyy + '-' + mm + '-' + '%'
         //  var todayE = yyyy + '-' + mm + '-' + '%'
@@ -369,6 +436,7 @@
 
       $.get("{{ url('kpireaddatamc/readdata') }}"+ '/' + todayS + '/' + todayE +'/' + tomonths, function (data) {
        // parseInt(data.Result[0].S1);
+       console.log(data)  
       var countr = data.result[0].countrow;
       //parseInt(data.Result[0].S1);
       //var targers = data.result[0].Prt;
@@ -408,7 +476,7 @@
       $('.btndate').text(todayS +' to '+ todayE);     
       //################################################################################################################################## 
       var jq = $.noConflict(); 
-      jq('#example1').DataTable({
+      jq('#safety').DataTable({
       "data" : data.datasafety,
       "filter": false,
       "lengthChange": false,
@@ -417,10 +485,10 @@
           "data": "Sf_Date",
           "title": "Date"
         },
-        {
-          "data": "Sf_Enid",
-          "title": "En Id"
-        },
+       // {
+       //   "data": "Sf_Enid",
+       //   "title": "En Id"
+       // },
         {
           "data": "Sf_Name",
           "title": "Name"
@@ -432,11 +500,42 @@
         {
           "data": "Sf_Remark",
           "title": "Remark"
+        }
+        //,
+        //{
+        //  "data": "Sf_User",
+        //  "title": "User"
+       // }
+        
+      ]
+    
+  })
+  jq('#custcom').DataTable({
+      "data" : data.custcom,
+      "filter": false,
+      "lengthChange": false,
+      "columns" : [
+        {
+          "data": "Cc_Mcnumber",
+          "title": "Mc."
         },
         {
-          "data": "Sf_User",
-          "title": "User"
+          "data": "Cc_Namecust",
+          "title": "Name"
+        },
+        {
+          "data": "Cc_Type",
+          "title": "Type"
+        },
+        {
+          "data": "Cc_Remark",
+          "title": "Remark"
         }
+        //,
+        //{
+        //  "data": "Sf_User",
+        //  "title": "User"
+       // }
         
       ]
     

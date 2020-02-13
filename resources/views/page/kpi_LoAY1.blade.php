@@ -65,6 +65,8 @@
                 </div>
                     <div class="box-body " >
                     <!--   <div class="" id='myChartoee'></div>-->
+                    <div id="chart-container"></div>
+
                     </div>
               </div>
             </div>
@@ -338,8 +340,31 @@
              });
          });
        </script>
-            
-          
+
+
+        <script> 
+        var FusionCharts = require('fusioncharts');
+        var Widgets = require('fusioncharts/fusioncharts.widgets');
+        var FusionTheme = require('fusioncharts/themes/fusioncharts.theme.fusion');
+        var $ = require('jquery');
+        var jQueryFusionCharts = require('jquery-fusioncharts');
+
+        Widgets(FusionCharts);  // Resolve Widgets as dependency for FusionCharts
+        FusionTheme(FusionCharts); // Resolve Fusion theme as dependency for FusionCharts
+        jQueryFusionCharts(FusionCharts); // Resolve FusionCharts as dependency for jqueryFusionCharts
+
+        $('document').ready(function () {
+            $('#chart-container').insertFusionCharts({
+                type: 'angulargauge',
+                width: '600',
+                height: '400',
+                dataFormat: 'json',
+                dataSource: { /* see data tab */ }
+            });
+        });
+
+
+      </script>
   
  
 @endsection     
