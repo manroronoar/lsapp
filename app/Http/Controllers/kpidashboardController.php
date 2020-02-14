@@ -6,6 +6,7 @@ use App\kpi_mcs;
 use App\User;
 use App\kpi_node;
 use App\kpi_headerset;
+use App\kpi_shift;
 use DB;
 use Illuminate\Http\Request;
 use DataTables;
@@ -27,8 +28,9 @@ class kpidashboardController extends Controller
        // $countnode = kpi_node::count();
        // $countmcs = kpi_mcs::select('Mc_Number')->distinct()->get();
        // $countmc = count($countmcs);
+       $listshift = kpi_shift::select('Sh_Name')->get();
+        return view('page.kpi')->with('listshift',$listshift);
 
-        return view('page.kpi');
       //  ->with('countheaderset',$countheaderset)
       //  ->with('countmc',$countmc)
       //  ->with('countnode',$countnode);   

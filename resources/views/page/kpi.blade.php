@@ -3,6 +3,49 @@
 
 
 
+
+<div class="row">   
+  <div class="col-md-12">  
+    <div class="box box-solid" id="boxall">
+  
+      <div class="box-body text-right" >
+        <div class="col-md-6" align="right">
+        </div>
+  
+        <div class="col-md-2" align="right">
+          <div class="input-group" align="right">
+            <span class="input-group-addon">Shift:</span>
+            <select class="form-control" name="Hs_Shift" id="Hs_Shift">  
+                <option value="All">All</option>
+                  @foreach ($listshift as $item) 
+              <option  value="{{$item->Sh_Name}}">{{$item['Sh_Name']}}</option>
+                  @endforeach  
+            </select>
+          </div>
+        </div>
+
+        <div class="col-md-4" align="right">
+          <div class="input-group" align="right">
+            <span class="input-group-addon">Start Date:</span>
+            <input name="datetimeS" id="datetimeS"  type="text" class="form-control "> 
+    
+            <span class="input-group-addon">End Date:</span>
+            <input name="datetimeE" id="datetimeE"  type="text" class="form-control"> 
+           
+            <span class="input-group-btn ">
+              <button type="button" name="summit" id="summit" class="btn btn-primary">SEARCH</button> 
+            </span>  
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
 <div class="row">
   <div class="col-lg-3 col-xs-6">
     <!-- small box -->
@@ -141,7 +184,7 @@
         </div>
       </div>
                 <div class="box-body " style="color:black;">
-                  <div class="col-md-6 chart-responsive">  
+                  <div class="col-md-5 chart-responsive">  
             
                   <div class=""> 
                   </div> 
@@ -168,8 +211,9 @@
                   </div>
       
                 </div>
-
-                <div class="col-md-6">  
+                <div class="col-md-2">  
+                </div>
+                <div class="col-md-5">  
                   <table class="table table-striped table-hover" id="myTable2">
                     <thead>
                       <tr>            
@@ -399,8 +443,32 @@
       </div>
 
     </div>
+    <script>
+      var jq = $.noConflict(); 
+      jq(document).ready(function(){
+       
+      });
+    </script>
+
+     <script type="text/javascript">
+      var jqd = $.noConflict(); 
+      var defaultDate = new Date(); 
+    // var defaultDate = '2019/11/01'
+  
+        jqd(function () {
+        jqd('#datetimeS').datetimepicker({
+                format: 'YYYY-MM-DD',
+                defaultDate: defaultDate
+            });
+        jqd('#datetimeE').datetimepicker({
+            format: 'YYYY-MM-DD',
+            defaultDate: defaultDate
+        });      
+        });
+    </script>     
 
   <script>
+     var $ = jqd.noConflict(); 
     $(function () {
           var today = new Date();
           var dd = today.getDate();
@@ -408,7 +476,8 @@
           var yyyy = today.getFullYear();
           var timeHs = today.getHours();
           var timeMs = today.getMinutes();
-          var timeSs = today.getSeconds()   ;  
+          var timeSs = today.getSeconds();
+          var shift = 'ALL';  
 
           if (dd < 10) {
             dd = '0' + dd;
@@ -425,16 +494,14 @@
           if (timeSs < 10) {
             timeSs = '0' + timeSs;
           } 
-          var todayS = yyyy + '-' + mm + '-' + dd + ' 00:00:00';
-          var todayE = yyyy + '-' + mm + '-' + dd + ' 23:59:59';
-          //var todayS = yyyy + '-' + mm + '-' + dd ;
-         // var todayE = yyyy + '-' + mm + '-' + dd ;
+         // var todayS = yyyy + '-' + mm + '-' + dd + ' 00:00:00';
+         // var todayE = yyyy + '-' + mm + '-' + dd + ' 23:59:59';
+          var todayS = yyyy + '-' + mm + '-' + dd ;
+          var todayE = yyyy + '-' + mm + '-' + dd ;
           var tomonths = yyyy + '-' + mm + '-';
-        //  var todayS = yyyy + '-' + mm + '-' + '%'
-        //  var todayE = yyyy + '-' + mm + '-' + '%'
-         // var todayE = yyyy + '-' + mm + '-' + dd + ' ' + timeHs + ':'+ timeMs + ':'+ timeSs;
+       
 
-      $.get("{{ url('kpireaddatamc/readdata') }}"+ '/' + todayS + '/' + todayE +'/' + tomonths, function (data) {
+      $.get("{{ url('kpireaddatamc/readdata') }}"+ '/' + todayS + '/' + todayE +'/' + tomonths +'/' + shift, function (data) {
        // parseInt(data.Result[0].S1);
        console.log(data)  
       var countr = data.result[0].countrow;
@@ -485,10 +552,6 @@
           "data": "Sf_Date",
           "title": "Date"
         },
-       // {
-       //   "data": "Sf_Enid",
-       //   "title": "En Id"
-       // },
         {
           "data": "Sf_Name",
           "title": "Name"
@@ -645,15 +708,11 @@
     //##########################################################  Chart   ##############################################################
       console.log(data)  
    
-      //--------------
+    //--------------
     //- AREA CHART -
     //--------------
 
-    // Get context with jQuery - using jQuery's .get() method.
-    // var areaChartCanvas = $('#areaChart').get(0).getContext('2d')
-    // This will get the first returned node in the jQuery collection.
-    // var areaChart       = new Chart(areaChartCanvas)
-        //alert(data.datachart[0].ac);
+
         var chartData = {
           ac : [],
           tr : [],
@@ -829,8 +888,19 @@
       pieChart.Doughnut(PieData, pieOptions)
       });
     });
-  </script>
+    
+    $(document).on('click', '#summit', function(){
+      var todayS = $('#datetimeS').val();
+      var todayE = $('#datetimeE').val();
+      var tomonths = 2020 + '-' + 02 + '-';
+      var shift = 'ALL';
+      $.get("{{ url('kpireaddatamc/readdata') }}"+ '/' + todayS + '/' + todayE +'/' + tomonths +'/' + shift, function (data) {
+       // parseInt(data.Result[0].S1);
+       console.log(data)  
+      });
 
+    });
+  </script>
 
 @endsection     
  
