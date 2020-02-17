@@ -34,25 +34,23 @@ Route::get('momc/readdataChart', 'kpimonitormcController@Chart')->middleware('au
 
 Route::get('loay1', 'kpiLocationAY1Controller@index')->middleware('auth');
 
-//Route::get('momc/readdmc/{yyyy}/{mmmm}/{dddd}/{varmc}/{searchreport}/{shift}', 'kpimonitormcController@readdataforoeebymc')->middleware('auth');
-//Route::resource('oeed', 'kpioeeDetailController')->middleware('auth');
+
 Route::get('oeeds/{mcnumber}', 'kpioeeDetailController@index2')->middleware('auth');
 Route::get('oeeds/readdmc/{yyyy}/{mmmm}/{dddd}/{yyyye}/{mmmme}/{dddde}/{varmc}/{shift}/{typeday}', 'kpioeeDetailController@readdata2')->middleware('auth');
 Route::get('oeeds/loopchart/{yyyy}/{mmmm}/{dddd}/{yyyye}/{mmmme}/{dddde}/{varmc}/{shift}/{typeday}', 'kpioeeDetailController@loopchart')->middleware('auth');
 //loopchart
 Route::get('oeed/{mcnumber}', 'kpioeeDetailController@index')->middleware('auth');
 Route::get('oeed/readdmc/{yyyy}/{mmmm}/{dddd}/{varmc}/{shift}/{typeday}', 'kpioeeDetailController@readdata')->middleware('auth');
-//Route::get('oeed', 'kpioeeDetailController')->middleware('auth');
 
 
+//pagekip
 Route::resource('/', 'kpidashboardController')->middleware('auth');
 Route::resource('/kpi', 'kpidashboardController')->middleware('auth');
 Route::get('kpireaddatamc/readdata/{todayS}/{todayE}/{tomonths}/{shift}', 'kpiGetDataController@readdata')->middleware('auth');
+Route::get('kpireaddatamc/readdatachart/{todayS}/{shift}', 'kpiGetDataController@readdatachart')->middleware('auth');
 
 Route::resource('oee', 'kpioeeController')->middleware('auth');
-//Route::get('oee','kpioeeController@index');
-//Route::post('oee', 'kpioeedetail')->middleware('auth');
-//Route::resource('oeed', 'kpioeeDetailController')->middleware('auth');
+
 
 Route::resource('cust', 'kpicustcomController')->middleware('auth');
 Route::post('cust/update', 'kpicustcomController@update')->name('cust.update');

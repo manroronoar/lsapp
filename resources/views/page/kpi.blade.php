@@ -706,12 +706,11 @@
         })
     //##################################################################################################################################
     //##########################################################  Chart   ##############################################################
-      console.log(data)  
+     // console.log(data)  
    
     //--------------
     //- AREA CHART -
     //--------------
-
 
         var chartData = {
           ac : [],
@@ -893,11 +892,66 @@
       var todayS = $('#datetimeS').val();
       var todayE = $('#datetimeE').val();
       var tomonths = 2020 + '-' + 02 + '-';
-      var shift = 'ALL';
-      $.get("{{ url('kpireaddatamc/readdata') }}"+ '/' + todayS + '/' + todayE +'/' + tomonths +'/' + shift, function (data) {
-       // parseInt(data.Result[0].S1);
-       console.log(data)  
-      });
+      var dateStart = new Date($("#datetimeS").val());
+      var dateEnd =  new Date($("#datetimeE").val())
+      var timeDiff = Math.abs(dateEnd.getTime() - dateStart.getTime());
+      var diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24)); 
+     // var shift = 'ALL';Hs_Shift
+      var shift = $('#Hs_Shift').val();
+      var len  = 0 ;
+      var rawdata = {raw : []}; 
+      var obj;
+      var jsonStr;
+      var chartData = {
+              ac : [],
+              tr : [],
+              date : []
+          };
+      if(diffDays >= 1 )
+      {
+      
+        for(i=0;i <= diffDays; i++)
+        {
+          var newdate = new Date(dateStart);
+          newdate.setDate(newdate.getDate() + i);
+          var dd = newdate.getDate();
+          var mm = newdate.getMonth() + 1;
+          var y = newdate.getFullYear();
+        
+          if (dd < 10) {
+              dd = '0' + dd;
+            }  
+            if (mm < 10) {
+              mm = '0' + mm;
+            } 
+           
+          var formatteddate = y + '-' + mm + '-' + dd;
+        
+            $.get("{{ url('kpireaddatamc/readdatachart') }}"+ '/' + formatteddate + '/' + shift, function (data) {         
+       //  console.log(data)  
+        
+         jsonStr =  {"raw":[data.datachart]};
+         console.log(jsonStr);
+         //obj = JSON.parse(jsonStr);
+        // obj['raw'].push(data.datachart);
+        // jsonStr = JSON.stringify(obj);
+       //rawdata.raw.push(data.datachart);
+       //rawdata["raw"].push({"raw":[data.datachart]})
+                  //chartData.ac.push(data.datachart[0].ac);
+                 // chartData.tr.push(data.datachart[0].tr);
+                  //chartData.date.push(data.datachart[0].date);
+            });
+          
+        }
+      console.log(JSON.stringify(jsonStr));
+      console.log(jsonStr);
+      
+      //len =  rawdata.length;
+      // alert(len);
+       
+      }
+
+    
 
     });
   </script>

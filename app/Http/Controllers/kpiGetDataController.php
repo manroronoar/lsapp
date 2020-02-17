@@ -290,4 +290,65 @@ class kpiGetDataController extends Controller
     
      
     }
+    public function readdatachart(Request $request)
+    {
+      $todayS = $request->todayS;
+      $todayE = $request->todayS;
+      $shift = $request->shift;
+
+      $datashift = DB::table('kpi_shifts')->orderBy('Sh_Timestart', 'asc')->get();
+  
+      $todayS  = $todayS .' '.$datashift[0]->Sh_Timestart;
+      $todayE  = date ("Y-m-d", strtotime("1 day", strtotime($todayE)));
+      $todayE  = $todayE .' '. $datashift[0]->Sh_Timestart;  
+     
+      //$datetime1 = date_create($request->todayS); 
+      //$datetime2 = date_create($request->todayE); 
+      //$interval = date_diff($datetime1, $datetime2); 
+      //$intervals =  $interval->d;
+
+      //$datachart =  DB::table('kpi_report_kpis')  
+      //->select(DB::raw('sum(Re_Pr_Actual) as ac, sum(Re_Pr_Target) as tr,YEAR(Re_Hs_S) year, MONTH(Re_Hs_S) month, DAY(Re_Hs_S) day'))      
+      //where MONTH(Re_Hs_S) = 02 and  YEAR(Re_Hs_S) = YEAR(CURDATE()) 
+      //GROUP BY year,month,day
+      //->whereRaw('MONTH(Re_Hs_S) = 02')
+      //->whereRaw('DAY(Re_Hs_S) = 17')
+      //->whereRaw('YEAR(Re_Hs_S) = 2020')
+      //->groupBy('year','month','day')
+      //->get();
+
+    
+      if($shift == 'All')
+      {
+        $datachart = DB::table('kpi_report_kpis')  
+        ->select(DB::raw('sum(Re_Pr_Actual) as ac, sum(Re_Pr_Target) as tr,DATE_FORMAT(Re_Hs_E,"%Y-%m-%d") as date'))
+        ->whereBetween('Re_Hs_E', [$todayS, $todayE])
+        ->get();
+      }
+      else
+      {
+        $datachart = DB::table('kpi_report_kpis')  
+        ->select(DB::raw('sum(Re_Pr_Actual) as ac, sum(Re_Pr_Target) as tr,DATE_FORMAT(Re_Hs_E,"%Y-%m-%d") as date'))
+        ->whereBetween('Re_Hs_E', [$todayS, $todayE])
+        ->where('Re_Shift','=',$shift)
+        ->get();
+      }
+      
+
+
+      //$datachart =  DB::table('kpi_report_kpis')  
+      //->select(DB::raw('sum(Re_Pr_Actual) as ac, sum(Re_Pr_Target) as tr,YEAR(Re_Hs_S) year, MONTH(Re_Hs_S) month, DAY(Re_Hs_S) day'))      
+      //where MONTH(Re_Hs_S) = 02 and  YEAR(Re_Hs_S) = YEAR(CURDATE()) 
+      //GROUP BY year,month,day
+      //->whereRaw('MONTH(Re_Hs_S) = 02')
+      //->whereRaw('DAY(Re_Hs_S) = 17')
+      //->whereRaw('YEAR(Re_Hs_S) = 2020')
+      //->groupBy('year','month','day')
+      //->get();
+      return response()->json(['datachart' => $datachart,
+                                'Shift' => $shift,
+                                'dates' => $todayS,
+                                'datee' => $todayE]);
+    }
+    
 }
