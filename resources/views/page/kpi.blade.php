@@ -898,10 +898,10 @@
       var diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24)); 
      // var shift = 'ALL';Hs_Shift
       var shift = $('#Hs_Shift').val();
-      var len  = 0 ;
-      var rawdata = {raw : []}; 
-      var obj;
-      var jsonStr;
+   
+      var rawdatachart = []; 
+      var myJSON;
+      var ac = '';
       var chartData = {
               ac : [],
               tr : [],
@@ -926,33 +926,20 @@
             } 
            
           var formatteddate = y + '-' + mm + '-' + dd;
-        
-            $.get("{{ url('kpireaddatamc/readdatachart') }}"+ '/' + formatteddate + '/' + shift, function (data) {         
-       //  console.log(data)  
-        
-         jsonStr =  {"raw":[data.datachart]};
-         console.log(jsonStr);
-         //obj = JSON.parse(jsonStr);
-        // obj['raw'].push(data.datachart);
-        // jsonStr = JSON.stringify(obj);
-       //rawdata.raw.push(data.datachart);
-       //rawdata["raw"].push({"raw":[data.datachart]})
-                  //chartData.ac.push(data.datachart[0].ac);
-                 // chartData.tr.push(data.datachart[0].tr);
-                  //chartData.date.push(data.datachart[0].date);
+         
+            $.get("{{ url('kpireaddatamc/readdatachart') }}"+ '/' + formatteddate + '/' + shift, function (data) {    
+         
+             // rawdatachart.push({id: data.datachart[0].ac})
+            // chartData.ac.push(data.datachart[0].ac);
+            // chartData.tr.push(data.datachart[0].tr);
+            // chartData.date.push(data.datachart[0].date);
+            rawdatachart.push(data.datachart[0].date,i);
             });
-          
-        }
-      console.log(JSON.stringify(jsonStr));
-      console.log(jsonStr);
-      
-      //len =  rawdata.length;
-      // alert(len);
-       
-      }
-
     
-
+           console.log(i);
+        }  
+        console.log(rawdatachart);
+      }
     });
   </script>
 
